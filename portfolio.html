@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zainab Fatima | Senior Web Developer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/portfolio/hero.css">
+    <link rel="stylesheet" href="styles/portfolio/projects.css">
+    <link rel="stylesheet" href="styles/portfolio/projects-details.css">
+    <link rel="stylesheet" href="styles/portfolio/case-study.css">
+    <link rel="stylesheet" href="styles/portfolio/reflection.css">
+</head>
+<body>
+    <!-- Premium Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span>ZF</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        <a class="navbar-brand" href="index.html">
+                            <span>AlexCarter</span>
+                        </a>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">
+                                <i class="fas fa-user"></i> About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="portfolio.html">
+                                <i class="fas fa-briefcase"></i> Work
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">
+                                <i class="fas fa-code"></i> Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </li>
+                        <li class="nav-item d-lg-none mt-3">
+                            <a class="btn nav-cta w-100" href="contact.html">
+                                Hire Me <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-none d-lg-flex ms-lg-3">
+                        <a class="btn nav-cta" href="contact.html">
+                            Hire Me <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero Section - Standalone -->
+    <section class="portfolio-hero">
+        <div class="portfolio-hero-container">
+            <div class="portfolio-hero-content">
+                <h1 class="portfolio-hero-title">
+                    My <span class="portfolio-hero-highlight">Portfolio</span>
+                </h1>
+                <p class="portfolio-hero-description">
+                    A curated collection of my professional projects, showcasing innovative solutions and measurable results.
+                </p>
+                <div class="portfolio-hero-filter">
+                    <button class="filter-button active" data-filter="all">All Projects</button>
+                    <button class="filter-button" data-filter="web">Web Development</button>
+                    <button class="filter-button" data-filter="app">Mobile Apps</button>
+                    <button class="filter-button" data-filter="design">UI/UX Design</button>
+                </div>
+            </div>
+        </div>
+    </section>   
+    
+    <!-- Portfolio Projects Section - Standalone -->
+    <section class="portfolio-projects">
+        <div class="projects-container">
+            <!-- Project 1 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/ecommerce-platform.png" alt="E-Commerce Platform" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Web Development</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Case Study">
+                                <i class="fas fa-book-open"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Modern E-Commerce Platform</h3>
+                    <p class="project-description">A complete online store solution with custom CMS, payment integration, and inventory management.</p>
+                    <ul class="project-tech">
+                        <li>React</li>
+                        <li>5+ Pages</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                        <li>Stripe API</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card" data-category="web design">
+                <div class="project-image-container">
+                    <img src="images/templates/cake-shop-website-template.jpg" alt="Analytics Dashboard" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Web Design</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="View Code">
+                                <i class="fas fa-code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Cake Shop Website Temlpate</h3>
+                    <p class="project-description">Modern CakeZone Website Template – PHP Backend, SCSS, Bootstrap 5, Responsive Design, Admin Panel, Easy Customization.</p>
+                    <ul class="project-tech">
+                        <li>PHP</li>
+                        <li>5+ Pages</li>
+                        <li>Waypoint</li>
+                        <li>Bootstrap</li>
+                        <li>Counterup</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" data-category="web app">
+                <div class="project-image-container">
+                    <img src="images/templates/book-store-website.png" alt="Reading App" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Reading App</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="App Store">
+                                <i class="fab fa-app-store"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Play Store">
+                                <i class="fab fa-google-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Book Store / Reading App</h3>
+                    <p class="project-description">Full-Featured Bookstore Website – Product Listings, Shopping Cart, User Accounts, Order Tracking, Sales Analytics (Charts), Admin Dashboard, Reviews & Ratings, Search & Filters, Responsive Design</p>
+                    <ul class="project-tech">
+                        <li>React Native</li>
+                        <li>Express</li>
+                        <li>SQL</li>
+                        <li>Node</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/tcd-capital.png" alt="UI Design System" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">CMS Design</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Prototype">
+                                <i class="fas fa-mobile-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Design Files">
+                                <i class="fas fa-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">TCD Capital Horizon Website</h3>
+                    <p class="project-description">Comprehensive design system with reusable components and accessibility guidelines.</p>
+                    <ul class="project-tech">
+                        <li>35+ Webpages</li>
+                        <li>Bootstrap</li>
+                        <li>Wordpress</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/saas-cms.png" alt="UI Design System" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">CMS Design</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Prototype">
+                                <i class="fas fa-mobile-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Design Files">
+                                <i class="fas fa-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">SAAS CMS Website</h3>
+                    <p class="project-description">A sleek, responsive React SaaS app with Bootstrap 5, offering a five-page CMS platform for effortless content management and publishing..</p>
+                    <ul class="project-tech">
+                        <li>5+ Webpages</li>
+                        <li>Bootstrap</li>
+                        <li>React JS</li>
+                        <li>Saas/Sass</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 6 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/bakery-website.png" alt="UI Design System" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Web Design</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Prototype">
+                                <i class="fas fa-mobile-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Design Files">
+                                <i class="fas fa-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Baking Services Landing Page</h3>
+                    <p class="project-description">Fresh bakery delights with online ordering, built with HTML, CSS & JS for a sweet experience.</p>
+                    <ul class="project-tech">
+                        <li>2+ Webpages</li>
+                        <li>Bootstrap</li>
+                        <li>React JS</li>
+                        <li>Saas/Sass</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Project 7 -->
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/ticket-booking-system.png" alt="UI Design System" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Website Development</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Prototype">
+                                <i class="fas fa-mobile-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Design Files">
+                                <i class="fas fa-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Ticket Booking System Landing Page</h3>
+                    <p class="project-description">Collaborative project management application with real-time updates, with admin and client login interfaces.</p>
+                    <ul class="project-tech">
+                        <li>3+ Webpages</li>
+                        <li>Bootstrap</li>
+                        <li>React JS</li>
+                        <li>Saas/Sass</li>
+                        <li>SQL/MySQL</li>
+                        <li>Font Awesome</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <div class="project-image-container">
+                    <img src="images/templates/watches-website.png" alt="UI Design System" class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-badge">Website Development</div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="View Prototype">
+                                <i class="fas fa-mobile-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Design Files">
+                                <i class="fas fa-palette"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h3 class="project-title">Watches Store Template</h3>
+                    <p class="project-description">Customizable Landing Page for a Watches online ecommerce store with swipers and boxicons</p>
+                    <ul class="project-tech">
+                        <li>1 Webpage</li>
+                        <li>Boxicons</li>
+                        <li>Swiper JS</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Case Study Section - Standalone -->
+    <section class="case-study-section">
+        <div class="case-study-container">
+            <div class="case-study-header">
+                <h2 class="case-study-title">Project <span class="case-study-highlight">Case Study</span></h2>
+                <p class="case-study-subtitle">A detailed look at the challenges, solutions, and outcomes of this project</p>
+            </div>
+
+            <div class="case-study-content">
+                <!-- Challenge Section -->
+                <div class="case-study-block">
+                    <div class="block-header">
+                        <span class="block-number">01</span>
+                        <h3 class="block-title">The Challenge</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>The client needed to modernize their outdated e-commerce platform that was experiencing:</p>
+                        <ul class="case-study-list">
+                            <li>High bounce rates (68% on mobile)</li>
+                            <li>Slow page load times (average 5.2s)</li>
+                            <li>Complex inventory management</li>
+                            <li>No mobile optimization</li>
+                            <li>Outdated checkout flow with 82% abandonment rate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Solution Section -->
+                <div class="case-study-block">
+                    <div class="block-header">
+                        <span class="block-number">02</span>
+                        <h3 class="block-title">The Solution</h3>
+                    </div>
+                    <div class="block-content">
+                        <p>We implemented a comprehensive rebuild focusing on three core areas:</p>
+                        
+                        <div class="solution-cards">
+                            <div class="solution-card">
+                                <div class="solution-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <h4 class="solution-title">Performance</h4>
+                                <ul class="solution-list">
+                                    <li>Code splitting and lazy loading</li>
+                                    <li>Image optimization pipeline</li>
+                                    <li>CDN implementation</li>
+                                    <li>Caching strategy</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-card">
+                                <div class="solution-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4 class="solution-title">User Experience</h4>
+                                <ul class="solution-list">
+                                    <li>Mobile-first responsive design</li>
+                                    <li>Streamlined checkout flow</li>
+                                    <li>Accessibility improvements</li>
+                                    <li>Intuitive navigation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="solution-card">
+                                <div class="solution-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h4 class="solution-title">Backend</h4>
+                                <ul class="solution-list">
+                                    <li>Custom CMS for content management</li>
+                                    <li>Automated inventory tracking</li>
+                                    <li>Secure payment processing</li>
+                                    <li>Scalable cloud infrastructure</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="case-study-block">
+                    <div class="block-header">
+                        <span class="block-number">03</span>
+                        <h3 class="block-title">The Results</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-value">40%</div>
+                                <div class="result-label">Increase in conversion rate</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value">2.1s</div>
+                                <div class="result-label">Average page load time</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value">68%</div>
+                                <div class="result-label">Reduction in mobile bounce rate</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value">35%</div>
+                                <div class="result-label">Increase in average order value</div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-block">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"The new platform has transformed our online business. We've seen dramatic improvements across all key metrics, and our team finds the CMS incredibly intuitive to use."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-name">Sarah Johnson</div>
+                                    <div class="author-title">CEO, FashionForward Retail</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Reflection Section - Standalone -->
+    <section class="project-reflection">
+        <div class="reflection-container">
+            <div class="reflection-grid">
+                <div class="reflection-content">
+                    <h2 class="reflection-title">Project <span class="reflection-highlight">Reflections</span></h2>
+                    <div class="reflection-block">
+                        <h3 class="reflection-subtitle">Key Learnings</h3>
+                        <ul class="reflection-list">
+                            <li>The importance of comprehensive user testing early in the design phase</li>
+                            <li>How micro-interactions significantly impact conversion rates</li>
+                            <li>The value of establishing a design system before development begins</li>
+                            <li>Performance optimization techniques that made the biggest impact</li>
+                        </ul>
+                    </div>
+                    <div class="reflection-block">
+                        <h3 class="reflection-subtitle">Future Enhancements</h3>
+                        <ul class="reflection-list">
+                            <li>Integration of AI-powered product recommendations</li>
+                            <li>Progressive Web App implementation for better mobile experience</li>
+                            <li>Expansion of the design system to include more modular components</li>
+                            <li>Additional payment gateway options for global customers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cta-content">
+                    <div class="cta-card">
+                        <h3 class="cta-title">Have a Similar Project?</h3>
+                        <p class="cta-text">I'd love to discuss how we can apply these solutions to your specific requirements and business goals.</p>
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="cta-button primary">
+                                <i class="fas fa-paper-plane"></i> Get in Touch
+                            </a>
+                            <a href="portfolio.html" class="cta-button secondary">
+                                <i class="fas fa-briefcase"></i> View More Work
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section bg-dark-4 pt-6 pb-4">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Footer About -->
+                <div class="col-lg-4">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-brand d-inline-block mb-3">
+                            <span class="text-gradient">Zainab</span>Fatima
+                        </a>
+                        <p class="footer-text mb-4">Crafting exceptional digital experiences through innovative web development and thoughtful design.</p>
+                        <div class="footer-social d-flex gap-3">
+                            <a href="https://github.com/zainabfatima94/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/zainabfatimaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://x.com/ZainabFatimaX" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/zainabfatima.x/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5 class="footer-title mb-4">Explore</h5>
+                        <ul class="footer-menu list-unstyled">
+                            <li class="menu-item mb-2"><a href="index.html" class="menu-link">Home</a></li>
+                            <li class="menu-item mb-2"><a href="about.html" class="menu-link">About</a></li>
+                            <li class="menu-item mb-2"><a href="portfolio.html" class="menu-link">Portfolio</a></li>
+                            <li class="menu-item mb-2"><a href="services.html" class="menu-link">Services</a></li>
+                            <li class="menu-item"><a href="contact.html" class="menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer Services -->
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5 class="footer-title mb-4">Services</h5>
+                        <ul class="footer-menu list-unstyled">
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">Web Development</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">UI/UX Design</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">Mobile Apps</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">API Development</a></li>
+                            <li class="menu-item"><a href="#" class="menu-link">Consulting</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer Newsletter -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-newsletter">
+                        <h5 class="footer-title mb-4">Stay Updated</h5>
+                        <p class="footer-text mb-4">Subscribe to my newsletter for the latest updates and insights.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email" required>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Copyright -->
+            <div class="footer-copyright pt-5 mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text mb-3 mb-md-0">© <span id="currentYear"></span> Zainab Fatima. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-legal text-md-end">
+                            <a href="#" class="legal-link me-3">Privacy Policy</a>
+                            <a href="#" class="legal-link">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/portfolio/hero.js"></script>
+    <script src="js/portfolio/filter-projects.js"></script>
+    <script src="js/portfolio/project-details.js"></script>
+</body>
+</html>
