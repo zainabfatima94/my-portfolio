@@ -1,5 +1,3 @@
----
-
 ### Project Description: Personal Portfolio Website
 
 A fully responsive and modern personal portfolio website built to showcase my skills, projects, and professional experience. The front end is developed with a focus on clean design, smooth user interaction, and optimal performance across all devices.
@@ -19,5 +17,3 @@ A fully responsive and modern personal portfolio website built to showcase my sk
 *   **Modern UI/UX:** Features a clean, professional aesthetic with intuitive navigation.
 *   **Interactive Elements:** Enhanced with JavaScript for a dynamic user experience.
 *   **Performance Optimized:** Built with fast loading times and a smooth user interface in mind.
-
----
