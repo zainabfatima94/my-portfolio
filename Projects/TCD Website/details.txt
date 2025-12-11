@@ -1,0 +1,134 @@
+Since you're planning to sell this website and want to include more pages to increase its value and functionality, here's an expanded professional file structure with additional pages that would appeal to potential buyers:
+
+```
+tcd-capital-website/
+├── assets/
+│   ├── css/
+│   │   ├── main.css            # Global styles
+│   │   ├── home.css            # Homepage specific
+│   │   ├── about.css           # About us
+│   │   ├── strategies.css      # Investment strategies
+│   │   ├── performance.css     # Performance reports
+│   │   ├── team.css            # Team profiles
+│   │   ├── resources.css       # Investor resources
+│   │   ├── contact.css         # Contact forms
+│   │   ├── blog.css            # Blog/news
+│   │   |── auth.css            # Login/registration
+│   │   |── blog-insights.css   # Blog Insights Files 
+│   │   └── philosophy.css      # About Philosophy
+│   │
+│   ├── js/
+│   │   ├── main.js             # Global scripts
+│   │   ├── charts.js           # Performance charts
+│   │   ├── forms.js            # Form handling
+│   │   ├── navigation.js       # Menu functionality
+│   │   ├── blog.js             # Blog interactions
+│   │   ├── about.js            # About
+│   │   ├── contact.js          # Contact interactions
+│   │   ├── faq.js              # Faqs Event Handling
+│   │   ├── glossary.js         # Glossary
+│   │   ├── blog.js             # Blog interactions
+│   │   └── auth.js             # Authentication
+│   │
+│   ├── images/
+│   │   ├── backgrounds/        # All background images
+│   │   ├── team/               # Team member photos
+│   │   ├── office/             # Office/location photos
+│   │   ├── logos/              # Logo variations
+│   │   ├── icons/              # SVG/icons
+│   │   └── blog/               # Blog post images
+│   │
+│   └── fonts/                  # Custom fonts if needed
+│
+├── webpages/
+│   ├── index.html              # Homepage
+│   ├── about/
+│   │   ├── index.html          # About overview
+│   │   ├── history.html        # Company history
+│   │   └── philosophy.html     # Investment philosophy
+│   │
+│   ├── strategies/
+│   │   ├── index.html          # Strategies overview
+│   │   ├── opportunity-fund.html
+│   │   ├── market-approach.html
+│   │   └── risk-management.html
+│   │
+│   ├── performance/
+│   │   ├── index.html          # Performance dashboard
+│   │   ├── quarterly.html      # Quarterly reports
+│   │   └── historical.html     # Historical performance
+│   │
+│   ├── team/
+│   │   ├── index.html          # Team overview
+│   │   ├── leadership.html     # Executive team
+│   │   └── analysts.html       # Research team
+│   │
+│   ├── resources/
+│   │   ├── index.html          # Resources hub
+│   │   ├── reports.html        # Research reports
+│   │   ├── presentations.html
+│   │   ├── faqs.html           # Investor FAQs
+│   │   └── glossary.html       # Investment terms
+│   │
+│   ├── blog/
+│   │   ├── index.html          # Blog listing
+│   │   ├── market-updates.html
+│   │   ├── insights/           # Individual blog posts
+│   │   └── categories/         # Blog categories
+│   │
+│   ├── contact/
+│   │   ├── index.html          # Main contact
+│   │   ├── careers.html        # Career opportunities
+│   │   └── locations.html      # Office locations
+│   │
+│   ├── legal/
+│   │   ├── terms.html          # Terms of service
+│   │   ├── privacy.html        # Privacy policy
+│   │   └── disclosures.html    # Regulatory disclosures
+│   │
+│   └── auth/
+│       ├── login.html          # Client login
+│       ├── register.html       # New client registration
+│       └── password-reset.html
+│
+├── README.md                   # Project documentation
+└── sitemap.xml                 # SEO sitemap
+```
+
+**Key Enhancements for Resale Value:**
+
+1. **Comprehensive Content Sections**:
+   - Added detailed team profiles (leadership + analysts)
+   - Expanded resources section with FAQs and glossary
+   - Added legal section for compliance
+
+2. **Marketing-Oriented Pages**:
+   - Blog section for content marketing
+   - Career page to showcase company culture
+   - Multiple contact options
+
+3. **Professional Structure**:
+   - Nested pages in logical folders
+   - Clear separation of concerns
+   - SEO-friendly URLs
+
+4. **Authentication Flow**:
+   - Complete client portal system (login/register/password reset)
+
+5. **Technical SEO**:
+   - Included sitemap.xml
+   - Semantic HTML structure
+
+**Implementation Tips:**
+
+1. For quick development, create template files that you can duplicate for similar pages
+
+2. Consider adding these features to increase value:
+   - Client dashboard prototype (in auth section)
+   - Interactive investment calculator
+   - API documentation (if offering integrations)
+
+3. For documentation (README.md), include:
+   - Design system documentation
+   - Customization instructions
+   - Hosting requirements

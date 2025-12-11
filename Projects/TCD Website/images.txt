@@ -1,0 +1,32 @@
+// Logos / SVG
+Prestige University 
+Global Foundation 
+State Pension Fund
+Fortune 500 Insurer
+
+PCI DSS compliant
+SOC 2 Type II certified
+GDPR compliant
+256-bit SSL encryption
+
+// Backgrounds
+Login Background
+Register Background
+Password Reset Background
+
+// Blogs
+Blogs Index.html Newsletter Background
+
+Blog 
+Market Updates: Bitcoin
+Market Updates: China Economy
+
+Market Updates: Research: AI Impact
+Market Updates: Research: Energy Transition
+
+Categories: categories index background
+
+Performances:
+Index.html background
+
+

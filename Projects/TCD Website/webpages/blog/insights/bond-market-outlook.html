@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Income Outlook: Navigating Rising Rates | TCD Capital</title>
+    <meta name="description" content="TCD Capital's analysis of bond market opportunities in a rising rate environment">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/blog-insights.css">
+    <link rel="stylesheet" href="../../../assets/css/blog.css">
+    <style>
+        /* ===== Premium Bond Market Styling ===== */
+        .article-header {
+            background: linear-gradient(rgba(10, 37, 64, 0.88), rgba(10, 37, 64, 0.88)), 
+                        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 140px 0 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light-bg), transparent);
+            z-index: 1;
+        }
+        
+        .article-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .breadcrumbs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+        
+        .breadcrumbs a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .breadcrumbs a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .breadcrumbs span {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .article-header h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0 40px;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-tags {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tag:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 122, 141, 0.2);
+        }
+        
+        /* ===== Article Content Styling ===== */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        
+        .lead {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: var(--primary);
+            margin-bottom: 2em;
+        }
+        
+        /* ===== Yield Curve Visualization ===== */
+        .yield-curve {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yield-curve::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+        
+        .yield-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .yield-header h3 {
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .yield-date {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .yield-graph {
+            height: 250px;
+            position: relative;
+            margin: 30px 0;
+            background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .yield-legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+        
+        .legend-color.current {
+            background: var(--accent);
+        }
+        
+        .legend-color.historical {
+            background: var(--text-light);
+        }
+        
+        /* ===== Responsive Adjustments ===== */
+        @media (max-width: 1024px) {
+            .article-header h1 {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .article-header {
+                padding: 100px 0 60px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+                padding: 0 20px;
+            }
+            
+            .article-meta {
+                gap: 15px;
+            }
+            
+            .article-container {
+                padding: 50px 20px;
+            }
+            
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .yield-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="logo">TCD<span>Capital</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="../../../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="../../blog/insights/index.html" class="nav-link">Blog Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../../strategies/index.html" class="nav-link">
+                        Strategy
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../../strategies/opportunity-fund.html" class="dropdown-item">Opportunity Fund</a>
+                        <a href="../../strategies/market-approach.html" class="dropdown-item">Market Approach</a>
+                        <a href="../../strategies/risk-management.html" class="dropdown-item">Risk Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../../resources/index.html" class="nav-link">
+                        Resources
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../../resources/reports.html" class="dropdown-item">Investor Reports</a>
+                        <a href="../../resources/presentations.html" class="dropdown-item">Presentations</a>
+                        <a href="../../resources/glossary.html" class="dropdown-item">Glossary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../../contact/index.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        More
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../../about/index.html" class="dropdown-item">About Us</a>
+                        <a href="../../performance/index.html" class="dropdown-item">Performance</a>
+                        <a href="../../team/index.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../../auth/login.html" class="nav-link nav-cta">Client Login</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a>
+                <span>/</span>
+                <a href="index.html">Insights</a>
+                <span>/</span>
+                <a href="../categories/fixed-income.html">Fixed Income</a>
+                <span>/</span>
+                <span>Bond Market Outlook</span>
+            </div>
+            
+            <h1 data-aos="fade-up">Fixed Income Outlook: Navigating Rising Rates</h1>
+            
+            <div class="article-meta" data-aos="fade-up" data-aos-delay="100">
+                <span><i class="far fa-calendar-alt"></i> June 5, 2023</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+                <span><i class="far fa-eye"></i> 1,542 views</span>
+                <span><i class="fas fa-chart-line"></i> Intermediate</span>
+            </div>
+            
+            <div class="article-tags" data-aos="fade-up" data-aos-delay="150">
+                <a href="#" class="tag">Bonds</a>
+                <a href="#" class="tag">Fixed Income</a>
+                <a href="#" class="tag">Interest Rates</a>
+                <a href="#" class="tag">Portfolio Strategy</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-container">
+        <article class="article-content">
+            <p class="lead" data-aos="fade-up">The fixed income market faces its most challenging environment in decades as central banks continue tightening monetary policy. Our analysis identifies resilient sectors and strategies for bond investors in this rising rate environment.</p>
+            
+            <!-- Yield Curve Visualization -->
+            <div class="yield-curve" data-aos="fade-up">
+                <div class="yield-header">
+                    <h3>U.S. Treasury Yield Curve</h3>
+                    <span class="yield-date">As of June 1, 2023</span>
+                </div>
+                
+                <div class="yield-graph">
+                    <!-- Chart would be rendered here with Chart.js -->
+                    <canvas id="yieldChart"></canvas>
+                </div>
+                
+                <div class="yield-legend">
+                    <div class="legend-item">
+                        <span class="legend-color current"></span>
+                        <span>Current Yield Curve</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color historical"></span>
+                        <span>1 Year Ago</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Market Conditions Section -->
+            <section class="market-conditions" data-aos="fade-up">
+                <h2><i class="fas fa-chart-line section-icon"></i> Current Market Conditions</h2>
+                
+                <p>The fixed income landscape has undergone a dramatic shift in 2023, characterized by:</p>
+                
+                <div class="condition-cards">
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="condition-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <h3>Yield Levels</h3>
+                        <div class="condition-value positive">+325bps</div>
+                        <p>Average increase across the curve since 2022</p>
+                    </div>
+                    
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="condition-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>Curve Inversion</h3>
+                        <div class="condition-value negative">-75bps</div>
+                        <p>10s-2s spread, deepest since 1981</p>
+                    </div>
+                    
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="condition-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>Inflation Expectations</h3>
+                        <div class="condition-value">2.4%</div>
+                        <p>5-year breakeven rate</p>
+                    </div>
+                </div>
+                
+                <div class="key-takeaways">
+                    <h3>Key Observations</h3>
+                    <ul>
+                        <li>The 10-year Treasury yield has stabilized in a 3.5-4.0% range after volatility</li>
+                        <li>Investment grade spreads have tightened to 125bps over Treasuries</li>
+                        <li>High yield bond funds have seen 12 consecutive weeks of inflows</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Sector Opportunities Section -->
+            <section class="sector-opportunities" data-aos="fade-up">
+                <h2><i class="fas fa-search-dollar section-icon"></i> Sector Opportunities</h2>
+                
+                <p>Despite the challenging environment, we identify compelling opportunities across these fixed income sectors:</p>
+                
+                <div class="sector-accordion">
+                    <div class="accordion-item" data-aos="fade-up">
+                        <button class="accordion-header">
+                            <span>1. Short-Duration Corporates</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="sector-content">
+                                <div class="sector-image">
+                                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Corporate bonds">
+                                </div>
+                                <div class="sector-details">
+                                    <h4>Why Now?</h4>
+                                    <ul>
+                                        <li>Yields of 5-6% for investment grade issuers</li>
+                                        <li>Lower interest rate sensitivity (duration 1-3 years)</li>
+                                        <li>Strong corporate balance sheets with cash buffers</li>
+                                    </ul>
+                                    
+                                    <div class="sector-stats">
+                                        <div class="stat">
+                                            <div class="stat-label">Avg. Yield</div>
+                                            <div class="stat-value positive">5.4%</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-label">Duration</div>
+                                            <div class="stat-value">2.3</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-label">Default Rate</div>
+                                            <div class="stat-value">0.5%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" data-aos="fade-up">
+                        <button class="accordion-header">
+                            <span>2. Agency MBS</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="sector-content">
+                                <div class="sector-image">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mortgage bonds">
+                                </div>
+                                <div class="sector-details">
+                                    <h4>Why Now?</h4>
+                                    <ul>
+                                        <li>Attractive spreads relative to history</li>
+                                        <li>Government backing reduces credit risk</li>
+                                        <li>Prepayment risk has significantly declined</li>
+                                    </ul>
+                                    
+                                    <div class="sector-stats">
+                                        <div class="stat">
+                                            <div class="stat-label">Avg. Yield</div>
+                                            <div class="stat-value positive">4.9%</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-label">Duration</div>
+                                            <div class="stat-value">4.1</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-label">CPR</div>
+                                            <div class="stat-value">6%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sector-comparison">
+                    <h3>Sector Comparison</h3>
+                    <table class="performance-table">
+                        <thead>
+                            <tr>
+                                <th>Sector</th>
+                                <th>Yield</th>
+                                <th>Duration</th>
+                                <th>Spread</th>
+                                <th>Outlook</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Short Corporates</td>
+                                <td class="positive">5.4%</td>
+                                <td>2.3</td>
+                                <td>145bps</td>
+                                <td class="positive">Positive</td>
+                            </tr>
+                            <tr>
+                                <td>Agency MBS</td>
+                                <td class="positive">4.9%</td>
+                                <td>4.1</td>
+                                <td>110bps</td>
+                                <td class="positive">Positive</td>
+                            </tr>
+                            <tr>
+                                <td>Municipals</td>
+                                <td>3.8%</td>
+                                <td>5.7</td>
+                                <td>85bps</td>
+                                <td>Neutral</td>
+                            </tr>
+                            <tr>
+                                <td>Long Treasuries</td>
+                                <td class="negative">3.7%</td>
+                                <td>15.2</td>
+                                <td>N/A</td>
+                                <td class="negative">Cautious</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Risk Management Section -->
+            <section class="risk-management" data-aos="fade-up">
+                <h2><i class="fas fa-shield-alt section-icon"></i> Risk Management Strategies</h2>
+                
+                <p>In the current volatile rate environment, we recommend these defensive portfolio strategies:</p>
+                
+                <div class="strategy-cards">
+                    <div class="strategy-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="strategy-number">1</div>
+                        <div class="strategy-content">
+                            <h3>Duration Targeting</h3>
+                            <p>Maintain portfolio duration of 3-5 years to balance yield and interest rate risk</p>
+                            <div class="strategy-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">Portfolio Duration</span>
+                                    <span class="metric-value">4.2</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Yield Pickup</span>
+                                    <span class="metric-value positive">+1.8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="strategy-number">2</div>
+                        <div class="strategy-content">
+                            <h3>Laddered Maturities</h3>
+                            <p>Structure bond maturities in graduated buckets to mitigate reinvestment risk</p>
+                            <div class="strategy-visual">
+                                <div class="ladder-bar" style="--width: 20%">1-3Y</div>
+                                <div class="ladder-bar" style="--width: 30%">3-5Y</div>
+                                <div class="ladder-bar" style="--width: 25%">5-7Y</div>
+                                <div class="ladder-bar" style="--width: 15%">7-10Y</div>
+                                <div class="ladder-bar" style="--width: 10%">10Y+</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="strategy-number">3</div>
+                        <div class="strategy-content">
+                            <h3>Credit Quality Focus</h3>
+                            <p>Emphasize BBB+ or higher rated issuers with strong balance sheets</p>
+                            <div class="quality-distribution">
+                                <div class="quality-segment" style="--pct: 60%; --color: #007a8d">
+                                    <span>AAA-AA</span>
+                                </div>
+                                <div class="quality-segment" style="--pct: 30%; --color: #00a86b">
+                                    <span>A-BBB</span>
+                                </div>
+                                <div class="quality-segment" style="--pct: 10%; --color: #ff4d4f">
+                                    <span>BB+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Conclusion Section -->
+            <section class="conclusion-section" data-aos="fade-up">
+                <h2><i class="fas fa-check-circle section-icon"></i> Conclusion & Recommendations</h2>
+                
+                <div class="recommendation-cards">
+                    <div class="recommendation-card buy">
+                        <div class="rec-header">
+                            <h3>Increase Allocation</h3>
+                            <span class="rec-badge">Buy</span>
+                        </div>
+                        <ul>
+                            <li>Short-duration investment grade corporates</li>
+                            <li>AAA-rated asset-backed securities</li>
+                            <li>Bank loan funds</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card hold">
+                        <div class="rec-header">
+                            <h3>Maintain Position</h3>
+                            <span class="rec-badge">Hold</span>
+                        </div>
+                        <ul>
+                            <li>Agency mortgage-backed securities</li>
+                            <li>Tax-exempt municipal bonds</li>
+                            <li>Inflation-linked Treasuries</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card reduce">
+                        <div class="rec-header">
+                            <h3>Reduce Exposure</h3>
+                            <span class="rec-badge">Sell</span>
+                        </div>
+                        <ul>
+                            <li>Long-duration Treasuries (>10Y)</li>
+                            <li>Low-coupon callable bonds</li>
+                            <li>CCC-rated high yield</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="final-summary">
+                    <p>While the fixed income market continues to face headwinds from monetary tightening, current yields now offer attractive entry points for disciplined investors. We recommend:</p>
+                    
+                    <ol>
+                        <li><strong>Focus on quality</strong> - Prioritize issuers with strong balance sheets</li>
+                        <li><strong>Manage duration risk</strong> - Stay in the 3-5 year sweet spot</li>
+                        <li><strong>Diversify across sectors</strong> - Blend corporates, MBS, and municipals</li>
+                        <li><strong>Maintain liquidity</strong> - Keep 5-10% in cash equivalents for flexibility</li>
+                    </ol>
+                    
+                    <div class="article-highlight">
+                        <p>"The bond market selloff has created the most attractive yields in over a decade. Patient investors building laddered portfolios today will be rewarded over the full cycle."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Resources Section -->
+            <section class="download-section" data-aos="fade-up">
+                <h2><i class="fas fa-download section-icon"></i> Download Full Report</h2>
+                <p class="section-subtitle">Access our complete fixed income analysis and datasets</p>
+                
+                <div class="download-grid">
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Full Fixed Income Report</h4>
+                            <p>Detailed analysis with supporting charts and tables</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>PDF (2.4MB)</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Yield Data Spreadsheet</h4>
+                            <p>Historical yields and spread data for all sectors</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>Excel (1.7MB)</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Presentation Slides</h4>
+                            <p>Ready-to-use slides for client presentations</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>PPT (5.2MB)</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Author & Disclaimer Section -->
+            <section class="author-disclaimer" data-aos="fade-up">
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="David Wilson">
+                    </div>
+                    <div class="author-details">
+                        <h3>About the Analyst</h3>
+                        <p class="author-name">David Wilson, CFA</p>
+                        <p class="author-title">Director of Fixed Income Research</p>
+                        <p class="author-bio">With 15 years of experience analyzing bond markets, David leads TCD Capital's fixed income strategy. Previously, he managed $12B in institutional bond portfolios at PIMCO.</p>
+                        <div class="author-contact">
+                            <a href="mailto:dwilson@tcdcapital.com"><i class="fas fa-envelope"></i> dwilson@tcdcapital.com</a>
+                            <a href="tel:+12125551234"><i class="fas fa-phone"></i> (212) 555-1234</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="disclaimer-box">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Disclosures</h3>
+                    <p>This report is for informational purposes only and does not constitute investment advice. Past performance is not indicative of future results. Bond investments are subject to interest rate, credit, and inflation risks. Please consult our full <a href="../legal/disclosures.html">disclosures</a> and your financial advisor before making investment decisions.</p>
+                    <p class="report-date">Report Published: June 15, 2023 | Last Updated: June 18, 2023</p>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Premium Research Newsletter Section -->
+    <section class="premium-newsletter">
+        <div class="container">
+            <div class="newsletter-card" data-aos="fade-up">
+                <div class="card-content">
+                    <div class="content-header">
+                        <span class="badge">Exclusive Content</span>
+                        <h2>Access Premium Research</h2>
+                        <p class="subtitle">Subscribe to receive our institutional-grade market analysis</p>
+                    </div>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Weekly Market Briefings</h3>
+                            <p>Key insights delivered every Monday morning</p>
+                        </div>
+                        
+                        <div class="benefit-item" data-aos="fade-up" data-aos-delay="150">
+                            <i class="fas fa-flag"></i>
+                            <h3>Exclusive Reports</h3>
+                            <p>In-depth analysis not available publicly</p>
+                        </div>
+                        
+                        <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-bell"></i>
+                            <h3>Real-time Alerts</h3>
+                            <p>Critical market movements as they happen</p>
+                        </div>
+                    </div>
+                    
+                    <form class="premium-form">
+                        <div class="form-row">
+                            <div class="input-group" data-aos="fade-up" data-aos-delay="250">
+                                <input type="email" placeholder="Professional email address" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <button type="submit" class="btn-premium" data-aos="fade-up" data-aos-delay="300">
+                                Get Access Now
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-footer" data-aos="fade-up" data-aos-delay="350">
+                            <div class="secure-notice">
+                                <i class="fas fa-lock"></i>
+                                <span>Your information is 100% secure</span>
+                            </div>
+                            <div class="disclaimer">
+                                By subscribing, you agree to our <a href="../../legal/terms.html">Terms</a> and <a href="../../legal/privacy.html">Privacy Policy</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card-image" data-aos="fade-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                        alt="Premium financial research" 
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-lock"></i>
+                            <span>Institutional-Grade Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">TCD <span>Capital</span></div>
+                    <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../../index.html">Home</a></li>
+                        <li><a href="../../about/index.html">About Us</a></li>
+                        <li><a href="../../strategies/index.html">Investment Strategy</a></li>
+                        <li><a href="../../performance/index.html">Fund Performance</a></li>
+                        <li><a href="../../resources/index.html">Investor Resources</a></li>
+                        <li><a href="../../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Fund Information</h4>
+                    <ul>
+                        <li><a href="../../strategies/opportunity-fund.html">Opportunity Fund</a></li>
+                        <li><a href="../../performance/historical.html">Historical Performance</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="../../resources/faqs.html">Investor FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Investment Avenue<br>New York, NY 10003</p>
+                        <p><i class="fas fa-phone-alt"></i> +1 (212) 999-5433</p>
+                        <p><i class="fas fa-envelope"></i> info@tcdcapital.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TCD Capital. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    <script src="../../../assets/js/blog.js"></script>
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Initialize yield curve chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('yieldChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['1M', '3M', '6M', '1Y', '2Y', '5Y', '10Y', '30Y'],
+                    datasets: [
+                        {
+                            label: 'Current',
+                            data: [5.2, 5.3, 5.4, 5.1, 4.8, 4.2, 3.9, 3.8],
+                            borderColor: '#007a8d',
+                            backgroundColor: 'rgba(0, 122, 141, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: '1 Year Ago',
+                            data: [0.5, 0.6, 0.8, 1.2, 1.8, 2.5, 2.8, 2.9],
+                            borderColor: '#64748b',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Yield (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Maturity'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    item.classList.toggle('active');
+                    
+                    // Close other open items
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.parentElement.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Calculate reading time
+            const article = document.querySelector('.article-content');
+            const text = article.textContent;
+            const wordCount = text.trim().split(/\s+/).length;
+            const readingTime = Math.ceil(wordCount / 200);
+            document.querySelector('.article-meta .fa-clock').parentNode.innerHTML = 
+                `<i class="far fa-clock"></i> ${readingTime} min read`;
+        });
+    </script>
+</body>
+</html>

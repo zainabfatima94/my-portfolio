@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCD Capital | Institutional Investment Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+    <!-- Premium Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="logo">TCD<span>Capital</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="webpages/about/index.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="webpages/strategies/index.html" class="nav-link">
+                        Strategy
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="webpages/strategies/opportunity-fund.html" class="dropdown-item">Opportunity Fund</a>
+                        <a href="webpages/strategies/market-approach.html" class="dropdown-item">Market Approach</a>
+                        <a href="webpages/strategies/risk-management.html" class="dropdown-item">Risk Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="webpages/resources" class="nav-link">
+                        Resources
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="webpages/resources/reports.html" class="dropdown-item">Investor Reports</a>
+                        <a href="webpages/resources/presentations.html" class="dropdown-item">Presentations</a>
+                        <a href="webpages/resources/glossary.html" class="dropdown-item">Glossary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="webpages/contact/index.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        More
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="webpages/blogs/index.html" class="dropdown-item">Blogs</a>
+                        <a href="webpages/performance/index.html" class="dropdown-item">Performance</a>
+                        <a href="webpages/team/index.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="webpages/auth/login.html" class="nav-link nav-cta">Client Login</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-data">
+                <h1>Strategic Investments for Exceptional Returns</h1>
+                <p>TCD Capital delivers innovative investment solutions with a proven track record of outperforming market benchmarks.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="/resources" class="btn btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="performance">
+                    <h3>First Quarter 2025 Performance</h3>
+                    <div class="performance-grid">
+                        <div class="performance-card">
+                            <div class="performance-value">+0.7%</div>
+                            <div class="performance-label">TCD Opportunity Fund</div>
+                        </div>
+                        <div class="performance-card">
+                            <div class="performance-value">-4.3%</div>
+                            <div class="performance-label">S&P 500</div>
+                        </div>
+                        <div class="performance-card">
+                            <div class="performance-value">+2.8%</div>
+                            <div class="performance-label">Bloomberg Index</div>
+                        </div>
+                        <div class="performance-card">
+                            <div class="performance-value">-0.4%</div>
+                            <div class="performance-label">HFRI Composite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="performance-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2>Demonstrated Outperformance</h2>
+                <p class="section-subtitle">TCD Opportunity Fund has consistently delivered superior returns across market conditions</p>
+            </div>
+
+            <!-- Chart Grid -->
+            <div class="chart-grid">
+                <!-- Quarterly Performance Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Q1 2025 Performance</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color tcd"></span>
+                                <span>TCD Fund</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color benchmark"></span>
+                                <span>Benchmarks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="quarterlyChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Cumulative Growth Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Cumulative Growth Since Inception</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color tcd"></span>
+                                <span>TCD Fund</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color sp500"></span>
+                                <span>S&P 500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Comparison Table -->
+            <div class="performance-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fund/Index</th>
+                            <th>Q1 2025</th>
+                            <th>Since Inception (12/31/13)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td>TCD Opportunity Fund</td>
+                            <td class="positive">+0.7%</td>
+                            <td class="positive">+483.7%</td>
+                        </tr>
+                        <tr>
+                            <td>S&P 500</td>
+                            <td class="negative">-4.3%</td>
+                            <td>+272.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Bloomberg Barclays Aggregate</td>
+                            <td>+2.8%</td>
+                            <td>+24.5%</td>
+                        </tr>
+                        <tr>
+                            <td>HFRI Hedge Fund Composite</td>
+                            <td class="negative">-0.4%</td>
+                            <td>+71.2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Document Downloads -->
+            <div class="download-section">
+                <h3>Detailed Performance Analysis</h3>
+                <div class="download-grid">
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Q1 2025 Investor Letter</h4>
+                            <p>Portfolio commentary and market outlook</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>Download</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Q1 2025 Presentation</h4>
+                            <p>Investment strategy and performance review</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>Download</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="download-item">
+                        <div class="download-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="download-content">
+                            <h4>Fund Fact Sheet</h4>
+                            <p>Key metrics and portfolio composition</p>
+                        </div>
+                        <div class="download-cta">
+                            <span>Download</span>
+                            <i class="fas fa-download"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Startegy Section -->
+    <section class="strategy-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2>Our Investment Philosophy</h2>
+                <p class="section-subtitle">A disciplined approach to identifying and capitalizing on market opportunities</p>
+            </div>
+
+            <!-- Strategy Grid -->
+            <div class="strategy-grid">
+                <!-- Strategy Card 1 -->
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Fundamental Research</h3>
+                    <p>Deep, bottom-up analysis to uncover undervalued assets with strong growth potential across global markets.</p>
+                    <ul class="strategy-features">
+                        <li>Proprietary valuation frameworks</li>
+                        <li>Management team evaluation</li>
+                        <li>Industry structure analysis</li>
+                    </ul>
+                </div>
+                
+                <!-- Strategy Card 2 -->
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <h3>Opportunistic Approach</h3>
+                    <p>Concentrated positions in our highest conviction ideas while maintaining portfolio flexibility.</p>
+                    <ul class="strategy-features">
+                        <li>20-35 core positions</li>
+                        <li>3-5 year investment horizon</li>
+                        <li>Dynamic position sizing</li>
+                    </ul>
+                </div>
+                
+                <!-- Strategy Card 3 -->
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Risk Management</h3>
+                    <p>Comprehensive framework to protect capital while pursuing attractive returns.</p>
+                    <ul class="strategy-features">
+                        <li>Strict position limits</li>
+                        <li>Scenario stress testing</li>
+                        <li>Continuous portfolio review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Differentiator Section -->
+            <div class="differentiator">
+                <div class="differentiator-content">
+                    <h3>Our Competitive Edge</h3>
+                    <p>TCD Capital's advantage lies in our ability to uncover value where others don't look. Our team of seasoned investment professionals brings decades of experience across multiple asset classes and economic environments.</p>
+                    <div class="edge-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">Years Average Team Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Markets Analyzed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">300+</div>
+                            <div class="stat-label">Annual Company Meetings</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="differentiator-image">
+                    <!-- Placeholder for team/image -->
+                    <div class="image-placeholder"><img src="https://getblogo.com/wp-content/uploads/2021/03/team-work.jpg" alt="" height="400px" ></div>
+                </div>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-section">
+                <h3>Our Investment Process</h3>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Idea Generation</h4>
+                        <p>Proprietary screens and deep industry networks identify potential opportunities</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Due Diligence</h4>
+                        <p>300+ hours of research per investment including management meetings and site visits</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Portfolio Construction</h4>
+                        <p>Disciplined position sizing based on conviction and risk parameters</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Active Monitoring</h4>
+                        <p>Continuous review of holdings and regular reassessment of thesis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About TCD Capital</h2>
+                    <p class="subtitle">A forward-looking investment firm dedicated to identifying and capitalizing on exceptional opportunities</p>
+                    
+                    <div class="about-details">
+                        <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns across market cycles. Founded in 2013, our firm combines deep fundamental research with disciplined risk management to identify and capitalize on market inefficiencies.</p>
+                        
+                        <p>Our team of seasoned investment professionals brings decades of experience across multiple asset classes and economic environments. We pride ourselves on transparency, integrity, and an unwavering commitment to our clients' success.</p>
+                        
+                        <div class="key-facts">
+                            <div class="fact-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                    <h4>Founded</h4>
+                                    <p>2013</p>
+                                </div>
+                            </div>
+                            <div class="fact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Headquarters</h4>
+                                    <p>New York, NY</p>
+                                </div>
+                            </div>
+                            <div class="fact-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Team</h4>
+                                    <p>25+ Professionals</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for office image -->
+                    <div class="image-placeholder"><img src="https://i.pinimg.com/736x/9a/07/ac/9a07acec2481cd6b413c1086b93f84a6.jpg" alt="" height="100%"></div>
+                </div>
+            </div>
+            
+            <!-- Leadership Team -->
+            <div class="leadership-section">
+                <h3>Our Leadership</h3>
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-image"><img src="file:///F:/ZAINAB%20PROPERTIES/Images/emp-2.png" alt="" height="100%" style="border-radius: 100px;"></div>
+                        <h4>Johnathan T. Michaels</h4>
+                        <p class="title">Founder & Chief Investment Officer</p>
+                        <p class="bio">25+ years investment experience, former Portfolio Manager at Blackstone</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-image"><img src="file:///F:/ZAINAB%20PROPERTIES/Images/emp-3.png" alt="" height="100%" style="border-radius: 100px;"></div>
+                        <h4>Sarah Chen-Williams</h4>
+                        <p class="title">Chief Executive Officer</p>
+                        <p class="bio">Former Head of Alternative Investments at Goldman Sachs</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-image"><img src="file:///F:/ZAINAB%20PROPERTIES/Images/emp-1.png" alt="" height="100%" style="border-radius: 100px;"></div>
+                        <h4>Robert D. Langley</h4>
+                        <p class="title">Chief Risk Officer</p>
+                        <p class="bio">15 years risk management experience at Bridgewater Associates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Contact TCD Capital</h2>
+                <p class="subtitle">We welcome the opportunity to discuss how TCD Capital can meet your investment needs</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <a href="mailto:info@tcdcapital.com">info@tcdcapital.com</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Phone</h4>
+                        <a href="tel:+12129995433">+1 (212) 999-5433</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Address</h4>
+                        <p>123 Investment Avenue<br>New York, NY 10003</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday<br>9:00 AM - 6:00 PM EST</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject">
+                                <option value="">Select a subject</option>
+                                <option value="investor">Investor Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="media">Media Inquiry</option>
+                                <option value="careers">Careers</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investor Resources</h2>
+                <p class="section-subtitle">Access our latest reports, presentations, and fund documentation</p>
+            </div>
+
+            <!-- Resources Tabs -->
+            <div class="resources-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="quarterly">Quarterly Reports</button>
+                    <button class="tab-button" data-tab="presentations">Presentations</button>
+                    <button class="tab-button" data-tab="factsheets">Fact Sheets</button>
+                    <button class="tab-button" data-tab="documentation">Fund Documentation</button>
+                </div>
+                
+                <div class="tab-content active" id="quarterly">
+                    <div class="documents-grid">
+                        <a href="#" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Q1 2025 Investor Letter</h4>
+                                <p>May 15, 2025 • PDF (2.4 MB)</p>
+                            </div>
+                        </a>
+                        <a href="#" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Q4 2024 Investor Letter</h4>
+                                <p>February 10, 2025 • PDF (2.1 MB)</p>
+                            </div>
+                        </a>
+                        <a href="#" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Q3 2024 Investor Letter</h4>
+                                <p>November 12, 2024 • PDF (1.9 MB)</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="presentations">
+                    <div class="documents-grid">
+                        <a href="#" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-powerpoint"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>Q1 2025 Market Presentation</h4>
+                                <p>May 20, 2025 • PDF (4.7 MB)</p>
+                            </div>
+                        </a>
+                        <a href="#" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-powerpoint"></i>
+                            </div>
+                            <div class="document-info">
+                                <h4>2024 Annual Review</h4>
+                                <p>January 25, 2025 • PDF (5.2 MB)</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Other tab contents would go here -->
+            </div>
+
+            <!-- Client Login CTA -->
+            <div class="login-cta">
+                <div class="cta-content">
+                    <h3>Client Portal Access</h3>
+                    <p>Existing investors can access their portfolio information and historical documents through our secure client portal.</p>
+                </div>
+                <a href="/login" class="cta-button">Login to Portal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">TCD <span>Capital</span></div>
+                    <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="webpages/about/index.html">About Us</a></li>
+                        <li><a href="webpages/strategies/index.html">Investment Strategy</a></li>
+                        <li><a href="webpages/performance/index.html">Fund Performance</a></li>
+                        <li><a href="webpages/resources/index.html">Investor Resources</a></li>
+                        <li><a href="webpages/contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Fund Information</h4>
+                    <ul>
+                        <li><a href="webpages/strategies/opportunity-fund.html">Opportunity Fund</a></li>
+                        <li><a href="webpages/performance/historical.html">Historical Performance</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="webpages/resources/faqs.html">Investor FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Investment Avenue<br>New York, NY 10003</p>
+                        <p><i class="fas fa-phone-alt"></i> +1 (212) 999-5433</p>
+                        <p><i class="fas fa-envelope"></i> info@tcdcapital.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TCD Capital. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

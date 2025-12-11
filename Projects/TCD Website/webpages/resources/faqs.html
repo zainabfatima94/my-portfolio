@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor FAQs | TCD Capital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/resources.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="logo">TCD<span>Capital</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../about/index.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../strategies/index.html" class="nav-link">
+                        Strategy
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../strategies/opportunity-fund.html" class="dropdown-item">Opportunity Fund</a>
+                        <a href="../strategies/market-approach.html" class="dropdown-item">Market Approach</a>
+                        <a href="../strategies/risk-management.html" class="dropdown-item">Risk Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources" class="nav-link" style="color: var(--accent); font-weight: 750;">
+                        Resources
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../resources/reports.html" class="dropdown-item">Investor Reports</a>
+                        <a href="../resources/presentations.html" class="dropdown-item">Presentations</a>
+                        <a href="../resources/glossary.html" class="dropdown-item">Glossary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../contact/index.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        More
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../blogs/index.html" class="dropdown-item">Blogs</a>
+                        <a href="../performance/index.html" class="dropdown-item">Performance</a>
+                        <a href="../team/index.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../auth/login.html" class="nav-link nav-cta">Client Login</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Hero Section -->
+    <section class="faq-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Investor FAQs</h1>
+                <p class="subtitle">Answers to common questions about our investment funds and services</p>
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../index.html">Resources</a>
+                    <span>/</span>
+                    <span>FAQs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Search Section -->
+    <section class="faq-search-section">
+        <div class="container">
+            <div class="search-container" data-aos="fade-up">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" id="faq-search" placeholder="Search FAQs...">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="search-tags" data-aos="fade-up" data-aos-delay="100">
+                <span class="tag-label">Popular topics:</span>
+                <a href="#investing" class="tag">Investing</a>
+                <a href="#redemptions" class="tag">Redemptions</a>
+                <a href="#performance" class="tag">Performance</a>
+                <a href="#documents" class="tag">Documents</a>
+                <a href="#fees" class="tag">Fees</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories Section -->
+    <section class="faq-categories">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>FAQ Categories</h2>
+                <p class="section-subtitle">Browse questions by topic</p>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <a href="#fund-basics" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Fund Basics</h3>
+                        <p>Minimums, strategies, and fund objectives</p>
+                        <span class="count">12 Questions</span>
+                    </div>
+                </a>
+                
+                <!-- Category 2 -->
+                <a href="#account-management" class="category-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="category-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Account Management</h3>
+                        <p>Transfers, updates, and access</p>
+                        <span class="count">8 Questions</span>
+                    </div>
+                </a>
+                
+                <!-- Category 3 -->
+                <a href="#performance" class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Performance & Reporting</h3>
+                        <p>Statements and tax documents</p>
+                        <span class="count">10 Questions</span>
+                    </div>
+                </a>
+                
+                <!-- Category 4 -->
+                <a href="#fees" class="category-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="category-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Fees & Expenses</h3>
+                        <p>Management fees and other costs</p>
+                        <span class="count">6 Questions</span>
+                    </div>
+                </a>
+                
+                <!-- Category 5 -->
+                <a href="#redemptions" class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Contributions & Redemptions</h3>
+                        <p>Adding or withdrawing funds</p>
+                        <span class="count">9 Questions</span>
+                    </div>
+                </a>
+                
+                <!-- Category 6 -->
+                <a href="#tax" class="category-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="category-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Tax Considerations</h3>
+                        <p>Tax reporting and implications</p>
+                        <span class="count">7 Questions</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-accordion-section" style="padding-bottom: 50px;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common investor questions</p>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- Fund Basics Category -->
+                <div class="faq-category" id="fund-basics" data-aos="fade-up">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-info-circle"></i> Fund Basics
+                    </h3>
+                    
+                    <div class="faq-item" id="min-investment">
+                        <button class="faq-question">
+                            What is the minimum investment amount?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our Opportunity Fund has a minimum investment of $25,000 for individual investors. For institutional investors and retirement accounts, the minimum is $100,000. These minimums help ensure we can maintain proper diversification across all investor accounts.</p>
+                            <p>Learn more about our <a href="../../strategies/opportunity-fund.html" class="text-link">Opportunity Fund</a> investment strategy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" id="rebalancing">
+                        <button class="faq-question">
+                            How often are fund holdings rebalanced?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our investment team conducts formal portfolio reviews quarterly, with tactical adjustments made as market conditions warrant. We maintain continuous monitoring of all positions and will rebalance whenever our risk parameters indicate the need.</p>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Investment strategy meeting" class="faq-image">
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" id="investment-approach">
+                        <button class="faq-question">
+                            What makes your investment approach unique?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our three-pillar approach combines:</p>
+                            <ol>
+                                <li>Quantitative screening of 200+ market indicators</li>
+                                <li>Fundamental analysis by our sector specialists</li>
+                                <li>Proprietary risk management algorithms</li>
+                            </ol>
+                            <p>This methodology is detailed in our <a href="../../about/philosophy.html" class="text-link">Investment Philosophy</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Management Category -->
+                <div class="faq-category" id="account-management" data-aos="fade-up">
+                    <h3 class="faq-category-title">
+                        <i class="fas fa-user-tie"></i> Account Management
+                    </h3>
+                    
+                    <div class="faq-item" id="contact-update">
+                        <button class="faq-question">
+                            How do I update my contact information?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can update your contact details through our <a href="../../auth/login.html" class="text-link">client portal</a> or by contacting our Investor Relations team at <a href="mailto:investors@tcdcapital.com" class="text-link">investors@tcdcapital.com</a>.</p>
+                            <p>For security purposes, address changes require notarized documentation which can be uploaded through the portal or mailed to our offices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" id="bank-accounts">
+                        <button class="faq-question">
+                            Can I link multiple bank accounts?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, you can link up to three bank accounts for contributions and redemptions. All accounts must be in your name or jointly held. To add additional accounts:</p>
+                            <ol>
+                                <li>Log in to the <a href="../../auth/login.html" class="text-link">client portal</a></li>
+                                <li>Navigate to Banking Information</li>
+                                <li>Complete the verification process</li>
+                            </ol>
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Secure online banking" class="faq-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-cta" data-aos="fade-up">
+                <p>Still have questions? Our investor relations team is here to help.</p>
+                <a href="../contact/index.html" class="btn btn-primary">
+                    Contact Investor Relations
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">TCD <span>Capital</span></div>
+                    <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../strategies/index.html">Investment Strategy</a></li>
+                        <li><a href="../performance/index.html">Fund Performance</a></li>
+                        <li><a href="../resources/index.html">Investor Resources</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Fund Information</h4>
+                    <ul>
+                        <li><a href="../strategies/opportunity-fund.html">Opportunity Fund</a></li>
+                        <li><a href="../performance/historical.html">Historical Performance</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="../resources/faqs.html">Investor FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Investment Avenue<br>New York, NY 10003</p>
+                        <p><i class="fas fa-phone-alt"></i> +1 (212) 999-5433</p>
+                        <p><i class="fas fa-envelope"></i> info@tcdcapital.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TCD Capital. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/faq.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

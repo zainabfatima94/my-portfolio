@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Performance | TCD Capital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/performance.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="logo">TCD<span>Capital</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="../performance/index.html" class="nav-link">Performance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../strategies/index.html" class="nav-link">
+                        Strategy
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../strategies/opportunity-fund.html" class="dropdown-item">Opportunity Fund</a>
+                        <a href="../strategies/market-approach.html" class="dropdown-item">Market Approach</a>
+                        <a href="../strategies/risk-management.html" class="dropdown-item">Risk Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources" class="nav-link">
+                        Resources
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../resources/reports.html" class="dropdown-item">Investor Reports</a>
+                        <a href="../resources/presentations.html" class="dropdown-item">Presentations</a>
+                        <a href="../resources/glossary.html" class="dropdown-item">Glossary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../contact/index.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        More
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../blogs/index.html" class="dropdown-item">Blogs</a>
+                        <a href="../about/index.html" class="dropdown-item">About Us</a>
+                        <a href="../team/index.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../auth/login.html" class="nav-link nav-cta">Client Login</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Performance Hero Section -->
+    <section class="performance-hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Performance That Speaks Volumes</h1>
+                <p class="subtitle">Consistent, risk-adjusted returns across market cycles</p>
+                <div class="breadcrumbs">
+                    <a href="../index.html">Home</a>
+                    <span>/</span>
+                    <span>Performance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Performance Highlights</h2>
+                <p class="section-subtitle">TCD Opportunity Fund vs. Market Benchmarks</p>
+            </div>
+
+            <div class="highlights-grid">
+                <!-- Highlight Card 1 -->
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <div class="highlight-value positive">+483.7%</div>
+                        <div class="highlight-label">Cumulative Return Since Inception (12/31/13)</div>
+                        <div class="highlight-comparison">
+                            <span class="comparison-value">vs. +272.8% S&P 500</span>
+                            <span class="comparison-difference positive">+210.9%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Highlight Card 2 -->
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <div class="highlight-value positive">+12.4%</div>
+                        <div class="highlight-label">Annualized Return (10 Years)</div>
+                        <div class="highlight-comparison">
+                            <span class="comparison-value">vs. +9.2% S&P 500</span>
+                            <span class="comparison-difference positive">+3.2%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Highlight Card 3 -->
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <div class="highlight-value">0.68</div>
+                        <div class="highlight-label">Sharpe Ratio (10 Years)</div>
+                        <div class="highlight-comparison">
+                            <span class="comparison-value">vs. 0.52 S&P 500</span>
+                            <span class="comparison-difference positive">+0.16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Highlight Card 4 -->
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="highlight-icon">
+                        <i class="fas fa-arrow-trend-down"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <div class="highlight-value negative">-8.2%</div>
+                        <div class="highlight-label">Worst Drawdown (2020)</div>
+                        <div class="highlight-comparison">
+                            <span class="comparison-value">vs. -33.8% S&P 500</span>
+                            <span class="comparison-difference positive">+25.6%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Toggle -->
+            <div class="performance-toggle" data-aos="fade-up">
+                <button class="toggle-btn active" data-period="annual">Annual Returns</button>
+                <button class="toggle-btn" data-period="quarterly">Quarterly Returns</button>
+                <button class="toggle-btn" data-period="risk">Risk Metrics</button>
+            </div>
+
+            <!-- Performance Table -->
+            <div class="performance-table-container" data-aos="fade-up">
+                <div class="table-responsive">
+                    <table class="performance-table active" id="annual-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>TCD Opportunity Fund</th>
+                                <th>S&P 500</th>
+                                <th>HFRI Composite</th>
+                                <th>Outperformance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025*</td>
+                                <td class="positive">+0.7%</td>
+                                <td class="negative">-4.3%</td>
+                                <td class="negative">-0.4%</td>
+                                <td class="positive">+5.0%</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td class="positive">+18.2%</td>
+                                <td class="positive">+12.4%</td>
+                                <td class="positive">+8.7%</td>
+                                <td class="positive">+5.8%</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>2023</td>
+                                <td class="positive">+24.5%</td>
+                                <td class="positive">+16.2%</td>
+                                <td class="positive">+10.8%</td>
+                                <td class="positive">+8.3%</td>
+                            </tr>
+                            <!-- Additional rows would go here -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- Quarterly Table (hidden by default) -->
+                    <table class="performance-table" id="quarterly-table">
+                        <!-- Similar structure for quarterly data -->
+                    </table>
+                    
+                    <!-- Risk Table (hidden by default) -->
+                    <table class="performance-table" id="risk-table">
+                        <!-- Similar structure for risk metrics -->
+                    </table>
+                </div>
+            </div>
+
+            <!-- Performance Footnotes -->
+            <div class="performance-footnotes" data-aos="fade-up">
+                <p>*2025 data through March 31, 2025. Past performance is not indicative of future results.</p>
+                <button class="btn-disclosures toggle-btn">
+                    View Full Disclosures
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quarterly Performance Section -->
+    <section class="quarterly-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Quarterly Performance Analysis</h2>
+                <p class="section-subtitle">Detailed breakdown of recent fund performance</p>
+            </div>
+
+            <div class="quarterly-grid">
+                <!-- Performance Chart -->
+                <div class="quarterly-chart" data-aos="fade-right">
+                    <div class="chart-header">
+                        <h3>Q1 2025 Performance Comparison</h3>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color tcd"></span>
+                                <span>TCD Fund</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color benchmark"></span>
+                                <span>Benchmark</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="quarterlyChart"></canvas>
+                    </div>
+                    <div class="chart-zoom">
+                        <button class="zoom-btn active" data-period="quarter">Quarterly</button>
+                        <button class="zoom-btn" data-period="year">Annual</button>
+                        <button class="zoom-btn" data-period="all">Since Inception</button>
+                    </div>
+                </div>
+                
+                <!-- Performance Commentary -->
+                <div class="quarterly-commentary" data-aos="fade-left" data-aos-delay="200">
+                    <div class="commentary-header">
+                        <h3>Q1 2025 Market Commentary</h3>
+                        <div class="commentary-date">April 15, 2025</div>
+                    </div>
+                    <div class="commentary-content">
+                        <p>The TCD Opportunity Fund returned +0.7% in Q1 2025, outperforming the S&P 500 by 500 basis points during a challenging quarter for global markets.</p>
+                        
+                        <div class="performance-drivers">
+                            <h4>Key Performance Drivers:</h4>
+                            <ul>
+                                <li>
+                                    <span class="driver-name">Technology Sector</span>
+                                    <span class="driver-impact positive">+2.1% Contribution</span>
+                                </li>
+                                <li>
+                                    <span class="driver-name">Healthcare Positions</span>
+                                    <span class="driver-impact positive">+1.8% Contribution</span>
+                                </li>
+                                <li>
+                                    <span class="driver-name">Currency Hedges</span>
+                                    <span class="driver-impact positive">+0.9% Contribution</span>
+                                </li>
+                                <li>
+                                    <span class="driver-name">Energy Underweight</span>
+                                    <span class="driver-impact negative">-0.7% Drag</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="outlook">
+                            <h4>Market Outlook:</h4>
+                            <p>"We remain cautiously optimistic entering Q2, with our research indicating select opportunities in oversold quality growth names while maintaining defensive sector exposure."</p>
+                            <div class="outlook-author">
+                                <img src="../../assets/images/team/robert-kim.webp" alt="Johnathan T. Michaels">
+                                <div>
+                                    <strong>Johnathan T. Michaels</strong>
+                                    <span>Chief Investment Officer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="commentary-actions">
+                        <a href="#" class="btn-download">
+                            <i class="fas fa-download"></i>
+                            Download Full Report
+                        </a>
+                        <a href="#" class="btn-video">
+                            <i class="fas fa-play"></i>
+                            Watch Commentary
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="historical-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Historical Performance</h2>
+                <p class="section-subtitle">Consistent long-term growth across market cycles</p>
+            </div>
+
+            <div class="historical-grid">
+                <!-- Growth Chart -->
+                <div class="historical-chart" data-aos="fade-right">
+                    <div class="chart-header">
+                        <div class="chart-title-group">
+                            <h3>Cumulative Growth Since Inception</h3>
+                            <div class="chart-period">2013 - 2025</div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color tcd"></span>
+                                <span>TCD Fund</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color sp500"></span>
+                                <span>S&P 500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                    <div class="chart-zoom">
+                        <button class="zoom-btn active" data-period="5y">5 Years</button>
+                        <button class="zoom-btn" data-period="10y">10 Years</button>
+                        <button class="zoom-btn" data-period="all">All</button>
+                    </div>
+                </div>
+                
+                <!-- Performance Metrics -->
+                <div class="historical-metrics" data-aos="fade-left" data-aos-delay="200">
+                    <div class="metrics-header">
+                        <h3>Key Performance Metrics</h3>
+                        <div class="metrics-period">Since Inception (12/31/13 - 03/31/25)</div>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value positive">+483.7%</div>
+                            <div class="metric-label">Cumulative Return</div>
+                            <div class="metric-comparison">
+                                <span class="comparison-label">vs. S&P 500:</span>
+                                <span class="comparison-value positive">+210.9%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-value positive">+12.4%</div>
+                            <div class="metric-label">Annualized Return</div>
+                            <div class="metric-comparison">
+                                <span class="comparison-label">vs. S&P 500:</span>
+                                <span class="comparison-value positive">+3.2%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-value">0.68</div>
+                            <div class="metric-label">Sharpe Ratio</div>
+                            <div class="metric-comparison">
+                                <span class="comparison-label">vs. S&P 500:</span>
+                                <span class="comparison-value positive">+0.16</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-value negative">-8.2%</div>
+                            <div class="metric-label">Max Drawdown</div>
+                            <div class="metric-comparison">
+                                <span class="comparison-label">vs. S&P 500:</span>
+                                <span class="comparison-value positive">+25.6%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="metrics-disclaimer">
+                        <p>Past performance is not indicative of future results. See full disclosures for important information.</p>
+                    </div>
+                    
+                    <div class="metrics-actions">
+                        <a href="https://example.com/resources/performance-reports" class="btn-metrics">
+                            <i class="fas fa-file-alt"></i>
+                            Download Full Report
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Composition Section -->
+    <section class="composition-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Portfolio Composition</h2>
+                <p class="section-subtitle">As of March 31, 2025</p>
+            </div>
+
+            <div class="composition-tabs" data-aos="fade-up">
+                <button class="tab-btn active" data-tab="sector">By Sector</button>
+                <button class="tab-btn" data-tab="geography">By Geography</button>
+                <button class="tab-btn" data-tab="market-cap">By Market Cap</button>
+                <button class="tab-btn" data-tab="strategy">By Strategy</button>
+            </div>
+
+            <div class="composition-content">
+                <!-- Sector Tab -->
+                <div class="tab-content active" data-tab="sector">
+                    <div class="composition-grid">
+                        <div class="composition-chart" data-aos="fade-right">
+                            <div class="chart-container">
+                                <canvas id="sectorChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="composition-table" data-aos="fade-left" data-aos-delay="200">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sector</th>
+                                        <th>Allocation</th>
+                                        <th>Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Information Technology</td>
+                                        <td>28.5%</td>
+                                        <td class="positive">+2.1%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Financials</td>
+                                        <td>22.3%</td>
+                                        <td class="negative">-1.2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Health Care</td>
+                                        <td>18.7%</td>
+                                        <td class="positive">+3.4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Consumer Discretionary</td>
+                                        <td>12.5%</td>
+                                        <td class="negative">-0.8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Communication Services</td>
+                                        <td>8.2%</td>
+                                        <td class="positive">+1.5%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other</td>
+                                        <td>9.8%</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other tabs would go here -->
+            </div>
+
+            <!-- Top Holdings -->
+            <div class="holdings-section" data-aos="fade-up">
+                <div class="holdings-header">
+                    <h3>Top 10 Holdings</h3>
+                    <div class="holdings-summary">Representing 42.8% of total portfolio</div>
+                </div>
+                
+                <div class="holdings-grid">
+                    <div class="holding-card">
+                        <div class="holding-logo">
+                            <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft">
+                        </div>
+                        <div class="holding-details">
+                            <h4>Microsoft Corp.</h4>
+                            <div class="holding-meta">
+                                <span class="holding-ticker">MSFT</span>
+                                <span class="holding-sector">Technology</span>
+                            </div>
+                        </div>
+                        <div class="holding-stats">
+                            <div class="holding-allocation">6.8%</div>
+                            <div class="holding-change positive">+0.5%</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional holding cards would go here -->
+                </div>
+                
+                <div class="holdings-disclaimer">
+                    <p>Holdings are subject to change and may not be representative of current or future investments. Not a recommendation to buy or sell any security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">TCD <span>Capital</span></div>
+                    <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../strategies/index.html">Investment Strategy</a></li>
+                        <li><a href="../performance/index.html">Fund Performance</a></li>
+                        <li><a href="../resources/index.html">Investor Resources</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Fund Information</h4>
+                    <ul>
+                        <li><a href="../strategies/opportunity-fund.html">Opportunity Fund</a></li>
+                        <li><a href="../performance/historical.html">Historical Performance</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="../resources/faqs.html">Investor FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Investment Avenue<br>New York, NY 10003</p>
+                        <p><i class="fas fa-phone-alt"></i> +1 (212) 999-5433</p>
+                        <p><i class="fas fa-envelope"></i> info@tcdcapital.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TCD Capital. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../assets/js/performance.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

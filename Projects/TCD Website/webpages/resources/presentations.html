@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Presentations | TCD Capital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/resources.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-wrapper">
+            <div class="logo">TCD<span>Capital</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../about/index.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../strategies/index.html" class="nav-link">
+                        Strategy
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../strategies/opportunity-fund.html" class="dropdown-item">Opportunity Fund</a>
+                        <a href="../strategies/market-approach.html" class="dropdown-item">Market Approach</a>
+                        <a href="../strategies/risk-management.html" class="dropdown-item">Risk Management</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources" class="nav-link" style="color: var(--accent); font-weight: 750;">
+                        Resources
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../resources/reports.html" class="dropdown-item">Investor Reports</a>
+                        <a href="../resources/presentations.html" class="dropdown-item">Presentations</a>
+                        <a href="../resources/glossary.html" class="dropdown-item">Glossary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../contact/index.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        More
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="../blogs/index.html" class="dropdown-item">Blogs</a>
+                        <a href="../performance/index.html" class="dropdown-item">Performance</a>
+                        <a href="../team/index.html" class="dropdown-item">Our Team</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../auth/login.html" class="nav-link nav-cta">Client Login</a>
+                </li>
+            </ul>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Presentations Hero Section -->
+    <section class="presentations-hero" style="background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Investor Presentations</h1>
+                <p class="subtitle">Access our latest investment presentations and market insights</p>
+                <div class="breadcrumbs">
+                    <a href="../../index.html">Home</a>
+                    <span>/</span>
+                    <a href="../index.html">Resources</a>
+                    <span>/</span>
+                    <span>Presentations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Filter Section -->
+    <section class="presentations-filter">
+        <div class="container">
+            <div class="filter-grid" data-aos="fade-up">
+                <div class="search-container">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" id="presentation-search" placeholder="Search presentations...">
+                    <button class="search-btn">Search</button>
+                </div>
+                
+                <div class="filter-options">
+                    <div class="filter-dropdown">
+                        <select id="year-filter">
+                            <option value="">All Years</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    
+                    <div class="filter-dropdown">
+                        <select id="type-filter">
+                            <option value="">All Types</option>
+                            <option value="quarterly">Quarterly Updates</option>
+                            <option value="market">Market Outlooks</option>
+                            <option value="strategy">Strategy Deep Dives</option>
+                            <option value="annual">Annual Reports</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    
+                    <button class="filter-reset">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-tags" data-aos="fade-up" data-aos-delay="100">
+                <span class="tags-label">Popular:</span>
+                <a href="#" class="tag" data-filter="type=quarterly">Quarterly Updates</a>
+                <a href="#" class="tag" data-filter="year=2025">2025 Reports</a>
+                <a href="#" class="tag" data-filter="type=market">Market Outlooks</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Grid Section -->
+    <section class="presentations-grid-section">
+        <div class="container">
+            <div class="grid-header" data-aos="fade-up">
+                <h3 class="results-count">Showing 8 Presentations</h3>
+                <div class="view-toggle">
+                    <button class="view-option active" data-view="grid">
+                        <i class="fas fa-th"></i> Grid
+                    </button>
+                    <button class="view-option" data-view="list">
+                        <i class="fas fa-list"></i> List
+                    </button>
+                </div>
+            </div>
+
+            <div class="presentations-grid" data-view="grid" data-aos="fade-up">
+                <!-- Presentation 1 -->
+                <div class="presentation-card" data-year="2025" data-type="quarterly">
+                    <div class="presentation-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Q1 2025 Market Update">
+                        <div class="presentation-badge">Quarterly Update</div>
+                    </div>
+                    <div class="presentation-content">
+                        <div class="presentation-meta">
+                            <span class="presentation-date">March 15, 2025</span>
+                            <span class="presentation-pages">24 Slides</span>
+                        </div>
+                        <h3 class="presentation-title">Q1 2025 Market Update & Strategy Review</h3>
+                        <p class="presentation-description">Analysis of Q1 market performance and our strategic positioning for the coming quarter.</p>
+                        <div class="presentation-actions">
+                            <a href="#" class="btn-download">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                            <a href="#" class="btn-preview">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Presentation 2 -->
+                <div class="presentation-card" data-year="2025" data-type="market">
+                    <div class="presentation-image">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="2025 Market Outlook">
+                        <div class="presentation-badge">Market Outlook</div>
+                    </div>
+                    <div class="presentation-content">
+                        <div class="presentation-meta">
+                            <span class="presentation-date">January 5, 2025</span>
+                            <span class="presentation-pages">36 Slides</span>
+                        </div>
+                        <h3 class="presentation-title">2025 Global Market Outlook</h3>
+                        <p class="presentation-description">Our comprehensive analysis of global market trends and investment opportunities for 2025.</p>
+                        <div class="presentation-actions">
+                            <a href="#" class="btn-download">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                            <a href="#" class="btn-preview">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Presentation 3 -->
+                <div class="presentation-card" data-year="2024" data-type="strategy">
+                    <div class="presentation-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fixed Income Strategy">
+                        <div class="presentation-badge">Strategy Deep Dive</div>
+                    </div>
+                    <div class="presentation-content">
+                        <div class="presentation-meta">
+                            <span class="presentation-date">November 20, 2024</span>
+                            <span class="presentation-pages">42 Slides</span>
+                        </div>
+                        <h3 class="presentation-title">Fixed Income Strategy Update</h3>
+                        <p class="presentation-description">Detailed review of our fixed income approach in the current interest rate environment.</p>
+                        <div class="presentation-actions">
+                            <a href="#" class="btn-download">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                            <a href="#" class="btn-preview">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Presentation 4 -->
+                <div class="presentation-card" data-year="2024" data-type="annual">
+                    <div class="presentation-image">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Annual Report 2024">
+                        <div class="presentation-badge">Annual Report</div>
+                    </div>
+                    <div class="presentation-content">
+                        <div class="presentation-meta">
+                            <span class="presentation-date">March 1, 2024</span>
+                            <span class="presentation-pages">68 Slides</span>
+                        </div>
+                        <h3 class="presentation-title">Annual Investor Report 2024</h3>
+                        <p class="presentation-description">Comprehensive review of our 2024 performance, strategy, and outlook for the coming year.</p>
+                        <div class="presentation-actions">
+                            <a href="#" class="btn-download">
+                                <i class="fas fa-download"></i> Download PDF
+                            </a>
+                            <a href="#" class="btn-preview">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More presentations would follow the same structure -->
+            </div>
+
+            <!-- List View (hidden by default) -->
+            <div class="presentations-list" data-view="list" style="display: none;" data-aos="fade-up">
+                <!-- Presentation 1 - List View -->
+                <div class="presentation-list-item" data-year="2025" data-type="quarterly">
+                    <div class="list-item-content">
+                        <div class="list-item-meta">
+                            <span class="presentation-badge">Quarterly Update</span>
+                            <span class="presentation-date">March 15, 2025</span>
+                        </div>
+                        <h3 class="presentation-title">Q1 2025 Market Update & Strategy Review</h3>
+                        <p class="presentation-description">Analysis of Q1 market performance and our strategic positioning for the coming quarter.</p>
+                        <div class="presentation-details">
+                            <span><i class="fas fa-file-pdf"></i> PDF (24 Slides)</span>
+                            <span><i class="fas fa-download"></i> 342 Downloads</span>
+                        </div>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#" class="btn-download">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <a href="#" class="btn-preview">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Presentation 2 - List View -->
+                <div class="presentation-list-item" data-year="2025" data-type="market">
+                    <div class="list-item-content">
+                        <div class="list-item-meta">
+                            <span class="presentation-badge">Market Outlook</span>
+                            <span class="presentation-date">January 5, 2025</span>
+                        </div>
+                        <h3 class="presentation-title">2025 Global Market Outlook</h3>
+                        <p class="presentation-description">Our comprehensive analysis of global market trends and investment opportunities for 2025.</p>
+                        <div class="presentation-details">
+                            <span><i class="fas fa-file-pdf"></i> PDF (36 Slides)</span>
+                            <span><i class="fas fa-download"></i> 487 Downloads</span>
+                        </div>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#" class="btn-download">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <a href="#" class="btn-preview">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                    </div>
+                </div>
+
+                <!-- More list items would follow the same structure -->
+            </div>
+
+            <!-- Pagination Section -->
+            <div class="pagination-section" data-aos="fade-up">
+                <div class="pagination-info">
+                    Showing <span>1-8</span> of <span>24</span> Presentations
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-prev" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="page-number active">1</button>
+                        <button class="page-number">2</button>
+                        <button class="page-number">3</button>
+                        <span class="page-ellipsis">...</span>
+                        <button class="page-number">5</button>
+                    </div>
+                    <button class="pagination-next">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Presentation Section -->
+    <section class="featured-presentation">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Featured Presentation</h2>
+                <p class="section-subtitle">Our latest investment insights</p>
+            </div>
+
+            <div class="featured-content" data-aos="fade-up">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Featured Presentation">
+                    <div class="featured-badge">New Release</div>
+                    <button class="play-button">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+                <div class="featured-details">
+                    <div class="presentation-meta">
+                        <span class="meta-item"><i class="fas fa-calendar-alt"></i> March 25, 2025</span>
+                        <span class="meta-item"><i class="fas fa-file-pdf"></i> 42 Slides</span>
+                        <span class="meta-item"><i class="fas fa-chart-line"></i> Market Outlook</span>
+                    </div>
+                    <h3 class="featured-title">Q2 2025 Market Outlook & Investment Strategy</h3>
+                    <p class="featured-description">
+                        Our investment team presents the key market trends shaping Q2 2025, with detailed analysis of sector opportunities and risks. This presentation includes our updated portfolio positioning and three strategic themes that will drive performance in the coming quarter.
+                    </p>
+                    <div class="featured-actions">
+                        <a href="#" class="btn-primary">
+                            <i class="fas fa-download"></i> Download Full Report
+                        </a>
+                        <a href="#" class="btn-outline">
+                            <i class="fas fa-play-circle"></i> Watch Presentation
+                        </a>
+                    </div>
+                    <div class="featured-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1,248</div>
+                            <div class="stat-label">Downloads</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">87%</div>
+                            <div class="stat-label">Positive Feedback</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Key Insights</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Resources Section -->
+    <section class="related-resources">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Related Resources</h2>
+                <p class="section-subtitle">Complementary materials you might find valuable</p>
+            </div>
+
+            <div class="resources-grid" data-aos="fade-up">
+                <!-- Resource 1 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Investment Glossary</h3>
+                        <p class="resource-description">Key terms and concepts for informed investing</p>
+                        <a href="glossary.html" class="resource-link">Explore Glossary <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Investor FAQs</h3>
+                        <p class="resource-description">Answers to common questions about our funds</p>
+                        <a href="faqs.html" class="resource-link">View FAQs <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Performance Reports</h3>
+                        <p class="resource-description">Detailed analysis of our fund performance</p>
+                        <a href="../../performance/index.html" class="resource-link">View Reports <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">TCD <span>Capital</span></div>
+                    <p>TCD Capital is a premier investment management firm specializing in alternative investment strategies that deliver consistent, risk-adjusted returns.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../about/index.html">About Us</a></li>
+                        <li><a href="../strategies/index.html">Investment Strategy</a></li>
+                        <li><a href="../performance/index.html">Fund Performance</a></li>
+                        <li><a href="../resources/index.html">Investor Resources</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Fund Information</h4>
+                    <ul>
+                        <li><a href="../strategies/opportunity-fund.html">Opportunity Fund</a></li>
+                        <li><a href="../performance/historical.html">Historical Performance</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="../resources/faqs.html">Investor FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Investment Avenue<br>New York, NY 10003</p>
+                        <p><i class="fas fa-phone-alt"></i> +1 (212) 999-5433</p>
+                        <p><i class="fas fa-envelope"></i> info@tcdcapital.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 TCD Capital. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/presentations.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

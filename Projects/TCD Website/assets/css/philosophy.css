@@ -1,0 +1,735 @@
+/* Philosophy Hero Section */
+.philosophy-hero {
+    background: linear-gradient(rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.9)), 
+                url('../../assets/images/about/philosophy/philosophy-bg.avif') no-repeat center center/cover;
+    padding: 180px 0 120px;
+    position: relative;
+}
+
+.philosophy-hero .subtitle {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-scroll:hover {
+    color: white;
+    transform: translateY(5px);
+}
+
+.hero-scroll i {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Core Beliefs Section */
+.core-beliefs {
+    padding: 100px 0;
+    background: white;
+}
+
+.beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.belief-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.belief-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 122, 141, 0.1);
+    border-color: rgba(0, 122, 141, 0.2);
+}
+
+.belief-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 122, 141, 0.1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: var(--accent);
+    font-size: 1.8rem;
+}
+
+.belief-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.belief-card p {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.belief-features {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+.belief-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.belief-features li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .philosophy-hero {
+        padding: 150px 0 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .philosophy-hero .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .beliefs-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 40px auto;
+    }
+    
+    .belief-card {
+        padding: 30px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .philosophy-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-scroll {
+        bottom: 20px;
+    }
+}
+
+/* Research Methodology Section */
+.research-section {
+    padding: 100px 0;
+    background-color: #f8fafc;
+}
+
+.process-visualization {
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 0;
+    position: relative;
+}
+
+.process-step:not(:last-child):after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent), rgba(0, 122, 141, 0.1));
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    z-index: 1;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.step-content p {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.step-metrics {
+    display: flex;
+    gap: 20px;
+}
+
+.metric {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    min-width: 120px;
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-medium);
+}
+
+.step-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.step-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 122, 141, 0.15);
+}
+
+.step-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Research Differentiators */
+.differentiators {
+    max-width: 1000px;
+    margin: 80px auto 0;
+}
+
+.differentiators h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 50px;
+}
+
+.differentiator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.differentiator-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.differentiator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 122, 141, 0.1);
+}
+
+.diff-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 122, 141, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.differentiator-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.differentiator-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .process-step {
+        grid-template-columns: 80px 1fr;
+    }
+    
+    .step-image {
+        grid-column: span 2;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-step {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 60px 0;
+    }
+    
+    .step-number {
+        margin: 0 auto;
+    }
+    
+    .step-content {
+        text-align: center;
+    }
+    
+    .step-metrics {
+        justify-content: center;
+    }
+    
+    .step-image {
+        grid-column: auto;
+    }
+    
+    .differentiator-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-metrics {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .process-step:after {
+        left: 20px;
+        right: 20px;
+    }
+}
+
+/* Client-Centric Approach Section */
+.client-approach {
+    padding: 100px 0;
+    background: white;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.approach-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 40px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.approach-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 122, 141, 0.1);
+    border-color: rgba(0, 122, 141, 0.2);
+}
+
+.approach-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+}
+
+.approach-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 122, 141, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.approach-card h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.approach-card p {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.approach-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-medium);
+    margin-top: 5px;
+}
+
+/* Testimonials */
+.testimonials {
+    margin-top: 80px;
+}
+
+.testimonials h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 50px;
+}
+
+.testimonial-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-content p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+    padding-left: 30px;
+}
+
+.testimonial-content p::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 3rem;
+    line-height: 1;
+    color: rgba(0, 122, 141, 0.1);
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 3px solid rgba(0, 122, 141, 0.1);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.author-info span {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+/* Testimonials with Slider */
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    position: relative;
+    visibility: visible;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.slider-prev, .slider-next {
+    background: var(--accent);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-prev:hover, .slider-next:hover {
+    background: var(--hover-accent);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(250, 219, 219, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent);
+    transform: scale(1.2);
+}
+
+/* Commitment Section */
+.commitment-section {
+    padding: 100px 0;
+    background: linear-gradient(rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.9)), 
+                url('../../assets/images/about/philosophy/commitment-bg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+}
+
+.commitment-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.commitment-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.commitment-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+.commitment-features {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.feature i {
+    color: var(--accent);
+    margin-right: 15px;
+    font-size: 1.3rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .testimonial-slider {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .commitment-content h2 {
+        font-size: 2rem;
+    }
+    
+    .commitment-subtitle {
+        font-size: 1rem;
+    }
+    
+    .feature {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card {
+        padding: 20px;
+    }
+    
+    .testimonial-content p {
+        padding-left: 20px;
+        font-size: 1rem;
+    }
+    
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+    }
+}
