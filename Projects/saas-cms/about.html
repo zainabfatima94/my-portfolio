@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SaaSify</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --dark-bg: #0f0f1a;
+      --dark-text: #e0e0e0;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .dark-mode .navbar {
+      background-color: var(--dark-bg) !important;
+    }
+    .dark-mode .navbar.scrolled {
+      background-color: var(--dark-bg) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .dark-mode .nav-link {
+      color: var(--dark-text) !important;
+    }
+    /* Navbar */
+    .navbar {
+      transition: all 0.4s ease;
+      padding: 15px 0;
+      font-weight: 500;
+    }
+    .navbar.scrolled {
+      background-color: white !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+    .nav-link {
+      position: relative;
+      margin: 0 10px;
+      color: var(--dark) !important;
+      transition: all 0.3s ease;
+    }
+    .dark-mode .nav-link {
+      color: var(--dark-text) !important;
+    }
+    .nav-link:hover, .active-nav-link {
+      color: #b2aeff !important;
+    }
+    .nav-link::after, .active-nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #b2aeff;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .active-nav-link::after {
+      width: 100%;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      border: none;
+      padding: 8px 20px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+    }
+
+    /* About Hero */
+    .about-hero {
+      padding: 150px 0 100px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+    .dark-mode .about-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: var(--primary);
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      padding: 20px 0;
+      position: relative;
+      width: 50%;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 50px;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 50px;
+    }
+    .timeline-date {
+      background: var(--primary);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .timeline-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .dark-mode .timeline-content {
+      background: #1e1e2e;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Team Bios */
+    #team-bios {
+      background-color: #f8f9fa;
+    }
+    .dark-mode #team-bios {
+      background-color: var(--dark-bg);
+    }
+    .team-profile {
+      transition: all 0.3s ease;
+    }
+    .dark-mode .team-profile {
+      background-color: #1e1e2e;
+    }
+    .team-profile:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .dark-mode .team-profile:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+    }
+    .team-social {
+      opacity: 0;
+      transition: all 0.3s ease;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    }
+    .team-profile:hover .team-social {
+      opacity: 1;
+    }
+    .team-social .btn {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fun-fact {
+      transition: all 0.3s ease;
+    }
+    .team-profile:hover .fun-fact {
+      background-color: rgba(108, 99, 255, 0.1) !important;
+    }
+    .department-filter .btn {
+      margin: 0 5px 10px;
+    }
+    .search-box {
+      max-width: 400px;
+    }
+    .team-modal-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+
+    #recognition {
+    background-color: #f8f9fa;
+  }
+  .dark-mode #recognition {
+    background-color: var(--dark-bg);
+  }
+  .award-item, .press-card, .community-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .dark-mode .award-item,
+  .dark-mode .press-card,
+  .dark-mode .community-card {
+    background-color: #1e1e2e !important;
+    border-color: rgba(255,255,255,0.1);
+  }
+  .award-item:hover, .press-card:hover, .community-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+  }
+  .dark-mode .award-item:hover,
+  .dark-mode .press-card:hover,
+  .dark-mode .community-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+  }
+  .press-logo {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  .press-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  #news-metrics {
+    background-color: white;
+  }
+  .dark-mode #news-metrics {
+    background-color: var(--dark-bg);
+  }
+  .metric-card {
+    background-color: rgba(108, 99, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  .dark-mode .metric-card {
+    background-color: rgba(108, 99, 255, 0.1);
+  }
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.1);
+  }
+  .news-card {
+    transition: all 0.3s ease;
+  }
+  .dark-mode .news-card {
+    background-color: #1e1e2e;
+  }
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  .dark-mode .news-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+  }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- React App -->
+  <script type="text/babel">
+    const AboutPage = () => {
+      const [darkMode, setDarkMode] = React.useState(false);
+      const [activeFilter, setActiveFilter] = React.useState('all');
+      const [searchQuery, setSearchQuery] = React.useState('');
+      const [showAll, setShowAll] = React.useState(false);
+      const [showModal, setShowModal] = React.useState(false);
+      const [selectedMember, setSelectedMember] = React.useState(null);
+
+      // Sample team data
+      const teamMembers = [
+        {
+          id: 1,
+          name: "Sarah Johnson",
+          role: "CEO & Founder",
+          department: "executive",
+          image: "assets/img/worker-1.jpeg",
+          skills: ["Product Strategy", "Leadership", "Growth"],
+          bio: "Former Google PM who left to build solutions for SMB pain points.",
+          funFact: "Once coded an entire prototype in 48 hours during a hackathon",
+          social: {
+            linkedin: "#",
+            twitter: "#",
+            email: "#"
+          },
+          fullBio: "Sarah founded SaaSify in 2018 after identifying critical gaps in business automation tools during her time at Google. With 15+ years in product management, she drives the company's vision and strategic direction. Sarah holds an MBA from Stanford and frequently speaks at tech conferences about entrepreneurship and product-led growth."
+        },
+        {
+          id: 2,
+          name: "Michael Chen",
+          role: "CTO",
+          department: "engineering",
+          image: "assets/img/worker-2.jpg",
+          skills: ["React", "Node.js", "AWS", "Scaling"],
+          bio: "Built infrastructure for Fortune 500 companies before joining as first engineer.",
+          funFact: "Holds 3 patents for distributed systems architecture",
+          social: {
+            linkedin: "#",
+            github: "#",
+            email: "#"
+          },
+          fullBio: "Michael leads our engineering team with a focus on scalability and performance. Prior to SaaSify, he was Principal Engineer at Amazon Web Services, where he designed systems handling over 1M requests per second. Michael holds a PhD in Computer Science from MIT and is passionate about mentoring junior developers."
+        },
+        {
+          id: 3,
+          name: "Emma Williams",
+          role: "Head of Design",
+          department: "design",
+          image: "assets/img/worker-3.jpg",
+          skills: ["UX Research", "Figma", "Design Systems"],
+          bio: "Former design lead at Airbnb who obsesses over user experience details.",
+          funFact: "Once redesigned a major feature based on customer feedback at 2AM",
+          social: {
+            linkedin: "#",
+            dribbble: "#",
+            email: "#"
+          },
+          fullBio: "Emma brings 10 years of UX design experience from top tech companies. She leads our design team in creating intuitive, beautiful interfaces that solve real business problems. Emma is a certified accessibility specialist and advocates for inclusive design practices across the organization."
+        },
+        {
+          id: 4,
+          name: "David Kim",
+          role: "Lead Developer",
+          department: "engineering",
+          image: "assets/img/reviewer-1.png",
+          skills: ["JavaScript", "Python", "Database Architecture"],
+          bio: "Full-stack developer with passion for clean code and mentorship.",
+          funFact: "Can solve a Rubik's cube in under 2 minutes",
+          social: {
+            linkedin: "#",
+            github: "#",
+            email: "#"
+          },
+          fullBio: "David oversees our core product development and leads code reviews. He joined SaaSify as employee #5 and has been instrumental in building our technical foundation. David regularly contributes to open source projects and organizes local hackathons."
+        },
+        {
+          id: 5,
+          name: "Priya Patel",
+          role: "Marketing Director",
+          department: "marketing",
+          image: "assets/img/reviewer-2.jpg",
+          skills: ["Growth Marketing", "Content Strategy", "Branding"],
+          bio: "Scaled multiple startups from 0 to 1M+ users through data-driven marketing.",
+          funFact: "Speaks 4 languages fluently",
+          social: {
+            linkedin: "#",
+            twitter: "#",
+            email: "#"
+          },
+          fullBio: "Priya leads our marketing team with a focus on sustainable growth. She previously headed marketing at two successful SaaS startups through their acquisition phases. Priya holds an MBA from Wharton and is an advisor to several women-led tech startups."
+        },
+        {
+          id: 6,
+          name: "James Wilson",
+          role: "Customer Success",
+          department: "operations",
+          image: "assets/img/reviewer-4.png",
+          skills: ["Onboarding", "Customer Support", "CRM"],
+          bio: "Customer-obsessed professional with 8 years in SaaS account management.",
+          funFact: "Has never lost a game of ping pong in the office",
+          social: {
+            linkedin: "#",
+            email: "#"
+          },
+          fullBio: "James built our customer success program from the ground up, achieving a 98% customer satisfaction rating. He's passionate about creating exceptional customer experiences and leads a team of 15 success managers. James is certified in Gainsight and Salesforce administration."
+        }
+      ];
+
+      // Filter and search logic
+      const filteredMembers = teamMembers.filter(member => {
+        const matchesFilter = activeFilter === 'all' || member.department === activeFilter;
+        const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             member.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             member.skills.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()));
+        return matchesFilter && matchesSearch;
+      });
+
+      const visibleMembers = showAll ? filteredMembers : filteredMembers.slice(0, 3);
+
+      // Toggle Dark Mode
+      const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        document.body.classList.toggle('dark-mode');
+      };
+
+      // Open member modal
+      const openMemberModal = (member) => {
+        setSelectedMember(member);
+        setShowModal(true);
+      };
+
+      // Initialize AOS animations
+      React.useEffect(() => {
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+      }, []);
+
+      return (
+        <>
+          {/* Navbar */}
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <div className="container">
+              <a className="navbar-brand fw-bold" href="#">
+                <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                SaaSify
+              </a>
+              
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active-nav-link" href="about.html">About</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active" href="blog.html">Blog</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="features.html">Features</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="pricing.html">Pricing</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+                
+                <div className="d-flex align-items-center ms-lg-3">
+                  <button 
+                    className="btn btn-sm btn-outline-secondary me-2"
+                    onClick={toggleDarkMode}
+                  >
+                    <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i>
+                  </button>
+                  <button className="btn btn-primary rounded-pill">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Hero Section */}
+          <section className="about-hero">
+            <div className="container">
+              <h1 className="display-4 fw-bold mb-3" data-aos="fade-up">Our Story</h1>
+              <p className="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                From a small startup to a global SaaS leader
+              </p>
+            </div>
+          </section>
+
+          {/* Timeline Section */}
+          <section className="py-5">
+            <div className="container">
+              <div className="timeline">
+                <div className="timeline-item" data-aos="fade-right">
+                  <div className="timeline-date">2018</div>
+                  <div className="timeline-content">
+                    <h3 className="h4">Founded in San Francisco</h3>
+                    <p className="mb-0">
+                      Three engineers with a vision to simplify business operations through technology.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="timeline-item" data-aos="fade-left">
+                  <div className="timeline-date">2019</div>
+                  <div className="timeline-content">
+                    <h3 className="h4">First Product Launch</h3>
+                    <p className="mb-0">
+                      Released our MVP to 100+ beta users with 95% satisfaction rate.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="timeline-item" data-aos="fade-right">
+                  <div className="timeline-date">2021</div>
+                  <div className="timeline-content">
+                    <h3 className="h4">Series A Funding</h3>
+                    <p className="mb-0">
+                      Secured $10M in funding to expand our engineering team.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="timeline-item" data-aos="fade-left">
+                  <div className="timeline-date">2023</div>
+                  <div className="timeline-content">
+                    <h3 className="h4">Global Expansion</h3>
+                    <p className="mb-0">
+                      Serving 10,000+ customers across 50 countries with 150+ employees.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Team Bios Section */}
+          <section id="team-bios" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Meet Our Team</h2>
+                <p className="lead text-muted">The brilliant minds behind our success</p>
+              </div>
+
+              {/* Search and Filters */}
+              <div className="row justify-content-center mb-4" data-aos="fade-up">
+                <div className="col-md-8">
+                  <div className="search-box mx-auto mb-4">
+                    <div className="input-group">
+                      <span className="input-group-text bg-transparent">
+                        <i className="fas fa-search"></i>
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search team members..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="department-filter text-center">
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'all' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('all')}
+                    >
+                      All
+                    </button>
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'executive' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('executive')}
+                    >
+                      Executive
+                    </button>
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'engineering' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('engineering')}
+                    >
+                      Engineering
+                    </button>
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'design' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('design')}
+                    >
+                      Design
+                    </button>
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'marketing' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('marketing')}
+                    >
+                      Marketing
+                    </button>
+                    <button 
+                      className={`btn btn-sm ${activeFilter === 'operations' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveFilter('operations')}
+                    >
+                      Operations
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Team Members Grid */}
+              <div className="row g-4">
+                {visibleMembers.map((member) => (
+                  <div className="col-lg-4 col-md-6" key={member.id} data-aos="fade-up">
+                    <div 
+                      className="team-profile card border-0 shadow-sm h-100 overflow-hidden cursor-pointer"
+                      onClick={() => openMemberModal(member)}
+                    >
+                      <div className="position-relative">
+                        <img 
+                          src={member.image} 
+                          className="card-img-top rounded-0" 
+                          alt={member.name} 
+                          style={{height: '300px', objectFit: 'cover'}}
+                        />
+                        <div className="team-social position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-center">
+                          {member.social.linkedin && (
+                            <a href={member.social.linkedin} className="btn btn-sm btn-primary rounded-circle mx-1" onClick={(e) => e.stopPropagation()}>
+                              <i className="fab fa-linkedin-in"></i>
+                            </a>
+                          )}
+                          {member.social.twitter && (
+                            <a href={member.social.twitter} className="btn btn-sm btn-primary rounded-circle mx-1" onClick={(e) => e.stopPropagation()}>
+                              <i className="fab fa-twitter"></i>
+                            </a>
+                          )}
+                          {member.social.github && (
+                            <a href={member.social.github} className="btn btn-sm btn-primary rounded-circle mx-1" onClick={(e) => e.stopPropagation()}>
+                              <i className="fab fa-github"></i>
+                            </a>
+                          )}
+                          {member.social.dribbble && (
+                            <a href={member.social.dribbble} className="btn btn-sm btn-primary rounded-circle mx-1" onClick={(e) => e.stopPropagation()}>
+                              <i className="fab fa-dribbble"></i>
+                            </a>
+                          )}
+                          {member.social.email && (
+                            <a href={`mailto:${member.social.email}`} className="btn btn-sm btn-primary rounded-circle mx-1" onClick={(e) => e.stopPropagation()}>
+                              <i className="fas fa-envelope"></i>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      <div className="card-body">
+                        <h3 className="h4 mb-1">{member.name}</h3>
+                        <p className="text-primary mb-3">{member.role}</p>
+                        
+                        <div className="skills mb-3">
+                          {member.skills.map((skill, index) => (
+                            <span key={index} className="badge bg-primary bg-opacity-10 text-primary me-1 mb-1">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <p className="mb-3">{member.bio}</p>
+                        
+                        <div className="fun-fact bg-primary bg-opacity-5 p-3 rounded">
+                          <small className="d-flex align-items-center">
+                            <i className="fas fa-lightbulb text-primary me-2"></i>
+                            <span>{member.funFact}</span>
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Load More / View All */}
+              {filteredMembers.length > 3 && !showAll && (
+                <div className="text-center mt-4" data-aos="fade-up">
+                  <button 
+                    className="btn btn-outline-primary px-4"
+                    onClick={() => setShowAll(true)}
+                  >
+                    Load More <i className="fas fa-arrow-down ms-2"></i>
+                  </button>
+                </div>
+              )}
+
+              {filteredMembers.length === 0 && (
+                <div className="text-center py-5" data-aos="fade-up">
+                  <h4 className="text-muted">No team members found matching your search</h4>
+                </div>
+              )}
+
+              <div className="text-center mt-5" data-aos="fade-up">
+                <a href="#" className="btn btn-outline-primary px-4">
+                  View Open Positions <i className="fas fa-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* Team Member Modal */}
+          {selectedMember && (
+            <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" style={{backgroundColor: 'rgba(0,0,0,0.5)'}}>
+              <div className="modal-dialog modal-lg modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title">{selectedMember.name}</h5>
+                    <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+                  </div>
+                  <div className="modal-body">
+                    <div className="row">
+                      <div className="col-md-5">
+                        <img 
+                          src={selectedMember.image} 
+                          className="team-modal-img mb-3" 
+                          alt={selectedMember.name}
+                        />
+                        <div className="d-flex justify-content-center mb-3">
+                          {selectedMember.social.linkedin && (
+                            <a href={selectedMember.social.linkedin} className="btn btn-sm btn-outline-primary rounded-circle mx-1">
+                              <i className="fab fa-linkedin-in"></i>
+                            </a>
+                          )}
+                          {selectedMember.social.twitter && (
+                            <a href={selectedMember.social.twitter} className="btn btn-sm btn-outline-primary rounded-circle mx-1">
+                              <i className="fab fa-twitter"></i>
+                            </a>
+                          )}
+                          {selectedMember.social.github && (
+                            <a href={selectedMember.social.github} className="btn btn-sm btn-outline-primary rounded-circle mx-1">
+                              <i className="fab fa-github"></i>
+                            </a>
+                          )}
+                          {selectedMember.social.dribbble && (
+                            <a href={selectedMember.social.dribbble} className="btn btn-sm btn-outline-primary rounded-circle mx-1">
+                              <i className="fab fa-dribbble"></i>
+                            </a>
+                          )}
+                          {selectedMember.social.email && (
+                            <a href={`mailto:${selectedMember.social.email}`} className="btn btn-sm btn-outline-primary rounded-circle mx-1">
+                              <i className="fas fa-envelope"></i>
+                            </a>
+                          )}
+                        </div>
+                        <div className="card mb-3">
+                          <div className="card-body">
+                            <h6 className="card-subtitle mb-2 text-muted">Quick Facts</h6>
+                            <ul className="list-unstyled mb-0">
+                              <li className="mb-1"><strong>Role:</strong> {selectedMember.role}</li>
+                              <li className="mb-1"><strong>Department:</strong> {selectedMember.department.charAt(0).toUpperCase() + selectedMember.department.slice(1)}</li>
+                              <li className="mb-1"><strong>Fun Fact:</strong> {selectedMember.funFact}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-md-7">
+                        <h4 className="mb-3">About {selectedMember.name.split(' ')[0]}</h4>
+                        <p>{selectedMember.fullBio}</p>
+                        
+                        <h5 className="mt-4 mb-3">Skills & Expertise</h5>
+                        <div className="mb-4">
+                          {selectedMember.skills.map((skill, index) => (
+                            <span key={index} className="badge bg-primary bg-opacity-10 text-primary me-1 mb-1">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={() => setShowModal(false)}>
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+           {/*Culture & Benefits Section*/}
+            <section id="culture" className="py-5">
+            <div className="container">
+                <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Our Culture & Benefits</h2>
+                <p className="lead text-muted">Building an environment where great work happens</p>
+                </div>
+
+                <div className="row g-4">
+                {/* Culture Item 1 */}
+                <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div className="culture-card h-100 p-4 text-center border-0 shadow-sm rounded-3">
+                    <div className="culture-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" 
+                        style={{width: '80px', height: '80px'}}>
+                        <i className="fas fa-users fs-3"></i>
+                    </div>
+                    <h3 className="h4">Collaborative Environment</h3>
+                    <p className="mb-0">
+                        Open floor plans and cross-team projects foster innovation through collaboration.
+                    </p>
+                    </div>
+                </div>
+
+                {/* Culture Item 2 */}
+                <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div className="culture-card h-100 p-4 text-center border-0 shadow-sm rounded-3">
+                    <div className="culture-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" 
+                        style={{width: '80px', height: '80px'}}>
+                        <i className="fas fa-graduation-cap fs-3"></i>
+                    </div>
+                    <h3 className="h4">Learning Stipends</h3>
+                    <p className="mb-0">
+                        $2,000 annual budget for courses, conferences, and professional development.
+                    </p>
+                    </div>
+                </div>
+
+                {/* Culture Item 3 */}
+                <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div className="culture-card h-100 p-4 text-center border-0 shadow-sm rounded-3">
+                    <div className="culture-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" 
+                        style={{width: '80px', height: '80px'}}>
+                        <i className="fas fa-umbrella-beach fs-3"></i>
+                    </div>
+                    <h3 className="h4">Flexible PTO</h3>
+                    <p className="mb-0">
+                        Unlimited vacation policy with mandatory minimums to encourage breaks.
+                    </p>
+                    </div>
+                </div>
+
+                {/* Culture Item 4 */}
+                <div className="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div className="culture-card h-100 p-4 text-center border-0 shadow-sm rounded-3">
+                    <div className="culture-icon bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-3 mx-auto" 
+                        style={{width: '80px', height: '80px'}}>
+                        <i className="fas fa-home fs-3"></i>
+                    </div>
+                    <h3 className="h4">Remote Friendly</h3>
+                    <p className="mb-0">
+                        Work from anywhere with our distributed-first approach and co-working stipends.
+                    </p>
+                    </div>
+                </div>
+                </div>
+
+                {/* Photo Gallery */}
+                <div className="row g-3 mt-4">
+                <div className="col-md-4" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                        alt="Team meeting" 
+                        className="img-fluid rounded shadow-sm" 
+                        style={{height: '250px', width: '100%', objectFit: 'cover'}} />
+                </div>
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://i.pinimg.com/236x/17/e1/0f/17e10ff3c164dc60c9305ec85ffd4cd4.jpg" 
+                        alt="Office lounge" 
+                        className="img-fluid rounded shadow-sm" 
+                        style={{height: '250px', width: '100%', objectFit: 'cover'}} />
+                </div>
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                        alt="Team event" 
+                        className="img-fluid rounded shadow-sm" 
+                        style={{height: '250px', width: '100%', objectFit: 'cover'}} />
+                </div>
+                </div>
+
+                <div className="text-center mt-5" data-aos="fade-up">
+                <a href="#" className="btn btn-primary px-4">
+                    View Open Positions <i className="fas fa-arrow-right ms-2"></i>
+                </a>
+                </div>
+            </div>
+</section>
+
+            <section id="recognition" className="py-5 bg-light">
+  <div className="container">
+    <div className="text-center mb-5" data-aos="fade-up">
+      <h2 className="display-5 fw-bold">Recognition & Impact</h2>
+      <p className="lead text-muted">Celebrating our achievements and contributions</p>
+    </div>
+
+    {/* Awards Section */}
+    <div className="row mb-5" data-aos="fade-up">
+      <div className="col-lg-4 mb-4 mb-lg-0">
+        <h3 className="h2 fw-bold mb-4"><i className="fas fa-trophy text-primary me-2"></i> Awards</h3>
+        <div className="d-flex flex-column gap-3">
+          <div className="award-item p-3 bg-white rounded shadow-sm">
+            <div className="d-flex align-items-center">
+              <img src="https://logo.clearbit.com/techcrunch.com" alt="TechCrunch" className="me-3" width="40"/>
+              <div>
+                <h4 className="h5 mb-1">Best SaaS Platform 2023</h4>
+                <small className="text-muted">TechCrunch Disrupt Awards</small>
+              </div>
+            </div>
+          </div>
+          <div className="award-item p-3 bg-white rounded shadow-sm">
+            <div className="d-flex align-items-center">
+              <img src="https://logo.clearbit.com/fastcompany.com" alt="Fast Company" className="me-3" width="40"/>
+              <div>
+                <h4 className="h5 mb-1">Most Innovative Company</h4>
+                <small className="text-muted">Fast Company Top 50</small>
+              </div>
+            </div>
+          </div>
+          <div className="award-item p-3 bg-white rounded shadow-sm">
+            <div className="d-flex align-items-center">
+              <img src="https://logo.clearbit.com/forbes.com" alt="Forbes" className="me-3" width="40"/>
+              <div>
+                <h4 className="h5 mb-1">Best Places to Work</h4>
+                <small className="text-muted">Forbes Small Business</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Press Coverage */}
+      <div className="col-lg-4 mb-4 mb-lg-0">
+        <h3 className="h2 fw-bold mb-4"><i className="fas fa-newspaper text-primary me-2"></i> Press</h3>
+        <div className="press-card p-4 h-100 bg-white rounded shadow-sm">
+          <div className="d-flex flex-column h-100">
+            <div className="mb-3">
+              <img src="https://logo.clearbit.com/nytimes.com" alt="NY Times" className="img-fluid mb-2" width="120"/>
+              <blockquote className="blockquote">
+                <p>"SaaSify is redefining how small businesses approach automation with their intuitive platform."</p>
+              </blockquote>
+            </div>
+            <div className="mt-auto">
+              <a href="#" className="btn btn-sm btn-outline-primary">Read Article</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Community Involvement */}
+      <div className="col-lg-4">
+        <h3 className="h2 fw-bold mb-4"><i className="fas fa-hands-helping text-primary me-2"></i> Community</h3>
+        <div className="community-card p-4 h-100 bg-white rounded shadow-sm">
+          <div className="d-flex flex-column h-100">
+            <div className="mb-3">
+              <div className="d-flex align-items-center mb-3">
+                <div className="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3">
+                  <i className="fas fa-tree fs-4"></i>
+                </div>
+                <h4 className="h5 mb-0">1% for the Planet</h4>
+              </div>
+              <p>We donate 1% of all revenue to environmental causes through verified nonprofits.</p>
+            </div>
+            <div className="mt-auto">
+              <div className="d-flex align-items-center">
+                <img src="https://logo.clearbit.com/girlswhocode.com" alt="Girls Who Code" className="me-2" width="30"/>
+                <img src="https://logo.clearbit.com/code.org" alt="Code.org" className="me-2" width="30"/>
+                <img src="https://logo.clearbit.com/teachforamerica.org" alt="Teach for America" className="me-2" width="30"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Press Logos */}
+    <div className="row mt-5" data-aos="fade-up">
+      <div className="col-12">
+        <h4 className="text-center mb-4">Featured In</h4>
+        <div className="d-flex flex-wrap justify-content-center align-items-center gap-4">
+          <img src="https://logo.clearbit.com/techcrunch.com" alt="TechCrunch" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+          <img src="https://logo.clearbit.com/forbes.com" alt="Forbes" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+          <img src="https://logo.clearbit.com/wsj.com" alt="Wall Street Journal" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+          <img src="https://logo.clearbit.com/bloomberg.com" alt="Bloomberg" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+          <img src="https://logo.clearbit.com/inc.com" alt="Inc. Magazine" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+          <img src="https://logo.clearbit.com/fastcompany.com" alt="Fast Company" className="img-fluid" style={{height: '30px', opacity: '0.7', filter: 'grayscale(100%)'}} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+          
+            
+<section id="news-metrics" className="py-5">
+  <div className="container">
+    <div className="text-center mb-5" data-aos="fade-up">
+      <h2 className="display-5 fw-bold">Recent News & Impact</h2>
+      <p className="lead text-muted">Stay updated with our latest achievements and contributions</p>
+    </div>
+
+    {/* Metrics Section */}
+    <div className="row mb-5 g-4" data-aos="fade-up">
+      <div className="col-md-3 col-6">
+        <div className="metric-card text-center p-3 rounded-3">
+          <div className="display-4 fw-bold text-primary mb-2">25+</div>
+          <p className="mb-0">Industry Awards Won</p>
+        </div>
+      </div>
+      <div className="col-md-3 col-6">
+        <div className="metric-card text-center p-3 rounded-3">
+          <div className="display-4 fw-bold text-primary mb-2">1,250+</div>
+          <p className="mb-0">Volunteer Hours</p>
+        </div>
+      </div>
+      <div className="col-md-3 col-6">
+        <div className="metric-card text-center p-3 rounded-3">
+          <div className="display-4 fw-bold text-primary mb-2">$250K</div>
+          <p className="mb-0">Donated to Causes</p>
+        </div>
+      </div>
+      <div className="col-md-3 col-6">
+        <div className="metric-card text-center p-3 rounded-3">
+          <div className="display-4 fw-bold text-primary mb-2">50+</div>
+          <p className="mb-0">Press Features</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Recent News Section */}
+    <div className="row g-4">
+      {/* News Card 1 */}
+      <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div className="news-card card border-0 shadow-sm h-100">
+          <img 
+            src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+            className="card-img-top" 
+            alt="News cover" 
+            style={{height: '200px', objectFit: 'cover'}}
+          />
+          <div className="card-body">
+            <div className="d-flex align-items-center mb-2">
+              <span className="badge bg-primary me-2">Press Release</span>
+              <small className="text-muted">June 15, 2023</small>
+            </div>
+            <h3 className="h5">SaaSify Named Top Workplace for 3rd Consecutive Year</h3>
+            <p className="card-text">Forbes recognizes our employee-first culture and benefits program.</p>
+          </div>
+          <div className="card-footer bg-transparent border-0">
+            <a href="#" className="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      {/* News Card 2 */}
+      <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div className="news-card card border-0 shadow-sm h-100">
+          <img 
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" 
+            className="card-img-top" 
+            alt="News cover" 
+            style={{height: '200px', objectFit: 'cover'}}
+          />
+          <div className="card-body">
+            <div className="d-flex align-items-center mb-2">
+              <span className="badge bg-success me-2">Community</span>
+              <small className="text-muted">May 28, 2023</small>
+            </div>
+            <h3 className="h5">Annual Tech for Good Hackathon Raises $120K</h3>
+            <p className="card-text">Employees partnered with local nonprofits to build solutions.</p>
+          </div>
+          <div className="card-footer bg-transparent border-0">
+            <a href="#" className="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      {/* News Card 3 */}
+      <div className="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div className="news-card card border-0 shadow-sm h-100">
+          <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" 
+            className="card-img-top" 
+            alt="News cover" 
+            style={{height: '200px', objectFit: 'cover'}}
+          />
+          <div className="card-body">
+            <div className="d-flex align-items-center mb-2">
+              <span className="badge bg-warning me-2">Product</span>
+              <small className="text-muted">April 5, 2023</small>
+            </div>
+            <h3 className="h5">New AI Features Transform Business Analytics</h3>
+            <p className="card-text">Latest release helps SMBs make data-driven decisions faster.</p>
+          </div>
+          <div className="card-footer bg-transparent border-0">
+            <a href="#" className="btn btn-sm btn-outline-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="text-center mt-5" data-aos="fade-up">
+      <a href="#" className="btn btn-primary px-4">
+        View All News <i className="fas fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+{/* Footer */}
+          <footer className="bg-dark text-white py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-4 mb-4 mb-lg-0">
+                  <h5 className="mb-3">
+                    <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                    SaaSify
+                  </h5>
+                  <p>The complete SaaS solution for modern businesses.</p>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Product</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Features</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Pricing</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">API</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Company</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">About</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Careers</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Contact</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="mb-3">Legal</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Privacy</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Terms</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">GDPR</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2">
+                  <h5 className="mb-3">Follow Us</h5>
+                  <div className="social-icons">
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" className="text-white">
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr className="my-4"/>
+              <div className="text-center">
+                <p className="mb-0">&copy; {new Date().getFullYear()} SaaSify. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
+        </>
+      );
+    };
+
+    ReactDOM.render(<AboutPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>

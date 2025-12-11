@@ -1,0 +1,21 @@
+/* Custom Right-Click Menu Styling */
+        #custom-context-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        #custom-context-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #custom-context-menu li {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+        #custom-context-menu li:hover {
+            background: #f0f0f0;
+        }

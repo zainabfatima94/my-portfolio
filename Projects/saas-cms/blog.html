@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | SaaSify</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --primary-light: rgba(108, 99, 255, 0.1);
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --dark-bg: #0f0f1a;
+      --dark-card: #1e1e2e;
+      --dark-text: #e0e0e0;
+      --gray: #6c757d;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      line-height: 1.7;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .dark-mode .navbar {
+      background-color: var(--dark-bg) !important;
+    }
+    .dark-mode .navbar.scrolled {
+      background-color: var(--dark-bg) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .dark-mode .nav-link {
+      color: var(--dark-text) !important;
+    }
+    .dark-mode .card {
+      background-color: var(--dark-card);
+    }
+    .dark-mode .text-muted {
+      color: #adb5bd !important;
+    }
+    .dark-mode .list-group-item {
+      background-color: var(--dark-card);
+      border-color: #2d2d42;
+    }
+
+    /* Navbar */
+    .navbar {
+      transition: all 0.4s ease;
+      padding: 15px 0;
+      font-weight: 500;
+    }
+    .navbar.scrolled {
+      background-color: white !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+    .nav-link {
+      position: relative;
+      margin: 0 10px;
+      color: var(--dark) !important;
+      transition: all 0.3s ease;
+    }
+    .dark-mode .nav-link {
+      color: var(--dark-text) !important;
+    }
+    .nav-link:hover, .active-nav-link {
+      color: #b2aeff !important;
+    }
+    .nav-link::after, .active-nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #b2aeff;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .active-nav-link::after {
+      width: 100%;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      border: none;
+      padding: 8px 20px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3);
+    }
+
+    /* Hero Section */
+    .blog-hero {
+      padding: 180px 0 100px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .dark-mode .blog-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover;
+      opacity: 0.1;
+    }
+    .blog-hero h1 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .blog-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+      background-color: rgba(255,255,255,0.1);
+      padding: 15px 0;
+    }
+    .breadcrumb {
+      margin-bottom: 0;
+      background: transparent;
+    }
+    .breadcrumb-item a {
+      color: white;
+      text-decoration: none;
+    }
+    .breadcrumb-item.active {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Blog Cards */
+    .blog-card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      height: 100%;
+      margin-bottom: 30px;
+    }
+    .dark-mode .blog-card {
+      background-color: var(--dark-card);
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .dark-mode .blog-card:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+    }
+    .blog-card-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .blog-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .blog-card .card-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .blog-card .card-text {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+    .dark-mode .blog-card .card-text {
+      color: #adb5bd;
+    }
+
+    /* Categories */
+    .category-filter .btn {
+      margin: 0 5px 5px 0;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      padding: 5px 15px;
+    }
+
+    /* Popular Posts */
+    .popular-post {
+      display: flex;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+    .popular-post-img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+    .popular-post-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .popular-post-date {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    .dark-mode .popular-post-date {
+      color: #adb5bd;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-block;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin: 0 5px 5px 0;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .dark-mode .tag {
+      background-color: rgba(108, 99, 255, 0.2);
+    }
+    .tag:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Newsletter */
+    .newsletter-card {
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border: none;
+    }
+    .dark-mode .newsletter-card {
+      background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(22, 33, 62, 0.7) 100%);
+    }
+    .newsletter-title {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    /* Featured Author */
+    .featured-author {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(108, 99, 255, 0.05);
+    }
+    .dark-mode .featured-author {
+      background-color: rgba(26, 26, 46, 0.7);
+    }
+    .author-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 15px;
+      border: 3px solid var(--primary);
+    }
+    .author-social a {
+      color: var(--gray);
+      margin: 0 5px;
+      transition: all 0.3s ease;
+    }
+    .author-social a:hover {
+      color: var(--primary);
+    }
+    .dark-mode .author-social a {
+      color: #adb5bd;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      border-left: 3px solid var(--primary);
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .testimonial-author {
+      font-weight: 500;
+    }
+    .testimonial-role {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .dark-mode .testimonial-role {
+      color: #adb5bd;
+    }
+
+    /* Pagination */
+    .page-item.active .page-link {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+    .page-link {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- React App -->
+  <script type="text/babel">
+    const BlogPage = () => {
+      const [darkMode, setDarkMode] = React.useState(false);
+      const [activeCategory, setActiveCategory] = React.useState('all');
+      const [searchQuery, setSearchQuery] = React.useState('');
+
+      // Toggle Dark Mode
+      const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        document.body.classList.toggle('dark-mode');
+      };
+
+      // Sample blog data
+      const blogPosts = [
+        {
+          id: 1,
+          title: "How AI is Transforming Small Business Operations",
+          excerpt: "Explore the ways artificial intelligence is helping SMBs automate routine tasks and gain insights.",
+          category: "technology",
+          date: "June 15, 2023",
+          readTime: "5 min read",
+          author: {
+            name: "Michael Chen",
+            image: "https://randomuser.me/api/portraits/men/32.jpg",
+            role: "CTO at TechSolutions"
+          },
+          image: "hhttps://media.licdn.com/dms/image/v2/D5612AQGa9u4hO3Pj2g/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1676913079348?e=2147483647&v=beta&t=SL5iVF97KaOIxujRVlPYTwA2nQymw1vzWywvUoEdaMYufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: true,
+          views: "12.5k",
+          comments: 42
+        },
+        {
+          id: 2,
+          title: "The Future of Remote Work: 2023 Trends",
+          excerpt: "How distributed teams are changing workplace dynamics and what tools they need to succeed.",
+          category: "culture",
+          date: "May 28, 2023",
+          readTime: "4 min read",
+          author: {
+            name: "Sarah Johnson",
+            image: "https://randomuser.me/api/portraits/women/44.jpg",
+            role: "HR Director at RemoteFirst"
+          },
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: true,
+          views: "8.7k",
+          comments: 28
+        },
+        {
+          id: 3,
+          title: "Building a Sustainable Tech Company",
+          excerpt: "Practical steps we've taken to reduce our environmental impact while scaling our infrastructure.",
+          category: "sustainability",
+          date: "April 5, 2023",
+          readTime: "6 min read",
+          author: {
+            name: "Emma Williams",
+            image: "https://randomuser.me/api/portraits/women/63.jpg",
+            role: "Sustainability Lead at GreenTech"
+          },
+          image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: true,
+          views: "15.2k",
+          comments: 56
+        },
+        {
+          id: 4,
+          title: "10 Productivity Hacks for Developers",
+          excerpt: "Boost your coding efficiency with these proven techniques from top engineers.",
+          category: "technology",
+          date: "March 22, 2023",
+          readTime: "7 min read",
+          author: {
+            name: "David Kim",
+            image: "https://randomuser.me/api/portraits/men/22.jpg",
+            role: "Senior Developer at CodeCraft"
+          },
+          image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: false,
+          views: "9.3k",
+          comments: 31
+        },
+        {
+          id: 5,
+          title: "The Psychology of User Onboarding",
+          excerpt: "How to create onboarding flows that actually retain users.",
+          category: "product",
+          date: "February 14, 2023",
+          readTime: "5 min read",
+          author: {
+            name: "Lisa Wong",
+            image: "https://randomuser.me/api/portraits/women/28.jpg",
+            role: "UX Designer at Onboardly"
+          },
+          image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: false,
+          views: "11.1k",
+          comments: 39
+        },
+        {
+          id: 6,
+          title: "Why We Switched to a 4-Day Work Week",
+          excerpt: "Our experience after 6 months with reduced hours and increased productivity.",
+          category: "culture",
+          date: "January 5, 2023",
+          readTime: "8 min read",
+          author: {
+            name: "Robert Garcia",
+            image: "https://randomuser.me/api/portraits/men/75.jpg",
+            role: "CEO at WorkBetter"
+          },
+          image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: false,
+          views: "18.9k",
+          comments: 72
+        },
+        {
+          id: 7,
+          title: "Scaling Your SaaS: When to Invest in Infrastructure",
+          excerpt: "Key indicators that it's time to upgrade your technical foundation.",
+          category: "technology",
+          date: "December 12, 2022",
+          readTime: "6 min read",
+          author: {
+            name: "Amanda Patel",
+            image: "https://randomuser.me/api/portraits/women/65.jpg",
+            role: "DevOps Engineer at ScaleRight"
+          },
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: false,
+          views: "7.5k",
+          comments: 24
+        },
+        {
+          id: 8,
+          title: "The Art of Customer Retention in SaaS",
+          excerpt: "Strategies to keep your customers engaged and reduce churn.",
+          category: "business",
+          date: "November 8, 2022",
+          readTime: "5 min read",
+          author: {
+            name: "James Wilson",
+            image: "https://randomuser.me/api/portraits/men/48.jpg",
+            role: "Customer Success Manager at Retainly"
+          },
+          image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          featured: false,
+          views: "10.3k",
+          comments: 35
+        }
+      ];
+
+      // Popular posts for sidebar
+      const popularPosts = [...blogPosts]
+        .sort((a, b) => parseInt(b.views.replace('k', '')) - parseInt(a.views.replace('k', '')))
+        .slice(0, 4);
+
+      // Featured author
+      const featuredAuthor = {
+        name: "Jessica Taylor",
+        role: "Editor-in-Chief",
+        bio: "With over 10 years of experience in tech journalism, Jessica brings deep insights into SaaS industry trends.",
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+        social: {
+          twitter: "#",
+          linkedin: "#",
+          medium: "#"
+        }
+      };
+
+      // Blog tags
+      const tags = [
+        "React", "SaaS", "Productivity", "Startups", 
+        "JavaScript", "UX", "Remote Work", "Leadership",
+        "AI", "Marketing", "Development", "Design",
+        "Cloud", "Security", "Analytics", "Growth"
+      ];
+
+      // Testimonials
+      const testimonials = [
+        {
+          text: "This blog has been instrumental in helping us scale our SaaS business. The insights are practical and actionable.",
+          author: "Mark Thompson",
+          role: "CEO at CloudScale"
+        },
+        {
+          text: "As a product manager, I find the articles here to be consistently valuable and ahead of industry trends.",
+          author: "Sophia Rodriguez",
+          role: "Product Manager at TechVista"
+        },
+        {
+          text: "The depth of technical content while remaining accessible is what keeps me coming back to this blog.",
+          author: "Daniel Kim",
+          role: "Lead Developer at CodeCraft"
+        }
+      ];
+
+      // Initialize AOS animations
+      React.useEffect(() => {
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+          } else {
+            backToTop.classList.remove('active');
+          }
+        });
+      }, []);
+
+      // Filter posts by category and search query
+      const filteredPosts = blogPosts.filter(post => {
+        const matchesCategory = activeCategory === 'all' || post.category === activeCategory;
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      // Categories with counts
+      const categories = [
+        { name: 'technology', count: 12 },
+        { name: 'product', count: 8 },
+        { name: 'culture', count: 5 },
+        { name: 'sustainability', count: 3 },
+        { name: 'business', count: 7 }
+      ];
+
+      return (
+        <>
+          {/* Navbar */}
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <div className="container">
+              <a className="navbar-brand fw-bold" href="#">
+                <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                SaaSify
+              </a>
+              
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="about.html">About</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active-nav-link" href="blog.html">Blog</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="features.html">Features</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="pricing.html">Pricing</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+                
+                <div className="d-flex align-items-center ms-lg-3">
+                  <button 
+                    className="btn btn-sm btn-outline-secondary me-2"
+                    onClick={toggleDarkMode}
+                  >
+                    <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i>
+                  </button>
+                  <button className="btn btn-primary rounded-pill">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Blog Hero Section */}
+          <section className="blog-hero">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-10">
+                  <h1 className="display-4 fw-bold mb-3" data-aos="fade-up">SaaSify Blog</h1>
+                  <p className="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                    Insights, trends and best practices for growing your SaaS business
+                  </p>
+                  <div className="col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div className="input-group mb-3">
+                      <input 
+                        type="text" 
+                        className="form-control" 
+                        placeholder="Search articles..." 
+                        aria-label="Search articles"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                      <button className="btn btn-light" type="button">
+                        <i className="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Breadcrumb */}
+          <nav className="breadcrumb-nav" data-aos="fade">
+            <div className="container">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li className="breadcrumb-item active">Blog</li>
+              </ol>
+            </div>
+          </nav>
+
+          {/* Blog Content */}
+          <section className="py-5">
+            <div className="container">
+              <div className="row">
+                {/* Main Content */}
+                <div className="col-lg-8">
+                  {/* Category Filters */}
+                  <div className="category-filter mb-5" data-aos="fade-up">
+                    <button 
+                      className={`btn btn-sm ${activeCategory === 'all' ? 'btn-primary' : 'btn-outline-primary'}`}
+                      onClick={() => setActiveCategory('all')}
+                    >
+                      All
+                    </button>
+                    {categories.map(cat => (
+                      <button 
+                        key={cat.name}
+                        className={`btn btn-sm ${activeCategory === cat.name ? 'btn-primary' : 'btn-outline-primary'}`}
+                        onClick={() => setActiveCategory(cat.name)}
+                      >
+                        {cat.name.charAt(0).toUpperCase() + cat.name.slice(1)} ({cat.count})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Featured Posts */}
+                  <h2 className="mb-4" data-aos="fade-up">Featured Articles</h2>
+                  <div className="row g-4 mb-5">
+                    {blogPosts.filter(post => post.featured).map((post) => (
+                      <div className="col-md-6" key={post.id} data-aos="fade-up">
+                        <div className="blog-card card shadow-sm h-100">
+                          <div className="position-relative">
+                            <img 
+                              src={post.image} 
+                              className="blog-card-img" 
+                              alt={post.title}
+                            />
+                            <span className="blog-badge badge bg-primary">
+                              {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+                            </span>
+                          </div>
+                          <div className="card-body">
+                            <div className="d-flex align-items-center mb-3">
+                              <img 
+                                src={post.author.image} 
+                                alt={post.author.name} 
+                                className="author-img me-2"
+                              />
+                              <div>
+                                <small className="d-block">{post.author.name}</small>
+                                <small className="text-muted">{post.date} · {post.readTime}</small>
+                              </div>
+                            </div>
+                            <h3 className="h5">{post.title}</h3>
+                            <p className="card-text">{post.excerpt}</p>
+                          </div>
+                          <div className="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center">
+                            <a href="#" className="btn btn-sm btn-outline-primary">
+                              Read Article <i className="fas fa-arrow-right ms-1"></i>
+                            </a>
+                            <div>
+                              <small className="text-muted me-3">
+                                <i className="fas fa-eye me-1"></i> {post.views}
+                              </small>
+                              <small className="text-muted">
+                                <i className="fas fa-comment me-1"></i> {post.comments}
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* All Posts */}
+                  <h2 className="mb-4" data-aos="fade-up">Latest Articles</h2>
+                  {filteredPosts.length > 0 ? (
+                    <div className="row g-4 mb-5">
+                      {filteredPosts.filter(post => !post.featured).map((post) => (
+                        <div className="col-md-6" key={post.id} data-aos="fade-up">
+                          <div className="blog-card card shadow-sm h-100">
+                            <div className="position-relative">
+                              <img 
+                                src={post.image} 
+                                className="blog-card-img" 
+                                alt={post.title}
+                              />
+                              <span className="blog-badge badge bg-primary">
+                                {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+                              </span>
+                            </div>
+                            <div className="card-body">
+                              <div className="d-flex align-items-center mb-3">
+                                <img 
+                                  src={post.author.image} 
+                                  alt={post.author.name} 
+                                  className="author-img me-2"
+                                />
+                                <div>
+                                  <small className="d-block">{post.author.name}</small>
+                                  <small className="text-muted">{post.date} · {post.readTime}</small>
+                                </div>
+                              </div>
+                              <h3 className="h5">{post.title}</h3>
+                              <p className="card-text">{post.excerpt}</p>
+                            </div>
+                            <div className="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center">
+                              <a href="#" className="btn btn-sm btn-outline-primary">
+                                Read Article <i className="fas fa-arrow-right ms-1"></i>
+                              </a>
+                              <div>
+                                <small className="text-muted me-3">
+                                  <i className="fas fa-eye me-1"></i> {post.views}
+                                </small>
+                                <small className="text-muted">
+                                  <i className="fas fa-comment me-1"></i> {post.comments}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="alert alert-info" data-aos="fade-up">
+                      No articles found matching your criteria.
+                    </div>
+                  )}
+
+                  {/* Pagination */}
+                  <nav aria-label="Page navigation" data-aos="fade-up">
+                    <ul className="pagination justify-content-center">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">
+                          <i className="fas fa-chevron-left"></i>
+                        </a>
+                      </li>
+                      <li className="page-item active"><a className="page-link" href="#">1</a></li>
+                      <li className="page-item"><a className="page-link" href="#">2</a></li>
+                      <li className="page-item"><a className="page-link" href="#">3</a></li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          <i className="fas fa-chevron-right"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                {/* Sidebar */}
+                <div className="col-lg-4">
+                  {/* About Widget */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left">
+                    <div className="card-body text-center">
+                      <h5 className="card-title mb-3">About The Blog</h5>
+                      <p className="small">
+                        The SaaSify Blog provides actionable insights for SaaS founders, product managers, and developers looking to build and scale successful software businesses.
+                      </p>
+                      <a href="about.html" className="btn btn-sm btn-outline-primary mt-2">
+                        Learn More
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Popular Posts */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="100">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4">Popular Posts</h5>
+                      {popularPosts.map(post => (
+                        <a href="#" key={post.id} className="popular-post text-decoration-none d-block mb-3">
+                          <div className="d-flex">
+                            <img src={post.image} alt={post.title} className="popular-post-img" />
+                            <div>
+                              <h6 className="popular-post-title mb-1">{post.title}</h6>
+                              <small className="popular-post-date">{post.date}</small>
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Categories */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="200">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4">Categories</h5>
+                      <ul className="list-group list-group-flush">
+                        {categories.map(cat => (
+                          <li key={cat.name} className="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="#" className="text-decoration-none">
+                              {cat.name.charAt(0).toUpperCase() + cat.name.slice(1)}
+                            </a>
+                            <span className="badge bg-primary rounded-pill">{cat.count}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Featured Author */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="300">
+                    <div className="card-body text-center">
+                      <h5 className="card-title mb-3">Featured Author</h5>
+                      <img src={featuredAuthor.image} alt={featuredAuthor.name} className="author-avatar mb-3" />
+                      <h6 className="mb-1">{featuredAuthor.name}</h6>
+                      <p className="small text-muted mb-3">{featuredAuthor.role}</p>
+                      <p className="small mb-3">{featuredAuthor.bio}</p>
+                      <div className="author-social">
+                        <a href={featuredAuthor.social.twitter}><i className="fab fa-twitter"></i></a>
+                        <a href={featuredAuthor.social.linkedin}><i className="fab fa-linkedin-in"></i></a>
+                        <a href={featuredAuthor.social.medium}><i className="fab fa-medium"></i></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="400">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4">Tags</h5>
+                      <div className="tags">
+                        {tags.map(tag => (
+                          <a href="#" key={tag} className="tag">{tag}</a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Testimonials */}
+                  <div className="card shadow-sm mb-4" data-aos="fade-left" data-aos-delay="500">
+                    <div className="card-body">
+                      <h5 className="card-title mb-4">What Readers Say</h5>
+                      {testimonials.map((testimonial, index) => (
+                        <div key={index} className="testimonial-card">
+                          <p className="testimonial-text">"{testimonial.text}"</p>
+                          <div>
+                            <div className="testimonial-author">{testimonial.author}</div>
+                            <div className="testimonial-role">{testimonial.role}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Newsletter */}
+                  <div className="card shadow-sm newsletter-card" data-aos="fade-left" data-aos-delay="600">
+                    <div className="card-body">
+                      <h5 className="newsletter-title">Subscribe to Newsletter</h5>
+                      <p className="small mb-4">
+                        Get the latest articles and resources sent straight to your inbox.
+                      </p>
+                      <div className="input-group mb-3">
+                        <input type="email" className="form-control" placeholder="Your email" />
+                        <button className="btn btn-primary" type="button">
+                          Subscribe
+                        </button>
+                      </div>
+                      <small className="text-muted">We'll never share your email.</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Newsletter CTA */}
+          <section className="py-5 bg-primary bg-opacity-10">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-8 text-center" data-aos="fade-up">
+                  <div className="floating mb-4">
+                    <i className="fas fa-paper-plane fa-3x text-primary"></i>
+                  </div>
+                  <h2 className="mb-3">Stay Updated</h2>
+                  <p className="lead mb-4">
+                    Join 10,000+ subscribers and get access to exclusive content, early product releases, and monthly digests.
+                  </p>
+                  <div className="row g-2 justify-content-center">
+                    <div className="col-md-8">
+                      <input 
+                        type="email" 
+                        className="form-control form-control-lg" 
+                        placeholder="Your email address"
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <button className="btn btn-primary btn-lg w-100">
+                        Subscribe Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="footer">
+            <div className="container">
+              <div className="row g-4">
+                <div className="col-lg-4">
+                  <h5 className="footer-title">SaaSify</h5>
+                  <p className="mb-4">
+                    The complete SaaS solution for modern businesses looking to scale their operations efficiently.
+                  </p>
+                  <div className="social-icons">
+                    <a href="#"><i className="fab fa-facebook-f"></i></a>
+                    <a href="#"><i className="fab fa-twitter"></i></a>
+                    <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i className="fab fa-instagram"></i></a>
+                    <a href="#"><i className="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="footer-title">Product</h5>
+                  <ul className="footer-links list-unstyled">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Integrations</a></li>
+                    <li><a href="#">Changelog</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="footer-title">Company</h5>
+                  <ul className="footer-links list-unstyled">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="footer-title">Resources</h5>
+                  <ul className="footer-links list-unstyled">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Status</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2">
+                  <h5 className="footer-title">Legal</h5>
+                  <ul className="footer-links list-unstyled">
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">GDPR</a></li>
+                    <li><a href="#">Security</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="copyright text-center">
+                <p className="mb-0">&copy; {new Date().getFullYear()} SaaSify. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
+
+          {/* Back to Top */}
+          <a href="#" className="back-to-top">
+            <i className="fas fa-arrow-up"></i>
+          </a>
+        </>
+      );
+    };
+
+    ReactDOM.render(<BlogPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Complete Template</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="assets/css/font-awesome.css"> -->
+  <!-- Splide Slider CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <!-- <link rel="stylesheet" href="assets/css/splide.min.css"> -->
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- <link href="assets/css/aos.css" rel="stylesheet"> -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/dropdown.css">
+
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Custom Right-Click Menu -->
+    <div id="custom-context-menu">
+        <ul>
+            <li onclick="alert('Back clicked')">Back</li>
+            <li onclick="alert('Forward clicked')">Forward</li>
+            <li onclick="alert('Reload clicked')">Reload</li>
+            <li onclick="alert('Save clicked')">Save Page As...</li>
+            <li onclick="alert('Print clicked')">Print</li>
+        </ul>
+    </div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <!-- <script src="assets/js/react.development.js" crossorigin></script> -->
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- <script src="assets/js/react-dom.development.js" crossorigin></script> -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- <script src="assets/js/babel.min.js"></script> -->
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="assets/js/bootstrap.bundle.min.js"></script> -->
+  
+  <!-- Splide Slider JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <!-- <script src="assets/js/splide.min.js"></script> -->
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script src="assets/js/aos.js"></script> -->
+
+  <!-- React App -->
+  <script type="text/babel">
+    const App = () => {
+      const [darkMode, setDarkMode] = React.useState(false);
+      const [annualPricing, setAnnualPricing] = React.useState(false);
+      const [formData, setFormData] = React.useState({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+      // Toggle Dark Mode
+      const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        document.body.classList.toggle('dark-mode');
+      };
+
+      // Toggle Pricing
+      const togglePricing = () => {
+        setAnnualPricing(!annualPricing);
+      };
+
+      // Handle Form Input Changes
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      };
+
+      // Initialize Splide Sliders
+      React.useEffect(() => {
+        // Hero Slider
+        new Splide('.splide-hero', {
+          type: 'loop',
+          autoplay: true,
+          interval: 3000,
+          arrows: false,
+          pagination: false
+        }).mount();
+        
+        // Testimonials Slider
+        new Splide('.splide-testimonials', {
+          type: 'loop',
+          perPage: 3,
+          gap: '30px',
+          pagination: false,
+          breakpoints: {
+            992: {
+              perPage: 2
+            },
+            768: {
+              perPage: 1
+            }
+          }
+        }).mount();
+        
+        // Initialize AOS animations
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+
+        // Counter Animation
+        const animateCounters = () => {
+          const counters = document.querySelectorAll('.stat-number');
+          const speed = 200;
+          
+          counters.forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(animateCounters, 1);
+            } else {
+              counter.innerText = target;
+            }
+          });
+        };
+
+        // Initialize when stats section is in view
+        const statsSection = document.querySelector('#stats');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounters();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+          observer.observe(statsSection);
+        }
+      }, []);
+
+      
+      // Pricing Data
+      const pricingPlans = [
+        {
+          name: 'Starter',
+          monthly: 19,
+          annual: 15,
+          features: ['Up to 5 users', 'Basic analytics', 'Email support'],
+          popular: false
+        },
+        {
+          name: 'Professional',
+          monthly: 49,
+          annual: 39,
+          features: ['Up to 20 users', 'Advanced analytics', 'Priority support', 'API access'],
+          popular: true
+        },
+        {
+          name: 'Enterprise',
+          monthly: 99,
+          annual: 79,
+          features: ['Unlimited users', 'Advanced analytics', '24/7 support', 'Dedicated account manager'],
+          popular: false
+        }
+      ];
+
+      // Testimonials Data
+      const testimonials = [
+        {
+          name: 'Sarah Johnson',
+          role: 'CEO at TechCorp',
+          image: 'https://randomuser.me/api/portraits/women/44.jpg',
+          rating: 5,
+          quote: 'This platform transformed our workflow. Highly recommended!'
+        },
+        {
+          name: 'Michael Chen',
+          role: 'Product Manager',
+          image: 'https://randomuser.me/api/portraits/men/32.jpg',
+          rating: 4,
+          quote: 'The best SaaS solution we\'ve used. Excellent customer support.'
+        },
+        {
+          name: 'Emma Williams',
+          role: 'Marketing Director',
+          image: 'https://randomuser.me/api/portraits/women/63.jpg',
+          rating: 5,
+          quote: 'Increased our productivity by 40% in just two months.'
+        },
+        {
+          name: 'David Kim',
+          role: 'CTO at Startup',
+          image: 'https://randomuser.me/api/portraits/men/71.jpg',
+          rating: 5,
+          quote: 'The pricing is fair for the incredible value we receive.'
+        }
+      ];
+
+      return (
+        <>
+          {/* Navbar */}
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <div className="container">
+              <a className="navbar-brand fw-bold" href="#">
+                <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                SaaSify
+              </a>
+              
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                    <a className="nav-link active-nav-link" href="index.html">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="about.html">About</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="blog.html">Blog</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="features.html">Features</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="pricing.html">Pricing</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+                
+                <div className="d-flex align-items-center ms-lg-3">
+                  <button 
+                    className="btn btn-sm btn-outline-secondary me-2"
+                    onClick={toggleDarkMode}
+                  >
+                    <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i>
+                  </button>
+                  <button className="btn btn-primary rounded-pill">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {/* Hero Section */}
+          <section id="home" className="hero">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-lg-6">
+                  <h1 className="display-4 fw-bold mb-4">Build Faster With Our SaaS Platform</h1>
+                  <p className="lead mb-4">The complete solution for your business needs with 99.9% uptime</p>
+                  <div className="d-flex gap-3">
+                    <button className="btn btn-light btn-lg rounded-pill px-4">
+                      Start Free Trial
+                    </button>
+                    <button className="btn btn-outline-light btn-lg rounded-pill px-4">
+                      Watch Demo
+                    </button>
+                  </div>
+                </div>
+                <div className="col-lg-6 mt-5 mt-lg-0">
+                  <div className="splide splide-hero">
+                    <div className="splide__track">
+                      <ul className="splide__list">
+                        <li className="splide__slide">
+                          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dashboard" />
+                        </li>
+                        <li className="splide__slide">
+                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Analytics" />
+                        </li>
+                        <li className="splide__slide">
+                          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Team Collaboration" />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section id="features" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Powerful Features</h2>
+                <p className="text-muted">Everything you need to scale your business</p>
+              </div>
+              
+              <div className="row g-4">
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div className="feature-card p-4 shadow-sm">
+                    <div className="feature-icon">
+                      <i className="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p className="text-muted">
+                      Optimized for speed with 99.9% uptime and global CDN support.
+                    </p>
+                    <a href="#" className="text-primary text-decoration-none">
+                      Learn more <i className="fas fa-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <div className="feature-card p-4 shadow-sm">
+                    <div className="feature-icon">
+                      <i className="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p className="text-muted">
+                      SOC-2 compliant with end-to-end encryption and regular audits.
+                    </p>
+                    <a href="#" className="text-primary text-decoration-none">
+                      Learn more <i className="fas fa-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                  <div className="feature-card p-4 shadow-sm">
+                    <div className="feature-icon">
+                      <i className="fas fa-random"></i>
+                    </div>
+                    <h3>Seamless Integrations</h3>
+                    <p className="text-muted">
+                      Connect with 100+ tools like Slack, Salesforce, and QuickBooks.
+                    </p>
+                    <a href="#" className="text-primary text-decoration-none">
+                      Learn more <i className="fas fa-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Demo Section */}
+          <section id="demo" className="py-5">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                  <h2 className="display-5 fw-bold mb-4">See It In Action</h2>
+                  <p className="lead mb-4">Watch our 2-minute product tour to see how SaaSify can transform your workflow.</p>
+                  <ul className="list-unstyled">
+                    <li className="mb-3 d-flex">
+                      <i className="fas fa-check-circle text-primary me-3 mt-1"></i>
+                      <span>No credit card required</span>
+                    </li>
+                    <li className="mb-3 d-flex">
+                      <i className="fas fa-check-circle text-primary me-3 mt-1"></i>
+                      <span>Full feature walkthrough</span>
+                    </li>
+                    <li className="d-flex">
+                      <i className="fas fa-check-circle text-primary me-3 mt-1"></i>
+                      <span>Real customer dashboard examples</span>
+                    </li>
+                  </ul>
+                  <button className="btn btn-primary mt-4 px-4 py-2">
+                    Start Free Trial
+                  </button>
+                </div>
+                <div className="col-lg-6" data-aos="fade-left">
+                  <div className="demo-container position-relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                      alt="Product Demo" 
+                      className="img-fluid"
+                    />
+                    <div className="play-button" onClick={() => window.open('https://youtu.be/demo-link', '_blank')}>
+                      <i className="fas fa-play text-white fs-4"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Stats Section */}
+          <section id="stats" className="py-5" data-aos="fade-up">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-3 col-6 stat-item">
+                  <div className="stat-number" data-count="100000">0</div>
+                  <div className="stat-label">Active Users</div>
+                </div>
+                <div className="col-md-3 col-6 stat-item">
+                  <div className="stat-number" data-count="99.9">0</div>
+                  <div className="stat-label">Uptime %</div>
+                </div>
+                <div className="col-md-3 col-6 stat-item">
+                  <div className="stat-number" data-count="24">0</div>
+                  <div className="stat-label">Support Hours</div>
+                </div>
+                <div className="col-md-3 col-6 stat-item">
+                  <div className="stat-number" data-count="150">0</div>
+                  <div className="stat-label">Countries</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Comparison Section */}
+          <section id="comparison" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">How We Compare</h2>
+                <p className="text-muted">See why SaaSify outperforms the competition</p>
+              </div>
+              
+              <div className="table-responsive" data-aos="fade-up">
+                <table className="table comparison-table shadow-sm">
+                  <thead>
+                    <tr>
+                      <th style={{width: '30%'}}>Feature</th>
+                      <th className="text-center">SaaSify</th>
+                      <th className="text-center">Competitor A</th>
+                      <th className="text-center">Competitor B</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="feature-category">
+                      <td colSpan="4">Core Features</td>
+                    </tr>
+                    <tr>
+                      <td>Unlimited Projects</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Team Collaboration</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                    </tr>
+                    <tr>
+                      <td>API Access</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                    
+                    <tr className="feature-category">
+                      <td colSpan="4">Support</td>
+                    </tr>
+                    <tr>
+                      <td>24/7 Live Chat</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Dedicated Account Manager</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                    
+                    <tr className="feature-category">
+                      <td colSpan="4">Security</td>
+                    </tr>
+                    <tr>
+                      <td>SOC-2 Compliance</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                    <tr>
+                      <td>GDPR Ready</td>
+                      <td className="text-center"><i className="fas fa-check-circle check-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                      <td className="text-center"><i className="fas fa-times x-icon"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div className="text-center mt-5" data-aos="fade-up">
+                <button className="btn btn-outline-primary me-2">
+                  Download Full Comparison (PDF)
+                </button>
+                <button className="btn btn-primary">
+                  Start Free Trial
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing Section */}
+          <section id="pricing" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Simple, Transparent Pricing</h2>
+                <p className="text-muted">No hidden fees. Cancel anytime.</p>
+              </div>
+              
+              <div className="pricing-toggle d-flex align-items-center justify-content-center mb-5" data-aos="fade-up">
+                <span className={annualPricing ? "text-muted" : "fw-bold"}>Monthly</span>
+                <div 
+                  className="toggle-btn mx-3"
+                  onClick={togglePricing}
+                  style={{cursor: 'pointer'}}
+                >
+                  <div className={`toggle-switch ${annualPricing ? 'active' : ''}`}></div>
+                </div>
+                <span className={annualPricing ? "fw-bold" : "text-muted"}>Annual <small className="text-success">(Save 20%)</small></span>
+              </div>
+              
+              <div className="row g-4">
+                {pricingPlans.map((plan, index) => (
+                  <div className="col-md-4" key={index} data-aos="fade-up" data-aos-delay={(index + 1) * 100}>
+                    <div className={`pricing-card p-4 ${plan.popular ? 'popular' : ''}`}>
+                      {plan.popular && <div className="popular-badge">Most Popular</div>}
+                      <h3 className="mb-3">{plan.name}</h3>
+                      <h2 className="mb-4">
+                        <span className="display-4 fw-bold">${annualPricing ? plan.annual : plan.monthly}</span>
+                        <small className="text-muted fs-6">/{annualPricing ? 'year' : 'mo'}</small>
+                      </h2>
+                      <ul className="list-unstyled mb-4">
+                        {plan.features.map((feature, i) => (
+                          <li key={i} className="mb-2">
+                            <i className="fas fa-check-circle text-success me-2"></i>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <button className={`btn w-100 ${plan.popular ? 'btn-primary' : 'btn-outline-primary'}`}>
+                        Get Started
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Team Section */}
+          <section id="team" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Meet Our Team</h2>
+                <p className="text-muted">The brilliant minds behind our success</p>
+              </div>
+              
+              <div className="row g-4">
+                <div className="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                  <div className="team-card shadow-sm">
+                    <img src="assets/img/worker-1.jpeg" className="team-img" alt="Team Member"/>
+                    <div className="team-content">
+                      <h5 className="mb-1">Sarah Johnson</h5>
+                      <p className="text-muted mb-2">CEO & Founder</p>
+                      <div className="team-social">
+                        <a href="#" className="text-primary me-2"><i className="fab fa-linkedin"></i></a>
+                        <a href="#" className="text-primary me-2"><i className="fab fa-twitter"></i></a>
+                        <a href="#" className="text-primary"><i className="fas fa-envelope"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                  <div className="team-card shadow-sm">
+                    <img src="assets/img/worker-2.jpg" className="team-img" alt="Team Member"/>
+                    <div className="team-content">
+                      <h5 className="mb-1">Michael Chen</h5>
+                      <p className="text-muted mb-2">CTO</p>
+                      <div className="team-social">
+                        <a href="#" className="text-primary me-2"><i className="fab fa-linkedin"></i></a>
+                        <a href="#" className="text-primary me-2"><i className="fab fa-twitter"></i></a>
+                        <a href="#" className="text-primary"><i className="fas fa-envelope"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                  <div className="team-card shadow-sm">
+                    <img src="assets/img/worker-3.jpg" className="team-img" alt="Team Member"/>
+                    <div className="team-content">
+                      <h5 className="mb-1">Emma Williams</h5>
+                      <p className="text-muted mb-2">Head of Marketing</p>
+                      <div className="team-social">
+                        <a href="#" className="text-primary me-2"><i className="fab fa-linkedin"></i></a>
+                        <a href="#" className="text-primary me-2"><i className="fab fa-twitter"></i></a>
+                        <a href="#" className="text-primary"><i className="fas fa-envelope"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                  <div className="team-card shadow-sm">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" className="team-img" alt="Team Member"/>
+                    <div className="team-content">
+                      <h5 className="mb-1">David Kim</h5>
+                      <p className="text-muted mb-2">Lead Developer</p>
+                      <div className="team-social">
+                        <a href="#" className="text-primary me-2"><i className="fab fa-linkedin"></i></a>
+                        <a href="#" className="text-primary me-2"><i className="fab fa-twitter"></i></a>
+                        <a href="#" className="text-primary"><i className="fas fa-envelope"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Testimonials Section */}
+          <section id="testimonials" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Trusted by Thousands</h2>
+                <p className="text-muted">What our customers say about us</p>
+              </div>
+              
+              <div className="splide splide-testimonials" data-aos="fade-up">
+                <div className="splide__track">
+                  <div className="splide__list">
+                    {testimonials.map((testimonial, index) => (
+                      <div className="splide__slide" key={index}>
+                        <div className="testimonial-card">
+                          <div className="d-flex align-items-center mb-4">
+                            <img src={testimonial.image} alt={testimonial.name} className="testimonial-img me-3"/>
+                            <div>
+                              <h5 className="mb-0">{testimonial.name}</h5>
+                              <small className="text-muted">{testimonial.role}</small>
+                            </div>
+                          </div>
+                          <div className="rating">
+                            {[...Array(5)].map((_, i) => (
+                              <i 
+                                key={i} 
+                                className={`fas fa-star${i < testimonial.rating ? '' : '-half-alt'}`}
+                              ></i>
+                            ))}
+                          </div>
+                          <p className="mb-0">"{testimonial.quote}"</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section id="faq" className="py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                  <h2 className="display-5 fw-bold mb-4">Frequently Asked Questions</h2>
+                  <p className="lead">Can't find what you're looking for? <a href="#contact" className="text-primary">Contact our team</a></p>
+                </div>
+                <div className="col-lg-7" data-aos="fade-left">
+                  <div className="accordion" id="faqAccordion">
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                          How do I get started with your platform?
+                        </button>
+                      </h3>
+                      <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Getting started is simple! Just sign up for a free account, complete the onboarding wizard, and you'll be ready to go in under 5 minutes. We also offer personalized onboarding sessions if you need extra help.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                          What payment methods do you accept?
+                        </button>
+                      </h3>
+                      <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for annual contracts. All payments are processed securely through our PCI-compliant payment processor.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                          Can I cancel my subscription anytime?
+                        </button>
+                      </h3>
+                      <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Yes! You can cancel your monthly subscription at any time with no cancellation fees. For annual plans, you'll receive a prorated refund for the unused portion of your subscription.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                          Do you offer enterprise solutions?
+                        </button>
+                      </h3>
+                      <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Absolutely! Our enterprise plan includes custom SLAs, dedicated support, on-premise deployment options, and custom feature development. Contact our sales team for a tailored solution.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                  <h2 className="display-5 fw-bold mb-4">Get In Touch</h2>
+                  <p className="lead mb-4">Have questions? Our team is here to help.</p>
+                  <div className="d-flex align-items-center mb-3">
+                    <i className="fas fa-map-marker-alt text-primary me-3 fs-4"></i>
+                    <p className="mb-0">123 Business Ave, Suite 456, San Francisco</p>
+                  </div>
+                  <div className="d-flex align-items-center mb-3">
+                    <i className="fas fa-phone-alt text-primary me-3 fs-4"></i>
+                    <p className="mb-0">+1 (555) 123-4567</p>
+                  </div>
+                  <div className="d-flex align-items-center mb-4">
+                    <i className="fas fa-envelope text-primary me-3 fs-4"></i>
+                    <p className="mb-0">support@saasify.com</p>
+                  </div>
+                  <div className="social-icons">
+                    <a href="#" className="text-decoration-none me-3">
+                      <i className="fab fa-facebook-f fs-4"></i>
+                    </a>
+                    <a href="#" className="text-decoration-none me-3">
+                      <i className="fab fa-twitter fs-4"></i>
+                    </a>
+                    <a href="#" className="text-decoration-none me-3">
+                      <i className="fab fa-linkedin-in fs-4"></i>
+                    </a>
+                    <a href="#" className="text-decoration-none">
+                      <i className="fab fa-instagram fs-4"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-6" data-aos="fade-left">
+                  <div className="contact-form">
+                    <h3 className="mb-4">Send Us a Message</h3>
+                    <form noValidate>
+                      <div className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Your Name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                        />
+                        <div className="invalid-feedback">
+                          Please enter your name
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="Email Address"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                        />
+                        <div className="invalid-feedback">
+                          Please enter a valid email
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <textarea
+                          className="form-control"
+                          rows="5"
+                          placeholder="Your Message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          required
+                        ></textarea>
+                        <div className="invalid-feedback">
+                          Please enter your message
+                        </div>
+                      </div>
+                      <button type="submit" className="btn btn-primary w-100 py-2">
+                        Send Message
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Integration partners Section */}
+          <section id="integrations" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Integration Partners</h2>
+                <p className="text-muted">Works seamlessly with your favorite tools</p>
+              </div>
+              
+              <div className="row align-items-center justify-content-center g-4">
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="100">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Slack_Technologies_Logo.svg" className="img-fluid integration-logo" alt="Slack"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="200">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" className="img-fluid integration-logo" alt="Azure"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="300">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" className="img-fluid integration-logo" alt="AWS"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="400">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Google_Drive_logo_%282020%29.svg" className="img-fluid integration-logo" alt="Google Drive"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="500">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Salesforce_logo.svg" className="img-fluid integration-logo" alt="Salesforce"/>
+                </div>
+              </div>
+              
+              <div className="text-center mt-5" data-aos="fade-up">
+                <button className="btn btn-outline-primary">
+                  View All 100+ Integrations <i className="fas fa-arrow-right ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Success Stories Section */}
+          <section id="success-stories" className="py-5 bg-light">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Success Stories</h2>
+                <p className="text-muted">See how we've helped businesses like yours</p>
+              </div>
+
+              <div className="row g-4">
+                {/* Case Study 1 */}
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div className="card h-100 border-0 shadow-sm overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                      className="card-img-top" 
+                      alt="Tech startup office"
+                      style={{height: '200px', objectFit: 'cover'}}
+                    />
+                    <div className="card-body">
+                      <div className="badge bg-primary mb-2">Technology</div>
+                      <h3 className="h5">Startup Scales 300%</h3>
+                      <p className="text-muted">
+                        How SaaSify helped a tech startup streamline operations and triple their revenue.
+                      </p>
+                      <div className="d-flex align-items-center">
+                        <img 
+                          src="https://randomuser.me/api/portraits/men/32.jpg" 
+                          alt="Client" 
+                          className="rounded-circle me-2" 
+                          width="40"
+                        />
+                        <div>
+                          <p className="mb-0 fw-bold">Michael Chen</p>
+                          <small className="text-muted">CEO, TechNova</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-footer bg-transparent border-0">
+                      <a href="#" className="btn btn-sm btn-outline-primary">
+                        Read Case Study <i className="fas fa-arrow-right ms-1"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Case Study 2 */}
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <div className="card h-100 border-0 shadow-sm overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                      className="card-img-top" 
+                      alt="E-commerce warehouse"
+                      style={{height: '200px', objectFit: 'cover'}}
+                    />
+                    <div className="card-body">
+                      <div className="badge bg-success mb-2">E-Commerce</div>
+                      <h3 className="h5">Inventory System Overhaul</h3>
+                      <p className="text-muted">
+                        Reducing operational costs by 45% for an online retailer through automation.
+                      </p>
+                      <div className="d-flex align-items-center">
+                        <img 
+                          src="https://randomuser.me/api/portraits/women/44.jpg" 
+                          alt="Client" 
+                          className="rounded-circle me-2" 
+                          width="40"
+                        />
+                        <div>
+                          <p className="mb-0 fw-bold">Sarah Johnson</p>
+                          <small className="text-muted">COO, ShopGlobal</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-footer bg-transparent border-0">
+                      <a href="#" className="btn btn-sm btn-outline-primary">
+                        Read Case Study <i className="fas fa-arrow-right ms-1"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Case Study 3 */}
+                <div className="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                  <div className="card h-100 border-0 shadow-sm overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                      className="card-img-top" 
+                      alt="Marketing team"
+                      style={{height: '200px', objectFit: 'cover'}}
+                    />
+                    <div className="card-body">
+                      <div className="badge bg-warning mb-2">Marketing</div>
+                      <h3 className="h5">Campaign Performance Boost</h3>
+                      <p className="text-muted">
+                        210% increase in lead generation for a digital marketing agency.
+                      </p>
+                      <div className="d-flex align-items-center">
+                        <img 
+                          src="https://randomuser.me/api/portraits/men/75.jpg" 
+                          alt="Client" 
+                          className="rounded-circle me-2" 
+                          width="40"
+                        />
+                        <div>
+                          <p className="mb-0 fw-bold">David Wilson</p>
+                          <small className="text-muted">CMO, AdVantage</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="card-footer bg-transparent border-0">
+                      <a href="#" className="btn btn-sm btn-outline-primary">
+                        Read Case Study <i className="fas fa-arrow-right ms-1"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-5" data-aos="fade-up">
+                <a href="#" className="btn btn-primary px-4">
+                  View All Case Studies <i className="fas fa-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-dark text-white py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-4 mb-4 mb-lg-0">
+                  <h5 className="mb-3">
+                    <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                    SaaSify
+                  </h5>
+                  <p>The complete SaaS solution for modern businesses.</p>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Product</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Features</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Pricing</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">API</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Company</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">About</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Careers</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Contact</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="mb-3">Legal</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Privacy</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Terms</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">GDPR</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2">
+                  <h5 className="mb-3">Follow Us</h5>
+                  <div className="social-icons">
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" className="text-white">
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr className="my-4"/>
+              <div className="text-center">
+                <p className="mb-0">&copy; {new Date().getFullYear()} SaaSify. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
+        </>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dropdown.js"></script>
+</body>
+</html>

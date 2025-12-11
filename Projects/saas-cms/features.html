@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features | SaaSify</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Splide Slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  
+  <!-- Custom Css -->
+   <link rel="stylesheet" href="assets/css/main.css">
+   <link rel="stylesheet" href="assets/css/features.css">
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+  <!-- Splide Slider -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+  <script type="text/babel">
+    const Navbar = ({ darkMode, toggleDarkMode }) => {
+      const [scrolled, setScrolled] = React.useState(false);
+
+      React.useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      return (
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <div className="container">
+              <a className="navbar-brand fw-bold" href="#">
+                <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                SaaSify
+              </a>
+              
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="about.html">About</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="blog.html">Blog</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link active-nav-link" href="features.html">Features</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="pricing.html">Pricing</a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+                
+                <div className="d-flex align-items-center ms-lg-3">
+                  <button 
+                    className="btn btn-sm btn-outline-secondary me-2"
+                    onClick={toggleDarkMode}
+                  >
+                    <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i>
+                  </button>
+                  <button className="btn btn-primary rounded-pill">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+      );
+    };
+
+    const FeaturesPage = () => {
+      const [darkMode, setDarkMode] = React.useState(false);
+      
+      const features = [
+        {
+          id: 1,
+          title: "Real-Time Analytics",
+          description: "Monitor key metrics with live updating dashboards and customizable reports",
+          icon: "fa-chart-line",
+          category: "analytics"
+        },
+        {
+          id: 2,
+          title: "Workflow Automation",
+          description: "Create custom automation rules with our no-code builder",
+          icon: "fa-robot",
+          category: "automation"
+        },
+        {
+          id: 3,
+          title: "Team Collaboration",
+          description: "Real-time chat, task comments, and @mentions",
+          icon: "fa-users",
+          category: "collaboration"
+        },
+        {
+          id: 4,
+          title: "Advanced Security",
+          description: "SSO, 2FA, and role-based access controls",
+          icon: "fa-shield-alt",
+          category: "security"
+        },
+        {
+          id: 5,
+          title: "Custom Reporting",
+          description: "Schedule automated PDF/Excel reports",
+          icon: "fa-file-alt",
+          category: "analytics"
+        },
+        {
+          id: 6,
+          title: "API Access",
+          description: "Full REST API with webhook support",
+          icon: "fa-code",
+          category: "automation"
+        }
+      ];
+
+      const testimonials = [
+        {
+          name: "Sarah Johnson",
+          role: "CTO at TechCorp",
+          image: "https://randomuser.me/api/portraits/women/44.jpg",
+          rating: 5,
+          quote: "The automation features saved us 20+ hours per week. Our team can now focus on strategic work."
+        },
+        {
+          name: "Michael Chen",
+          role: "Product Manager",
+          image: "https://randomuser.me/api/portraits/men/32.jpg",
+          rating: 5,
+          quote: "Implementation took just 2 days. The analytics dashboards transformed how we make decisions."
+        },
+        {
+          name: "Emma Williams",
+          role: "Marketing Director",
+          image: "https://randomuser.me/api/portraits/women/63.jpg",
+          rating: 4,
+          quote: "Our campaign tracking became 3x more efficient with their custom reporting tools."
+        }
+      ];
+
+      React.useEffect(() => {
+        // Initialize animations
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+
+        // Initialize testimonial slider
+        new Splide('.splide', {
+          type: 'loop',
+          perPage: 3,
+          gap: '30px',
+          pagination: false,
+          breakpoints: {
+            992: { perPage: 2 },
+            768: { perPage: 1 }
+          }
+        }).mount();
+
+        // Set dark mode class
+        document.body.classList.toggle('dark-mode', darkMode);
+      }, [darkMode]);
+
+      return (
+        <>
+          <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
+          
+          {/* Hero Section */}
+          <section className="features-hero">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-lg-6" data-aos="fade-right">
+                  <h1 className="display-3 fw-bold mb-4">Powerful Features</h1>
+                  <p className="lead mb-5">Everything you need to streamline operations and drive growth</p>
+                  <div className="d-flex gap-3 mb-4">
+                    <button className="btn btn-light rounded-pill px-4">
+                      <i className="fas fa-play-circle me-2"></i> Watch Demo
+                    </button>
+                    <button className="btn btn-outline-light rounded-pill px-4">
+                      <i className="fas fa-file-alt me-2"></i> Download PDF
+                    </button>
+                  </div>
+                </div>
+                <div className="col-lg-6" data-aos="fade-left">
+                  <div className="feature-preview">
+                    <img 
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                      className="img-fluid h-100 w-100 object-fit-cover" 
+                      alt="Feature Preview" 
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Feature Grid Section */}
+          <section id="feature-grid">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Everything You Need to Succeed</h2>
+                <p className="text-muted">Explore our comprehensive feature set</p>
+              </div>
+              
+              <div className="row g-4">
+                {features.map((feature) => (
+                  <div className="col-md-6 col-lg-4" key={feature.id} data-aos="fade-up">
+                    <div className="feature-card">
+                      <div className="feature-icon">
+                        <i className={`fas ${feature.icon}`}></i>
+                      </div>
+                      <h3 className="h4 mb-3">{feature.title}</h3>
+                      <p className="text-muted mb-0">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/*Use cases section*/}
+          <section id="use-cases">
+            <div class="usecases-container">
+              <div class="usecases-header" data-aos="fade-up">
+                <h2>Use Cases</h2>
+                <p>See how different teams benefit from SaaSify</p>
+              </div>
+              
+              <div class="usecases-grid">
+                <div class="usecase-card" data-aos="fade-up">
+                  <h3>Marketing Teams</h3>
+                  <p>Track campaigns, analyze engagement, and collaborate on content with ease.</p>
+                </div>
+                <div class="usecase-card" data-aos="fade-up" data-aos-delay="100">
+                  <h3>Product Managers</h3>
+                  <p>Plan roadmaps, capture feedback, and automate product updates.</p>
+                </div>
+                <div class="usecase-card" data-aos="fade-up" data-aos-delay="200">
+                  <h3>Sales Teams</h3>
+                  <p>Get real-time deal insights, streamline CRM workflows, and boost conversions.</p>
+                </div>
+                <div class="usecase-card" data-aos="fade-up" data-aos-delay="300">
+                  <h3>Customer Support</h3>
+                  <p>Automate ticket routing, integrate with knowledge base, and improve satisfaction.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Testimonials Section */}
+          <section id="testimonials">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Trusted by Industry Leaders</h2>
+                <p className="text-muted">What our customers say about us</p>
+              </div>
+              
+              <div className="splide" data-aos="fade-up">
+                <div className="splide__track">
+                  <div className="splide__list">
+                    {testimonials.map((testimonial, index) => (
+                      <div className="splide__slide" key={index}>
+                        <div className="testimonial-card">
+                          <div className="d-flex align-items-center mb-4">
+                            <img src={testimonial.image} alt={testimonial.name} className="testimonial-img me-3"/>
+                            <div>
+                              <h5 className="mb-0">{testimonial.name}</h5>
+                              <small className="text-muted">{testimonial.role}</small>
+                            </div>
+                          </div>
+                          <div className="rating">
+                            {[...Array(5)].map((_, i) => (
+                              <i key={i} className={`fas fa-star${i < testimonial.rating ? '' : '-half-alt'}`}></i>
+                            ))}
+                          </div>
+                          <p className="mb-0">"{testimonial.quote}"</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+          {/* Integration partners Section */}
+          <section id="integrations" className="py-5">
+            <div className="container">
+              <div className="text-center mb-5" data-aos="fade-up">
+                <h2 className="display-5 fw-bold">Integration Partners</h2>
+                <p className="text-muted">Works seamlessly with your favorite tools</p>
+              </div>
+              
+              <div className="row align-items-center justify-content-center g-4">
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="100">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Slack_Technologies_Logo.svg" className="img-fluid integration-logo" alt="Slack"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="200">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" className="img-fluid integration-logo" alt="Azure"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="300">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" className="img-fluid integration-logo" alt="AWS"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="400">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Google_Drive_logo_%282020%29.svg" className="img-fluid integration-logo" alt="Google Drive"/>
+                </div>
+                <div className="col-6 col-md-2" data-aos="fade-up" data-aos-delay="500">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Salesforce_logo.svg" className="img-fluid integration-logo" alt="Salesforce"/>
+                </div>
+              </div>
+              
+              <div className="text-center mt-5" data-aos="fade-up">
+                <button className="btn btn-outline-primary">
+                  View All 100+ Integrations <i className="fas fa-arrow-right ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section id="faq" className="py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                  <h2 className="display-5 fw-bold mb-4">Frequently Asked Questions</h2>
+                  <p className="lead">Can't find what you're looking for? <a href="#contact" className="text-primary">Contact our team</a></p>
+                </div>
+                <div className="col-lg-7" data-aos="fade-left">
+                  <div className="accordion" id="faqAccordion">
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                          How do I get started with your platform?
+                        </button>
+                      </h3>
+                      <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Getting started is simple! Just sign up for a free account, complete the onboarding wizard, and you'll be ready to go in under 5 minutes. We also offer personalized onboarding sessions if you need extra help.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                          What payment methods do you accept?
+                        </button>
+                      </h3>
+                      <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for annual contracts. All payments are processed securely through our PCI-compliant payment processor.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                          Can I cancel my subscription anytime?
+                        </button>
+                      </h3>
+                      <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Yes! You can cancel your monthly subscription at any time with no cancellation fees. For annual plans, you'll receive a prorated refund for the unused portion of your subscription.
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="accordion-item mb-3 border-0 shadow-sm">
+                      <h3 className="accordion-header">
+                        <button className="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                          Do you offer enterprise solutions?
+                        </button>
+                      </h3>
+                      <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div className="accordion-body">
+                          Absolutely! Our enterprise plan includes custom SLAs, dedicated support, on-premise deployment options, and custom feature development. Contact our sales team for a tailored solution.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-dark text-white py-5">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-4 mb-4 mb-lg-0">
+                  <h5 className="mb-3">
+                    <i className="fas fa-rocket me-2" style={{color: 'var(--primary)'}}></i>
+                    SaaSify
+                  </h5>
+                  <p>The complete SaaS solution for modern businesses.</p>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Product</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Features</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Pricing</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">API</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+                  <h5 className="mb-3">Company</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">About</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Careers</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Contact</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2 col-md-4">
+                  <h5 className="mb-3">Legal</h5>
+                  <ul className="list-unstyled">
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Privacy</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">Terms</a></li>
+                    <li className="mb-2"><a href="#" className="text-white text-decoration-none">GDPR</a></li>
+                  </ul>
+                </div>
+                <div className="col-lg-2">
+                  <h5 className="mb-3">Follow Us</h5>
+                  <div className="social-icons">
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" className="text-white me-2">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" className="text-white">
+                      <i className="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr className="my-4"/>
+              <div className="text-center">
+                <p className="mb-0">&copy; {new Date().getFullYear()} SaaSify. All rights reserved.</p>
+              </div>
+            </div>
+          </footer>
+
+        </>
+      );
+    };
+
+    ReactDOM.render(<FeaturesPage />, document.getElementById('root'));
+  </script>
+</body>
+</html>
