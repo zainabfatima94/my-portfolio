@@ -1,0 +1,1024 @@
+﻿<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHMCS</title>
+  
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="home">
+	<nav>
+		<a href="home.html" class="logo" id="logo">
+			<img src="images/logo-white.png" alt="Logo">
+		</a>
+
+		<div class="nav-list" id="nav-list">
+			<ul class="nav-links" id="nav-links">
+				<li class="close nav-close">
+					<span class="fas fa-times"></span>
+				</li>
+				<li>
+					<a href="home.html">
+						<i class="fas fa-home"></i> Home
+					</a>
+				</li>
+				<li class="with-dropdown-one">
+					<a href="domains.html">
+						<i class="fas fa-cogs"></i> Domains
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="domains.html"><li>Search Domain</li></a>
+						<a href="domain-transfer.html"><li>Transfer Domain</li></a>
+						<a href="hosting-plans.html"><li>Pricing</li></a>
+					</ul>
+				</li>
+				<li class="with-dropdown-two">
+					<a href="hosting.html">
+						<i class="fas fa-server"></i> Hosting
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="shared-hosting.html"><li>Shared Hosting</li></a>
+						<a href="vps-hosting.html"><li>VPS Hosting</li></a>
+						<a href="hosting.html"><li>Dedicated Hosting</li></a>
+						<a href="certificates.html"><li>SSL Certificates</li></a>
+					</ul>
+				</li>
+				<li class="with-dropdown-three">
+					<a href="home.html">
+						<i class="fas fa-laptop-code"></i> Website & Marketing
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="web-development.html"><li>Web Development</li></a>
+						<a href="seo.html"><li>SEO</li></a>
+						<a href="smo.html"><li>SMO</li></a>
+						<a href="brochure-design.html"><li>Brochure Design</li></a>
+					</ul>
+				</li>
+				<li>
+					<a href="home.html">
+						<i class="fas fa-tag"></i> Pricing
+					</a>
+				</li>
+				<li class="with-dropdown-four">
+					<a href="support.html">
+						<i class="fas fa-headset"></i> Support
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="knowledge.html"><li>Knowledge Base</li></a>
+						<a href="faqs.html"><li>FAQs</li></a>
+						<a href="support-ticket.html"><li>Contact / Ticket</li></a>
+					</ul>
+				</li>
+				<li>
+					<a href="client-login.html"><button class="login">Log In</button></a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="nav-toggle">
+			<span class="fas fa-bars"></span>
+		</div>
+	</nav>
+	
+	<!--=============== Hero Section Start ===============-->
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Everything you need to create a website</h1>
+			<p class="subtitle">Up to 72% off hosting + website builder</p>
+			<ul class="features-list">
+				<li><i class="fas fa-check"></i> Free domain</li>
+				<li><i class="fas fa-check"></i> Free website migration</li>
+				<li><i class="fas fa-check"></i> 24/7 customer support</li>
+			</ul>
+			<div class="price-tag">
+				<p>Rs. <span>559</span>/mo</p>
+				<p class="highlight">+3 months free</p>
+			</div>
+			<div class="cta-timer">
+				<button class="cta-btn">Claim deal</button>
+				<div class="timer">
+					<span id="hours">21</span>:
+					<span id="minutes">24</span>:
+					<span id="seconds">34</span>
+				</div>
+			</div>
+		</div>
+		<div class="hero-image">
+			<img src="images/illustration-hero.png" alt="website creation">
+		</div>
+	</section>
+	<!--=============== Hero Section End ===============-->
+
+	<!--=============== Domain Section Start ===============-->
+	<section class="domain-search-section">
+		<div class="domain-search-container">
+			<div class="search-header">
+				<h2>Find Your Perfect Domain</h2>
+				<p>Search for your ideal domain name and check availability instantly</p>
+			</div>
+			
+			<div class="search-form-container">
+				<form class="search-form" id="domainSearchForm">
+					<div class="domain-input-container">
+						<input 
+							type="text" 
+							class="domain-input" 
+							id="domainInput"
+							placeholder="Search your domain (e.g. yourbrand.com)"
+							autocomplete="off"
+							required
+						>
+					</div>
+					
+					<div class="tld-select-container">
+						<select class="tld-select" id="tldSelect">
+							<option value=".com">.com</option>
+							<option value=".net">.net</option>
+							<option value=".org">.org</option>
+							<option value=".io">.io</option>
+							<option value=".co">.co</option>
+							<option value=".tech">.tech</option>
+							<option value=".store">.store</option>
+							<option value=".online">.online</option>
+							<option value=".pk">.pk</option>
+						</select>
+						<div class="select-arrow">
+							<i class="fas fa-chevron-down"></i>
+						</div>
+					</div>
+					
+					<button type="submit" class="search-button">
+						<i class="fas fa-search"></i> Search
+					</button>
+				</form>
+				
+				<div class="popular-tlds">
+					<div class="tld-badge" data-tld=".com">
+						.com <span class="price">$9.99</span>
+					</div>
+					<div class="tld-badge" data-tld=".net">
+						.net <span class="price">$12.99</span>
+					</div>
+					<div class="tld-badge" data-tld=".org">
+						.org <span class="price">$10.99</span>
+					</div>
+					<div class="tld-badge" data-tld=".io">
+						.io <span class="price">$29.99</span>
+					</div>
+					<div class="tld-badge" data-tld=".co">
+						.co <span class="price">$19.99</span>
+					</div>
+				</div>
+				
+				<div class="quick-pricing">
+					<h3 class="pricing-title">Popular Domain Extensions</h3>
+					<div class="pricing-grid">
+						<div class="pricing-card">
+							<div class="pricing-tld">.com</div>
+							<div class="pricing-amount">$9.99</div>
+							<div class="pricing-period">first year</div>
+							<button class="pricing-button">Register</button>
+						</div>
+						<div class="pricing-card">
+							<div class="pricing-tld">.net</div>
+							<div class="pricing-amount">$12.99</div>
+							<div class="pricing-period">first year</div>
+							<button class="pricing-button">Register</button>
+						</div>
+						<div class="pricing-card">
+							<div class="pricing-tld">.org</div>
+							<div class="pricing-amount">$10.99</div>
+							<div class="pricing-period">first year</div>
+							<button class="pricing-button">Register</button>
+						</div>
+						<div class="pricing-card">
+							<div class="pricing-tld">.io</div>
+							<div class="pricing-amount">$29.99</div>
+							<div class="pricing-period">first year</div>
+							<button class="pricing-button">Register</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="loader" id="loader">
+				<div class="loader-spinner"></div>
+				<p>Searching for domains...</p>
+			</div>
+			
+			<div class="results-container" id="resultsContainer">
+				<div class="results-header">
+					<h3 class="results-title">Available Domains</h3>
+					<div class="results-count" id="resultsCount">3 results found</div>
+				</div>
+				
+				<div class="results-grid" id="resultsGrid">
+					<!-- Results will be inserted here by JavaScript -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--=============== Domain Section End ===============-->
+
+	<!--=============== Services Section Start ===============-->
+	<section class="services-section d-bg-section">
+		<div class="service-head">
+			<h2>Complete Digital Solutions</h2>
+			<p>Domains, Hosting, SEO, and More — All in One Place.</p>
+		</div>
+		<div class="service-content">
+			<div class="service-mini-container">
+				<img src="images/services-graphic-1.png">
+				<h2>Web Hosting</h2>
+				<p>Reliable, fast, scalable hosting for every need.</p>
+			</div>
+			<div class="service-mini-container">
+				<img src="images/services-graphic-2.png">
+				<h2>Domain Registration</h2>
+				<p>Get your perfect domain name today.</p>
+			</div>
+			<div class="service-mini-container">
+				<img src="images/services-graphic-3.png">
+				<h2>Website Development</h2>
+				<p>Stunning, responsive websites made for growth.</p>
+			</div>
+			<div class="service-mini-container">
+				<img src="images/services-graphic-4.png">
+				<h2>SEO & SMO Services</h2>
+				<p>Rank higher. Get found. Grow faster.</p>
+			</div>
+			<div class="service-mini-container">
+				<img src="images/services-graphic-5.png">
+				<h2>Custom Social Media Designs</h2>
+				<p>Boost your brand visually.</p>
+			</div>
+			<div class="service-mini-container">
+				<img src="images/services-graphic-6.png">
+				<h2>SSL & Security</h2>
+				<p>Lock your site and build trust instantly.</p>
+			</div>
+		</div>
+		<div class="service-cta">
+			<button>View All Services</button>
+		</div>
+	</section>
+	<!--=============== Services Section End ===============-->
+
+	<!--=============== Why-choose-us Section Start ===============-->
+	<section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-header">
+                <h2>Why Choose Our Hosting Services</h2>
+                <p>We're committed to providing the best web hosting experience with industry-leading features and unmatched support.</p>
+            </div>
+            
+            <div class="trust-features">
+                <div class="trust-feature animate" style="animation-delay: 0.1s">
+                    <i class="fas fa-server"></i>
+                    <h3>99.9% Uptime Guarantee</h3>
+                    <p>Our robust infrastructure ensures your website stays online with our industry-leading uptime guarantee.</p>
+                </div>
+                
+                <div class="trust-feature animate" style="animation-delay: 0.2s">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Live Support</h3>
+                    <p>Our expert support team is available round the clock to assist you with any issues or questions.</p>
+                </div>
+                
+                <div class="trust-feature animate" style="animation-delay: 0.3s">
+                    <i class="fas fa-cogs"></i>
+                    <h3>WHMCS-Powered Client Area</h3>
+                    <p>Manage your hosting with our professional client area featuring billing, support, and service management.</p>
+                </div>
+                
+                <div class="trust-feature animate" style="animation-delay: 0.4s">
+                    <i class="fas fa-rocket"></i>
+                    <h3>One-Click Installers</h3>
+                    <p>Install popular applications like WordPress, Joomla, and more with just one click.</p>
+                </div>
+                
+                <div class="trust-feature animate" style="animation-delay: 0.5s">
+                    <i class="fas fa-lock"></i>
+                    <h3>Free SSL with all Plans</h3>
+                    <p>Every hosting plan includes free SSL certificates to keep your site secure and boost SEO.</p>
+                </div>
+                
+                <div class="trust-feature animate" style="animation-delay: 0.6s">
+                    <i class="fas fa-arrow-up"></i>
+                    <h3>Easy Upgrade Anytime</h3>
+                    <p>Scale your hosting resources seamlessly as your website grows without any downtime.</p>
+                </div>
+            </div>
+            
+            <div class="trust-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="customers-count">0</div>
+                    <div class="stat-label">Satisfied Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="uptime-percent">0</div>
+                    <div class="stat-label">Uptime Percentage</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="support-response">0</div>
+                    <div class="stat-label">Min Support Response</div>
+                </div>
+            </div>
+            
+            <div class="trust-partners">
+                <h3>Trusted by industry leaders</h3>
+                <div class="partner-logos">
+                    <img src="images/c-panel.png" alt="cPanel" class="partner-logo">
+                    <img src="images/whmcs-logo.png" alt="WHMCS" class="partner-logo">
+                    <img src="images/Sitelock-logo.jpg" alt="SiteLock" class="partner-logo">
+                    <img src="images/lets-encrypt-logo.png" alt="Let's Encrypt" class="partner-logo">
+                    <img src="images/cloudfare-logo.jpg" alt="Cloudflare" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+	<!--=============== Why-choose-us Section End ===============-->
+
+	<!--=============== Plans Section Start ===============-->
+	<section class="plans-section monthly-plans-section">
+		<h2>Top Selling Plans</h2>
+
+		<div class="plans-container hosting-plans">
+		  <!-- Plan 1 -->
+		  <div class="plan-card">
+			<div class="plan-header">
+			  <h3>Premium</h3>
+			  <p>Everything you need to create your website.</p>
+			</div>
+			<div class="plan-price">
+			  <span class="old-price">US$ 11.99</span>
+			  <span class="discount-badge">SAVE 75%</span>
+			  <h4>US$ 2.99<span>/mo</span></h4>
+			  <p>For 48-month term</p>
+			  <small>+2 months free</small>
+			</div>
+			<button class="choose-plan">Choose Plan</button>
+			<ul class="features">
+			  <li><i class="fa-solid fa-check"></i> 25 websites</li>
+			  <li><i class="fa-solid fa-check"></i> Managed hosting for WordPress</li>
+			  <li><i class="fa-solid fa-check"></i> 25 GB SSD storage</li>
+			  <li><i class="fa-solid fa-check"></i> RoboHost Website Builder</li>
+			  <li><i class="fa-solid fa-check"></i> Free domain (US$ 9.99 value)</li>
+			  <li><i class="fa-solid fa-check"></i> Free automatic website migration</li>
+			  <li><i class="fa-solid fa-check"></i> 50 mailboxes - free for 1 year</li>
+			  <li><i class="fa-solid fa-check"></i> Unlimited free SSL</li>
+			  <li><i class="fa-solid fa-check"></i> Weekly backups</li>
+			  <li><i class="fa-solid fa-check"></i> Starter WooCommerce</li>
+			</ul>
+			<a href="#" class="see-features">See all features</a>
+		  </div>
+	  
+		  <!-- Plan 2 (Most Popular) -->
+		  <div class="plan-card popular">
+			<div class="most-popular">Most Popular</div>
+			<div class="plan-header">
+			  <h3>Business</h3>
+			  <p>Level up with more power and enhanced features.</p>
+			</div>
+			<div class="plan-price">
+			  <span class="old-price">US$ 12.99</span>
+			  <span class="discount-badge">SAVE 66%</span>
+			  <h4>US$ 4.49<span>/mo</span></h4>
+			  <p>For 48-month term</p>
+			  <small>+2 months free</small>
+			</div>
+			<button class="choose-plan">Choose Plan</button>
+			<ul class="features">
+			  <li><i class="fa-solid fa-check"></i> 50 websites</li>
+			  <li><i class="fa-solid fa-check"></i> Managed hosting for WordPress</li>
+			  <li><i class="fa-solid fa-check"></i> 50 GB NVMe storage</li>
+			  <li><i class="fa-solid fa-check"></i> Hostinger Website Builder</li>
+			  <li><i class="fa-solid fa-check"></i> Free domain (US$ 9.99 value)</li>
+			  <li><i class="fa-solid fa-check"></i> Free automatic website migration</li>
+			  <li><i class="fa-solid fa-check"></i> 100 mailboxes - free for 1 year</li>
+			  <li><i class="fa-solid fa-check"></i> Unlimited free SSL</li>
+			  <li><i class="fa-solid fa-check"></i> Daily backups (US$ 25.00 value)</li>
+			  <li><i class="fa-solid fa-check"></i> Basic WooCommerce</li>
+			</ul>
+			<a href="#" class="see-features">See all features</a>
+		  </div>
+	  
+		  <!-- Plan 3 -->
+		  <div class="plan-card">
+			<div class="plan-header">
+			  <h3>Cloud Startup</h3>
+			  <p>Enjoy optimized performance & powerful resources.</p>
+			</div>
+			<div class="plan-price">
+			  <span class="old-price">US$ 27.99</span>
+			  <span class="discount-badge">SAVE 71%</span>
+			  <h4>US$ 7.99<span>/mo</span></h4>
+			  <p>For 48-month term</p>
+			  <small>+2 months free</small>
+			</div>
+			<button class="choose-plan">Choose Plan</button>
+			<ul class="features">
+			  <li><i class="fa-solid fa-check"></i> 100 websites</li>
+			  <li><i class="fa-solid fa-check"></i> Managed hosting for WordPress</li>
+			  <li><i class="fa-solid fa-check"></i> 100 GB NVMe storage</li>
+			  <li><i class="fa-solid fa-check"></i> RoboHost Website Builder</li>
+			  <li><i class="fa-solid fa-check"></i> Free domain (US$ 9.99 value)</li>
+			  <li><i class="fa-solid fa-check"></i> Free automatic website migration</li>
+			  <li><i class="fa-solid fa-check"></i> 100 mailboxes - free for 1 year</li>
+			  <li><i class="fa-solid fa-check"></i> Unlimited free SSL</li>
+			  <li><i class="fa-solid fa-check"></i> Daily backups (US$ 25.00 value)</li>
+			  <li><i class="fa-solid fa-check"></i> Standard WooCommerce</li>
+			</ul>
+			<a href="#" class="see-features">See all features</a>
+		  </div>
+		</div>
+	</section>
+	<!--=============== Plans Section End ===============-->
+
+	<!--=============== Portfolio Section Start ===============-->
+	<section class="portfolio-projects-section-container">
+		<section class="portfolio-section">
+			<div class="section-header">
+				<h2>Real Results That Speak for Themselves</h2>
+				<p>Explore our portfolio of successful projects and see how we've helped businesses like yours achieve remarkable growth and transformation.</p>
+			</div>
+	
+			<div class="portfolio-grid">
+				<!-- Portfolio Item 1 -->
+				<div class="portfolio-item" onclick="openModal('project1')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-commerce Website Redesign">
+						<span class="portfolio-badge">SEO Results</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>E-commerce Website Redesign</h3>
+						<p>Complete website overhaul with SEO optimization for a fashion retailer.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">+320%</div>
+								<div class="stat-label">Organic Traffic</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">+175%</div>
+								<div class="stat-label">Conversions</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Portfolio Item 2 -->
+				<div class="portfolio-item" onclick="openModal('project2')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Social Media Campaign">
+						<span class="portfolio-badge">Social Media</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>Social Media Campaign</h3>
+						<p>3-month social media strategy for a tech startup launch.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">15K</div>
+								<div class="stat-label">New Followers</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">2.5M</div>
+								<div class="stat-label">Impressions</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Portfolio Item 3 -->
+				<div class="portfolio-item" onclick="openModal('project3')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brand Identity Package">
+						<span class="portfolio-badge">Branding</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>Brand Identity Package</h3>
+						<p>Complete branding solution for a health food company.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">90%</div>
+								<div class="stat-label">Brand Recall</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">+40%</div>
+								<div class="stat-label">Sales Growth</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Portfolio Item 4 -->
+				<div class="portfolio-item" onclick="openModal('project4')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SEO Optimization">
+						<span class="portfolio-badge">SEO Results</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>SEO Optimization</h3>
+						<p>6-month SEO strategy for a law firm's website.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">#1</div>
+								<div class="stat-label">Keyword Ranking</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">+450%</div>
+								<div class="stat-label">Lead Generation</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Portfolio Item 5 -->
+				<div class="portfolio-item" onclick="openModal('project5')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brochure Design">
+						<span class="portfolio-badge">Print Design</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>Brochure Design</h3>
+						<p>Marketing collateral for a real estate developer.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">10K</div>
+								<div class="stat-label">Printed</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">27%</div>
+								<div class="stat-label">Response Rate</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Portfolio Item 6 -->
+				<div class="portfolio-item" onclick="openModal('project6')">
+					<div class="portfolio-image">
+						<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Content Marketing">
+						<span class="portfolio-badge">Content</span>
+					</div>
+					<div class="portfolio-content">
+						<h3>Content Marketing</h3>
+						<p>Ongoing content strategy for a SaaS company.</p>
+						<div class="portfolio-stats">
+							<div class="stat-item">
+								<div class="stat-value">+80%</div>
+								<div class="stat-label">Engagement</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-value">3.2M</div>
+								<div class="stat-label">Monthly Views</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="cta-container">
+				<a href="#" class="cta-button">See More Projects</a>
+			</div>
+		</section>
+	
+		<!-- Project 1 Modal -->
+		<div id="project1" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('project1')">&times;</span>
+				<div class="modal-header">
+					<h3>E-commerce Website Redesign</h3>
+					<p>Complete website overhaul with SEO optimization for a fashion retailer.</p>
+				</div>
+				<div class="modal-stats">
+					<h4>Key Results</h4>
+					<div class="stat-row">
+						<div class="stat-name">Organic Traffic Increase:</div>
+						<div class="stat-value">+320%</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Conversion Rate Increase:</div>
+						<div class="stat-value">+175%</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Average Order Value:</div>
+						<div class="stat-value">+42%</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Bounce Rate Reduction:</div>
+						<div class="stat-value">-58%</div>
+					</div>
+				</div>
+				<div class="modal-grid">
+					<div class="modal-image">
+						<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Before Redesign">
+						<p>Before Redesign</p>
+					</div>
+					<div class="modal-image">
+						<img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="After Redesign">
+						<p>After Redesign</p>
+					</div>
+				</div>
+				<div class="modal-stats">
+					<h4>Project Details</h4>
+					<p>We completely overhauled the client's e-commerce platform with a mobile-first approach, optimized product pages for SEO, implemented a streamlined checkout process, and created a personalized recommendation engine. The project included keyword research, on-page optimization, technical SEO fixes, and conversion rate optimization strategies.</p>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Project 2 Modal -->
+		<div id="project2" class="modal">
+			<div class="modal-content">
+				<span class="close-modal" onclick="closeModal('project2')">&times;</span>
+				<div class="modal-header">
+					<h3>Social Media Campaign</h3>
+					<p>3-month social media strategy for a tech startup launch.</p>
+				</div>
+				<div class="modal-stats">
+					<h4>Key Results</h4>
+					<div class="stat-row">
+						<div class="stat-name">New Followers:</div>
+						<div class="stat-value">15,000</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Total Impressions:</div>
+						<div class="stat-value">2.5 Million</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Engagement Rate:</div>
+						<div class="stat-value">8.7%</div>
+					</div>
+					<div class="stat-row">
+						<div class="stat-name">Lead Conversions:</div>
+						<div class="stat-value">1,200</div>
+					</div>
+				</div>
+				<div class="modal-grid">
+					<div class="modal-image">
+						<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Campaign Post 1">
+					</div>
+					<div class="modal-image">
+						<img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Campaign Post 2">
+					</div>
+				</div>
+				<div class="modal-stats">
+					<h4>Project Details</h4>
+					<p>Our social media team developed a comprehensive launch campaign across Instagram, LinkedIn, and Twitter. We created a mix of educational content, product teasers, influencer collaborations, and user-generated content. The campaign included targeted ads, community engagement strategies, and performance tracking to optimize results throughout the launch period.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--=============== Portfolio Section End ===============-->
+	
+	<!--=============== Testinomials Section Start ===============-->
+	<section class="testinomial-body">
+        <div class="testimonials-section">
+			<div class="testimonials-container">
+				<div class="section-header">
+					<h2>What Our Clients Say</h2>
+					<p>Don't just take our word for it - hear from businesses who've experienced our hosting services firsthand.</p>
+				</div>
+				
+				<div class="testimonials-slider">
+					<div class="slider-arrows">
+						<div class="arrow prev"><i class="fas fa-chevron-left"></i></div>
+						<div class="arrow next"><i class="fas fa-chevron-right"></i></div>
+					</div>
+					
+					<div class="testimonials-track">
+						<!-- Testimonial 1 -->
+						<div class="testimonial-card">
+							<div class="testimonial-inner animate-fade">
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+								<p class="testimonial-text">"Switching to this hosting service was the best decision for our e-commerce site. The speed improvement alone increased our conversions by 30%. Their support team is incredibly responsive."</p>
+								<div class="client-info">
+									<div class="client-avatar">
+										<img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+									</div>
+									<div class="client-details">
+										<h4>Sarah Johnson</h4>
+										<p>E-Commerce Business Owner</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial 2 -->
+						<div class="testimonial-card">
+							<div class="testimonial-inner animate-fade">
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+								<p class="testimonial-text">"As a web developer, I host dozens of client sites here. The one-click installs and easy scaling save me hours every week. The 99.9% uptime guarantee is real - I've never had downtime issues."</p>
+								<div class="client-info">
+									<div class="client-avatar">
+										<img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+									</div>
+									<div class="client-details">
+										<h4>Michael Chen</h4>
+										<p>Web Developer</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial 3 -->
+						<div class="testimonial-card">
+							<div class="testimonial-inner animate-fade">
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star-half-alt"></i>
+								</div>
+								<p class="testimonial-text">"The free SSL and automatic backups give me peace of mind for my nonprofit's website. When I had a question about migration, their support walked me through every step at 2 AM!"</p>
+								<div class="client-info">
+									<div class="client-avatar">
+										<img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+									</div>
+									<div class="client-details">
+										<h4>Emily Rodriguez</h4>
+										<p>Nonprofit Director</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial 4 -->
+						<div class="testimonial-card">
+							<div class="testimonial-inner animate-fade">
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+								<p class="testimonial-text">"After terrible experiences with other hosts, this service has been a revelation. My WordPress site loads in under a second now, and upgrading resources took just one click when we got traffic spikes."</p>
+								<div class="client-info">
+									<div class="client-avatar">
+										<img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson">
+									</div>
+									<div class="client-details">
+										<h4>David Wilson</h4>
+										<p>Blogger & Content Creator</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="slider-nav">
+						<div class="slider-dot active"></div>
+						<div class="slider-dot"></div>
+						<div class="slider-dot"></div>
+						<div class="slider-dot"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+	<!--=============== Testinomials Section End ===============-->
+	
+	<section class="quote-section">
+        <div class="quote-container">
+            <div class="quote-content">
+                <h2>Need a custom solution?</h2>
+                <p>Let's build your vision together. Get a free consultation with our experts to discuss your unique requirements and how we can help you achieve your goals.</p>
+                
+                <div class="quote-actions">
+                    <a href="#quote-form" class="quote-btn" id="quoteBtn">Request a Quote</a>
+                    
+                    <!-- Optional contact methods -->
+                    <div class="contact-method">
+                        <span>Or call us:</span>
+                        <a href="tel:+1234567890" class="phone-link">+1 (234) 567-890</a>
+                    </div>
+                    
+                    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+	<section class="blog-body-section">
+		<div class="blog-section">
+			<div class="section-header">
+				<h2>Latest Insights</h2>
+				<p>Discover our expert articles on digital strategy, web development, and online marketing trends.</p>
+			</div>
+	
+			<div class="blog-grid">
+				<!-- Blog Post 1 -->
+				<article class="blog-card">
+					<div class="blog-image">
+						<img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SEO Essentials">
+					</div>
+					<div class="blog-content">
+						<span class="blog-category">SEO</span>
+						<div class="blog-date">
+							<i class="far fa-calendar-alt"></i> June 15, 2025
+						</div>
+						<h3 class="blog-title">
+							<a href="#">Why SEO is Essential in 2025: The Complete Guide</a>
+						</h3>
+						<p class="blog-excerpt">
+							Discover how search engine optimization continues to evolve and why it remains the cornerstone of digital marketing success in the coming year.
+						</p>
+						<a href="#" class="read-more">
+							Read More <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</article>
+	
+				<!-- Blog Post 2 -->
+				<article class="blog-card">
+					<div class="blog-image">
+						<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hosting Plans">
+					</div>
+					<div class="blog-content">
+						<span class="blog-category">Hosting</span>
+						<div class="blog-date">
+							<i class="far fa-calendar-alt"></i> May 28, 2025
+						</div>
+						<h3 class="blog-title">
+							<a href="#">How to Choose the Perfect Hosting Plan for Your Business</a>
+						</h3>
+						<p class="blog-excerpt">
+							Navigating the complex world of web hosting? Learn how to select the ideal hosting solution based on your traffic, security needs, and budget.
+						</p>
+						<a href="#" class="read-more">
+							Read More <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</article>
+	
+				<!-- Blog Post 3 -->
+				<article class="blog-card">
+					<div class="blog-image">
+						<img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Content Strategy">
+					</div>
+					<div class="blog-content">
+						<span class="blog-category">Content</span>
+						<div class="blog-date">
+							<i class="far fa-calendar-alt"></i> April 10, 2025
+						</div>
+						<h3 class="blog-title">
+							<a href="#">Content Strategy That Converts: 2025 Trends to Watch</a>
+						</h3>
+						<p class="blog-excerpt">
+							Explore the emerging content marketing trends that will dominate 2025 and how to adapt your strategy for maximum engagement and conversions.
+						</p>
+						<a href="#" class="read-more">
+							Read More <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</article>
+			</div>
+	
+			<div class="blog-cta">
+				<a href="#">View All Articles</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Footer Strip -->
+    <section class="cta-strip">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2 class="cta-message">Start your online journey with confidence — All in one place.</h2>
+                <a href="#start-now" class="cta-button">Start Now</a>
+            </div>
+        </div>
+    </section>
+
+	<footer class="main-footer">
+        <div class="footer-container">
+            <!-- Logo & About -->
+            <div class="footer-column footer-logo-column">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Company Logo">
+                </div>
+                <p class="footer-about">
+                    We provide innovative hosting solutions to help businesses grow online. 
+                    Our cutting-edge technology ensures fast, secure, and reliable hosting services.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <!-- Domain -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Domain</h3>
+                <ul class="footer-links">
+                    <li><a href="domain-search.html">Domain name search</a></li>
+                    <li><a href="domain-search.html">Cheap domain names</a></li>
+                    <li><a href="hosting-plans.html">Free domain</a></li>
+                    <li><a href="whoise.html">WHOIS Lookup</a></li>
+                    <li><a href="certificates.html">Free SSL certificate</a></li>
+                    <li><a href="domain-transfer.html">Domain transfer</a></li>
+                    <li><a href="domains.html">Domain extensions</a></li>
+                </ul>
+            </div>
+            
+            <!-- Tools -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="ai-builder.html">AI Web App Builder</a></li>
+                    <li><a href="website-builder.html">Website Builder</a></li>
+                    <li><a href="ai-builder.html">AI Website Builder</a></li>
+                    <li><a href="ai-builder.html">eCommerce Builder</a></li>
+                    <li><a href="business-name.html">Business Name Generator</a></li>
+                    <li><a href="ai-logo-generator">AI Logo Generator</a></li>
+                    <li><a href="migrate.html">Migrate to Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Information -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Information</h3>
+                <ul class="footer-links">
+                    <li><a href="hosting-plans.html">Pricing</a></li>
+                    <li><a href="testinomials.html">Reviews</a></li>
+                    <li><a href="affiliate-program.html">Affiliate program</a></li>
+                    <li><a href="referral.html">Referral program</a></li>
+                    <li><a href="about.html">Roadmap</a></li>
+                    <li><a href="wall-of-fame.html">Wall of fame</a></li>
+                    <li><a href="system.html">System status</a></li>
+                </ul>
+            </div>
+            
+            <!-- Company & Contact -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="technology.html">Our technology</a></li>
+                    <li><a href="newsroom.html">Newsroom</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="hosting-plans.html">Student discount</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-heading" style="margin-top: 30px;">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Knowledge Base</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Report abuse</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-and-conditions.html">Terms of Service</a>
+                <a href="cookies.html">Cookie Policy</a>
+            </div>
+            <div class="payment-methods">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                <img src="https://seeklogo.com/images/E/easypaisa-logo-9C4489E7C4-seeklogo.com.png" alt="Easypaisa">
+                <img src="https://seeklogo.com/images/J/jazzcash-logo-2D5B8B8E5A-seeklogo.com.png" alt="JazzCash">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe">
+            </div>
+            <div class="copyright">
+                &copy; 2023 Your Company. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+	<script src="script/app.js"></script>
+</body>
+</html>

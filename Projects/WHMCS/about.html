@@ -1,0 +1,616 @@
+﻿<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHMCS</title>
+  
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/about-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+  <nav>
+		<a href="home.html" class="logo" id="logo">
+			<img src="images/logo-white.png" alt="Logo">
+		</a>
+
+		<div class="nav-list" id="nav-list">
+			<ul class="nav-links" id="nav-links">
+				<li class="close nav-close">
+					<span class="fas fa-times"></span>
+				</li>
+				<li>
+					<a href="home.html">
+						<i class="fas fa-home"></i> Home
+					</a>
+				</li>
+				<li class="with-dropdown-one">
+					<a href="domains.html">
+						<i class="fas fa-cogs"></i> Domains
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="domains.html"><li>Search Domain</li></a>
+						<a href="domain-transfer.html"><li>Transfer Domain</li></a>
+						<a href="hosting-plans.html"><li>Pricing</li></a>
+					</ul>
+				</li>
+				<li class="with-dropdown-two">
+					<a href="hosting.html">
+						<i class="fas fa-server"></i> Hosting
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="shared-hosting.html"><li>Shared Hosting</li></a>
+						<a href="vps-hosting.html"><li>VPS Hosting</li></a>
+						<a href="hosting.html"><li>Dedicated Hosting</li></a>
+						<a href="certificates.html"><li>SSL Certificates</li></a>
+					</ul>
+				</li>
+				<li class="with-dropdown-three">
+					<a href="home.html">
+						<i class="fas fa-laptop-code"></i> Website & Marketing
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="web-development"><li>Web Development</li></a>
+						<a href="seo.html"><li>SEO</li></a>
+						<a href="smo.html"><li>SMO</li></a>
+						<a href="brochure-design.html"><li>Brochure Design</li></a>
+					</ul>
+				</li>
+				<li>
+					<a href="home.html">
+						<i class="fas fa-tag"></i> Pricing
+					</a>
+				</li>
+				<li class="with-dropdown-four">
+					<a href="support.html">
+						<i class="fas fa-headset"></i> Support
+					</a>
+
+					<ul class="nested-links links-dropdown">
+						<a href="knowledge.html"><li>Knowledge Base</li></a>
+						<a href="faqs.html"><li>FAQs</li></a>
+						<a href="support-ticket.html"><li>Contact / Ticket</li></a>
+					</ul>
+				</li>
+				<li>
+					<a href="client-login.html"><button class="login">Log In</button></a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="nav-toggle">
+			<span class="fas fa-bars"></span>
+		</div>
+	</nav>
+
+    <!-- Company Introduction Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <div class="about-hero-text">
+        <h1>Empowering Your Digital Vision — One Domain at a Time</h1>
+        <p>We are a team of developers, marketers, and creators delivering high-performance hosting and full-spectrum digital services to startups and enterprises alike.</p>
+        <a href="#mission" class="cta-btn">Learn More</a>
+      </div>
+      <div class="about-hero-image">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="RobotHost Team">
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Timeline Section -->
+  <section class="our-story-section">
+    <div class="story-container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Journey</span>
+        <h2 class="section-title">Building RobotHost</h2>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="story-content">
+        <div class="timeline-visual">
+          <div class="timeline-container">
+            <!-- Vertical Line -->
+            <div class="timeline-line"></div>
+            
+            <!-- Milestones -->
+            <div class="milestone milestone-1">
+              <div class="milestone-dot"></div>
+              <div class="milestone-connector"></div>
+              <div class="milestone-card">
+                <div class="year-badge">2020</div>
+                <h4>Founded</h4>
+              </div>
+            </div>
+            
+            <div class="milestone milestone-2">
+              <div class="milestone-dot"></div>
+              <div class="milestone-connector"></div>
+              <div class="milestone-card">
+                <div class="year-badge">2021</div>
+                <h4>100 Clients</h4>
+              </div>
+            </div>
+            
+            <div class="milestone milestone-3">
+              <div class="milestone-dot"></div>
+              <div class="milestone-connector"></div>
+              <div class="milestone-card">
+                <div class="year-badge">2022</div>
+                <h4>SEO Launch</h4>
+              </div>
+            </div>
+            
+            <div class="milestone milestone-4">
+              <div class="milestone-dot"></div>
+              <div class="milestone-connector"></div>
+              <div class="milestone-card">
+                <div class="year-badge">2023</div>
+                <h4>Full Suite</h4>
+              </div>
+            </div>
+            
+            <div class="milestone milestone-5">
+              <div class="milestone-dot"></div>
+              <div class="milestone-connector"></div>
+              <div class="milestone-card">
+                <div class="year-badge">2024</div>
+                <h4>Today</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="story-text">
+          <h3>From Humble Beginnings to Digital Powerhouse</h3>
+          <p>Started in 2020, we've helped <strong>100+ brands</strong> establish and grow their online presence through our comprehensive digital solutions.</p>
+          
+          <div class="milestone-content">
+            <div class="milestone-item" data-milestone="1">
+              <h4>2020 - Foundation</h4>
+              <p>Launched with basic hosting services, serving our first 10 clients with shared hosting packages.</p>
+            </div>
+            
+            <div class="milestone-item" data-milestone="2">
+              <h4>2021 - First 100 Clients</h4>
+              <p>Reached our first major milestone of 100 satisfied customers, expanding our server infrastructure.</p>
+            </div>
+            
+            <div class="milestone-item" data-milestone="3">
+              <h4>2022 - SEO Services</h4>
+              <p>Introduced professional SEO services to help clients improve their search visibility and traffic.</p>
+            </div>
+            
+            <div class="milestone-item" data-milestone="4">
+              <h4>2023 - Full Digital Suite</h4>
+              <p>Became a complete digital partner offering hosting, development, and marketing solutions.</p>
+            </div>
+            
+            <div class="milestone-item" data-milestone="5">
+              <h4>2024 - Today</h4>
+              <p>Serving 500+ clients across South Asia with 99.9% uptime and award-winning support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Mission, Vision & Values Section -->
+  <section class="mv-values-section">
+    <div class="mv-container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Foundation</span>
+        <h2 class="section-title">Driving Digital Success</h2>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="mv-grid">
+        <!-- Mission Card -->
+        <div class="mv-card mission-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"></path>
+              <path d="M12 18c3.703 0 4.901-3.539 4.95-3.689l-1.9-.621c-.008.023-.781 2.31-3.05 2.31-2.238 0-3.02-2.221-3.051-2.316l-1.899.627C7.099 14.461 8.297 18 12 18z"></path>
+            </svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To provide reliable, scalable, and accessible digital infrastructure that empowers businesses to thrive online.</p>
+          <div class="card-ornament"></div>
+        </div>
+        
+        <!-- Vision Card -->
+        <div class="mv-card vision-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"></path>
+            </svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To become South Asia's most trusted digital growth partner, transforming ideas into online success stories.</p>
+          <div class="card-ornament"></div>
+        </div>
+        
+        <!-- Values Card -->
+        <div class="mv-card values-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z"></path>
+            </svg>
+          </div>
+          <h3>Our Values</h3>
+          <ul class="values-list">
+            <li><span>Integrity</span> - Doing right by our customers</li>
+            <li><span>Innovation</span> - Pushing boundaries daily</li>
+            <li><span>Reliability</span> - 99.9% uptime guarantee</li>
+          </ul>
+          <div class="card-ornament"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Team Expertise Section -->
+  <section class="expertise-section">
+    <div class="expertise-container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Expertise</span>
+        <h2 class="section-title">Digital Excellence in Every Service</h2>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="expertise-grid">
+        <!-- Domain Expertise -->
+        <div class="expertise-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"></path>
+                </svg>
+              </div>
+              <h3>Domains & Hosting</h3>
+              <div class="expert-avatar">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Domain Expert">
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Domain Specialists</h3>
+              <ul>
+                <li>Domain registration</li>
+                <li>SSL certificates</li>
+                <li>99.9% uptime hosting</li>
+                <li>Server migrations</li>
+              </ul>
+              <div class="card-cta">Meet Our Team</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Web Development -->
+        <div class="expertise-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
+                </svg>
+              </div>
+              <h3>Web Development</h3>
+              <div class="expert-avatar">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Web Developer">
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Development Team</h3>
+              <ul>
+                <li>Custom websites</li>
+                <li>E-commerce solutions</li>
+                <li>WordPress optimization</li>
+                <li>API integrations</li>
+              </ul>
+              <div class="card-cta">View Portfolio</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SEO/SMO -->
+        <div class="expertise-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="m18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z"></path>
+                </svg>
+              </div>
+              <h3>SEO/SMO</h3>
+              <div class="expert-avatar">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="SEO Specialist">
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Marketing Experts</h3>
+              <ul>
+                <li>Search engine optimization</li>
+                <li>Social media strategy</li>
+                <li>Content marketing</li>
+                <li>Analytics & reporting</li>
+              </ul>
+              <div class="card-cta">See Case Studies</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Design -->
+        <div class="expertise-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                </svg>
+              </div>
+              <h3>Design & Branding</h3>
+              <div class="expert-avatar">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Designer">
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>Creative Team</h3>
+              <ul>
+                <li>Logo & brand identity</li>
+                <li>UI/UX design</li>
+                <li>Marketing collateral</li>
+                <li>Visual content creation</li>
+              </ul>
+              <div class="card-cta">View Designs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client & Partner Logos Section -->
+  <section class="clients-section">
+    <div class="clients-container">
+      <div class="section-header">
+        <span class="section-subtitle">Trusted By</span>
+        <h2 class="section-title">Our Valued Partners</h2>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="clients-carousel">
+        <div class="client-track">
+          <!-- Real client logos with links (first set) -->
+          <a href="https://www.coca-cola.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/800px-Coca-Cola_logo.svg.png" alt="Coca-Cola" class="grayscale">
+          </a>
+          <a href="https://www.microsoft.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/800px-Microsoft_logo.svg.png" alt="Microsoft" class="grayscale">
+          </a>
+          <a href="https://www.samsung.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/800px-Samsung_Logo.svg.png" alt="Samsung" class="grayscale">
+          </a>
+          <a href="https://www.adobe.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/800px-Adobe_Systems_logo_and_wordmark.svg.png" alt="Adobe" class="grayscale">
+          </a>
+          <a href="https://www.spotify.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/800px-Spotify_logo_without_text.svg.png" alt="Spotify" class="grayscale">
+          </a>
+          <a href="https://www.airbnb.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/800px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="Airbnb" class="grayscale">
+          </a>
+          
+          <!-- Duplicate logos for infinite loop effect -->
+          <a href="https://www.coca-cola.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/800px-Coca-Cola_logo.svg.png" alt="Coca-Cola" class="grayscale">
+          </a>
+          <a href="https://www.microsoft.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/800px-Microsoft_logo.svg.png" alt="Microsoft" class="grayscale">
+          </a>
+          <a href="https://www.samsung.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/800px-Samsung_Logo.svg.png" alt="Samsung" class="grayscale">
+          </a>
+          <a href="https://www.adobe.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/800px-Adobe_Systems_logo_and_wordmark.svg.png" alt="Adobe" class="grayscale">
+          </a>
+          <a href="https://www.spotify.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/800px-Spotify_logo_without_text.svg.png" alt="Spotify" class="grayscale">
+          </a>
+          <a href="https://www.airbnb.com" target="_blank" class="client-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/800px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="Airbnb" class="grayscale">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ultra-Premium Counter Stats Section -->
+  <section class="counter-stats-section">
+    <div class="particles-container" id="particles-js"></div>
+    <div class="counter-container">
+      <div class="section-header">
+        <span class="section-subtitle">OUR ACHIEVEMENTS</span>
+        <h2 class="section-title">Numbers That <span class="highlight">Speak</span> Volumes</h2>
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-dot"></div>
+          <div class="divider-line"></div>
+        </div>
+      </div>
+      
+      <div class="counter-grid">
+        <!-- Client Counter -->
+        <div class="counter-card">
+          <div class="counter-icon-wrapper">
+            <div class="icon-bg"></div>
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="counter-content">
+            <div class="counter-number" data-target="150">0</div>
+            <div class="counter-symbol">+</div>
+          </div>
+          <div class="counter-label">Satisfied Clients</div>
+          <div class="counter-underline"></div>
+        </div>
+        
+        <!-- Websites Counter -->
+        <div class="counter-card">
+          <div class="counter-icon-wrapper">
+            <div class="icon-bg"></div>
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="counter-content">
+            <div class="counter-number" data-target="300">0</div>
+            <div class="counter-symbol">+</div>
+          </div>
+          <div class="counter-label">Websites Hosted</div>
+          <div class="counter-underline"></div>
+        </div>
+        
+        <!-- Designs Counter -->
+        <div class="counter-card">
+          <div class="counter-icon-wrapper">
+            <div class="icon-bg"></div>
+            <i class="fas fa-pencil-ruler"></i>
+          </div>
+          <div class="counter-content">
+            <div class="counter-number" data-target="500">0</div>
+            <div class="counter-symbol">+</div>
+          </div>
+          <div class="counter-label">Designs Created</div>
+          <div class="counter-underline"></div>
+        </div>
+        
+        <!-- Uptime Counter -->
+        <div class="counter-card">
+          <div class="counter-icon-wrapper">
+            <div class="icon-bg"></div>
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="counter-content">
+            <div class="counter-number" data-target="99.9">0</div>
+            <div class="counter-symbol">%</div>
+          </div>
+          <div class="counter-label">Uptime Guarantee</div>
+          <div class="counter-underline"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+        <!-- Logo & About -->
+        <div class="footer-column footer-logo-column">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Company Logo">
+            </div>
+            <p class="footer-about">
+                We provide innovative hosting solutions to help businesses grow online. 
+                Our cutting-edge technology ensures fast, secure, and reliable hosting services.
+            </p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <!-- Domain -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Domain</h3>
+            <ul class="footer-links">
+                <li><a href="domain-search.html">Domain name search</a></li>
+                <li><a href="domain-search.html">Cheap domain names</a></li>
+                <li><a href="hosting-plans.html">Free domain</a></li>
+                <li><a href="whoise.html">WHOIS Lookup</a></li>
+                <li><a href="certificates.html">Free SSL certificate</a></li>
+                <li><a href="domain-transfer.html">Domain transfer</a></li>
+                <li><a href="domains.html">Domain extensions</a></li>
+            </ul>
+        </div>
+        
+        <!-- Tools -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Tools</h3>
+            <ul class="footer-links">
+                <li><a href="ai-builder.html">AI Web App Builder</a></li>
+                <li><a href="website-builder.html">Website Builder</a></li>
+                <li><a href="ai-builder.html">AI Website Builder</a></li>
+                <li><a href="ai-builder.html">eCommerce Builder</a></li>
+                <li><a href="business-name.html">Business Name Generator</a></li>
+                <li><a href="ai-logo-generator">AI Logo Generator</a></li>
+                <li><a href="migrate.html">Migrate to Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- Information -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Information</h3>
+            <ul class="footer-links">
+                <li><a href="hosting-plans.html">Pricing</a></li>
+                <li><a href="testinomials.html">Reviews</a></li>
+                <li><a href="affiliate-program.html">Affiliate program</a></li>
+                <li><a href="referral.html">Referral program</a></li>
+                <li><a href="about.html">Roadmap</a></li>
+                <li><a href="wall-of-fame.html">Wall of fame</a></li>
+                <li><a href="system.html">System status</a></li>
+            </ul>
+        </div>
+        
+        <!-- Company & Contact -->
+        <div class="footer-column">
+            <h3 class="footer-heading">Company</h3>
+            <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="technology.html">Our technology</a></li>
+                <li><a href="newsroom.html">Newsroom</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="hosting-plans.html">Student discount</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-heading" style="margin-top: 30px;">Support</h3>
+            <ul class="footer-links">
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Knowledge Base</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Report abuse</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="legal-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms of Service</a>
+            <a href="cookies.html">Cookie Policy</a>
+        </div>
+        <div class="payment-methods">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+            <img src="https://seeklogo.com/images/E/easypaisa-logo-9C4489E7C4-seeklogo.com.png" alt="Easypaisa">
+            <img src="https://seeklogo.com/images/J/jazzcash-logo-2D5B8B8E5A-seeklogo.com.png" alt="JazzCash">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Stripe">
+        </div>
+        <div class="copyright">
+            &copy; 2023 Your Company. All rights reserved.
+        </div>
+    </div>
+  </footer>
+
+	<script src="script/app.js"></script>
+	<script src="script/about.js"></script>
+</body>
+</html>

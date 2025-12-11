@@ -1,0 +1,60 @@
+Hello! With the following details i have created few webpage of my website:
+
+I will ask you to write code for each section turn by turn (DO NOT GENERATE CODE BEFORE I SAY SO):
+18. Portfolio / Case Studies
+Purpose: Showcase completed projects to build trust and demonstrate expertise.  
+Sections:  
+1. Introduction
+   - Brief overview of your services (development, SEO, SMO).  
+   - Importance of past work in delivering results.  
+
+2. Project Categories (Filterable)  
+   - Web Development (with before/after comparisons if possible).  
+   - SEO Success Stories (traffic growth, ranking improvements).  
+   - Social Media Marketing (SMO) (engagement metrics, follower growth).  
+
+3. Case Study Layout (per project)  
+   - Client Name/Logo  
+   - Challenge (What the client needed).  
+   - Solution (How you addressed it).  
+   - Results (Metrics, KPIs, screenshots).  
+   - Client Quote (Optional).  
+
+4. Call-to-Action (CTA)  
+   - "Ready to achieve similar results? Contact us today!"  
+I want you to create few of my webpages with rgb(5, 61, 90) and white theme. Do not generate the whole code at once. Wait till i provide you with the instructions. And do not give whole webpage code at once, i will give you instructions and you will only write code for one section, one by one when i give you instructions for each section seperately turn by turn.
+
+Prompt 2:
+Write HTML, CSS, JavaScript, Bootstrap(if needed) and online React js version (if needed) to write the code for this section of my webpage:
+Introduction
+   - Brief overview of your services (development, SEO, SMO).  
+   - Importance of past work in delivering results.  
+Be sure it is competitive and it has very interactive UI, increases User trust on the website and some professional animations. Make it UI look better than Hostinger and GoDaddy's UI.
+
+Prompt 3:
+Write HTML, CSS, JavaScript, Bootstrap(if needed) and online React js version (if needed) to write the code for this section of my webpage:
+Project Categories (Filterable)  
+   a) Web Development (with before/after comparisons if possible).  
+   b) SEO Success Stories (traffic growth, ranking improvements).  
+   c) Social Media Marketing (SMO) (engagement metrics, follower growth).   
+Be sure it is competitive and it has very interactive UI, increases User trust on the website and some professional animations. Make it UI look better than Hostinger and GoDaddy's UI. Be sure to add at least 2 and max 4 for each project category with excellent display.
+
+Prompt 3:
+Write HTML, CSS, JavaScript, Bootstrap(if needed) and online React js version (if needed) to write the code for this section of my webpage:
+3. Case Study Layout (per project)  
+   - Client Name/Logo  
+   - Challenge (What the client needed).  
+   - Solution (How you addressed it).  
+   - Results (Metrics, KPIs, screenshots).  
+   - Client Quote
+Be sure it is competitive and it has very interactive UI, increases User trust on the website and some professional animations. Make it UI look better than Hostinger and GoDaddy's UI. Add three to four sections of the case study with different projects and image visuals specially.
+
+Prompt 4:
+Write HTML, CSS, JavaScript, Bootstrap(if needed) and online React js version (if needed) to write the code for this section of my webpage:
+4. Call-to-Action (CTA)  
+   - "Ready to achieve similar results? Contact us today!"  
+Be sure it is competitive and it has very interactive UI, increases User trust on the website and some professional animations. Make it UI look better than Hostinger and GoDaddy's UI.Add a background image for the call to action visual but if it ruins the display then no need to add the background image but make it interactive as well.
+
+
+
+
