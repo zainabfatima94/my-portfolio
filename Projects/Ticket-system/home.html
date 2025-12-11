@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookEasy - Ticket Booking System</title>
+    <!-- Bootstrap CSS -->
+<link href="bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+        <!-- Brand/Logo -->
+        <a class="navbar-brand" href="#">
+            <span>🎟️ BookEasy</span>
+        </a>
+        
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navigation Links and Buttons -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="nav-items-container">
+                <ul class="navbar-nav nav-links mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Action Buttons - Corrected Version -->
+                <div class="d-flex">
+                    <a href="user-login.html" class="btn btn-outline-success btn-login me-2">Login</a>
+                    <a href="user-login.html" class="btn btn-signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+        <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Explore. Book. Travel.</h1>
+                        <p class="hero-subtitle">Simple and secure ticket booking for every journey.</p>
+                        
+                        <!-- Search Form -->
+                        <div class="search-form mx-auto">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="from" placeholder="From">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="to" placeholder="To">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="date" placeholder="Date">
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select" id="passengers">
+                                        <option selected>1 Adult</option>
+                                        <option>2 Adults</option>
+                                        <option>3 Adults</option>
+                                        <option>4 Adults</option>
+                                        <option>Family/Group</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-hero-cta">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+<section class="features-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">Experience seamless ticket booking with these exclusive benefits</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Feature 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--accent-color)" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Easy Booking</h3>
+          <p>Intuitive interface designed for effortless ticket purchases in just 3 taps</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--accent-color)" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/>
+            </svg>
+          </div>
+          <h3>Secure Payments</h3>
+          <p>Bank-grade encryption with multiple payment options including digital wallets</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--accent-color)" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <h3>Instant Confirmation</h3>
+          <p>Real-time tickets delivered via email & SMS with QR codes for quick scanning</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="var(--accent-color)" viewBox="0 0 24 24">
+              <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+            </svg>
+          </div>
+          <h3>Multi-Platform Access</h3>
+          <p>Continue booking on any device with our responsive web and mobile apps</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Destinations Section -->
+<section class="destinations-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Popular Destinations</h2>
+      <p class="section-subtitle">Discover trending routes travelers love</p>
+      
+      <!-- Filter Buttons -->
+      <div class="filter-buttons mb-4">
+        <button class="btn btn-filter active" data-filter="all">All</button>
+        <button class="btn btn-filter" data-filter="domestic">Domestic</button>
+        <button class="btn btn-filter" data-filter="international">International</button>
+        <button class="btn btn-filter" data-filter="weekend">Weekend Getaways</button>
+      </div>
+    </div>
+
+    <!-- Destinations Grid -->
+    <div class="row g-4 destinations-grid">
+      <!-- Destination 1 -->
+      <div class="col-md-6 col-lg-3 destination-card" data-category="international">
+        <div class="card h-100">
+          <div class="destination-img">
+            <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" 
+                 alt="Paris, France">
+            <span class="price-badge">From $299</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Paris, France</h5>
+            <p class="card-text">City of Lights with iconic landmarks and romantic ambiance</p>
+            <div class="travel-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--accent-color)" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+              <span>7h 30m flight</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="#" class="btn btn-destination">View Flights</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destination 2 -->
+      <div class="col-md-6 col-lg-3 destination-card" data-category="domestic">
+        <div class="card h-100">
+          <div class="destination-img">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" 
+                 alt="New York, USA">
+            <span class="price-badge">From $129</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">New York, USA</h5>
+            <p class="card-text">The bustling metropolis that never sleeps</p>
+            <div class="travel-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--accent-color)" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+              <span>1h 15m flight</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="#" class="btn btn-destination">View Flights</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destination 3 -->
+      <div class="col-md-6 col-lg-3 destination-card" data-category="weekend">
+        <div class="card h-100">
+          <div class="destination-img">
+            <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" 
+                 alt="Miami Beach, USA">
+            <span class="price-badge">From $179</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Miami Beach, USA</h5>
+            <p class="card-text">Tropical paradise with vibrant nightlife and beaches</p>
+            <div class="travel-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--accent-color)" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+              <span>2h 30m flight</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="#" class="btn btn-destination">View Flights</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destination 4 -->
+      <div class="col-md-6 col-lg-3 destination-card" data-category="international">
+        <div class="card h-100">
+          <div class="destination-img">
+            <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 class="card-img-top" 
+                 alt="Tokyo, Japan">
+            <span class="price-badge">From $699</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Tokyo, Japan</h5>
+            <p class="card-text">Where ancient tradition meets cutting-edge technology</p>
+            <div class="travel-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--accent-color)" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+              </svg>
+              <span>14h flight</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent">
+            <a href="#" class="btn btn-destination">View Flights</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Button -->
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-view-all">View All Destinations →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Login Section -->
+<section class="login-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="login-container">
+          <h2 class="text-center mb-4">Login to Your Account</h2>
+          
+          <!-- Login Type Toggle -->
+          <div class="login-type-toggle mb-4">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-toggle active" data-login-type="user">User Login</button>
+              <button type="button" class="btn btn-toggle" data-login-type="admin">Admin Login</button>
+            </div>
+          </div>
+          
+          <!-- User Login Form (Visible by default) -->
+          <div class="login-form" id="user-login">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-4">For Customers</h5>
+                <p class="text-center mb-4">Manage bookings, view history, and update your profile</p>
+                
+                <form>
+                  <div class="mb-3">
+                    <label for="user-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="user-email" placeholder="your@email.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="user-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="user-password" placeholder="••••••••">
+                  </div>
+                  <div class="d-grid mb-3">
+                    <a href="user-login.html"><button type="submit" class="btn btn-login">Login as User</button></a>
+                  </div>
+                  <div class="text-center">
+                    <p class="small">New here? <a href="user-login.html" class="register-link">Create an account</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Admin Login Form (Hidden by default) -->
+          <div class="login-form d-none" id="admin-login">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-4">For Staff/Admins</h5>
+                <p class="text-center mb-4 text-muted small">Manage listings, bookings, and generate reports</p>
+                <div class="alert alert-warning text-center small py-2">
+                  <i class="bi bi-shield-lock"></i> Admin access restricted to authorized personnel only
+                </div>
+                
+                <form>
+                  <div class="mb-3">
+                    <label for="admin-email" class="form-label">Admin Email</label>
+                    <input type="email" class="form-control" id="admin-email" placeholder="admin@company.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="admin-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="admin-password" placeholder="••••••••">
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="admin-remember">
+                    <label class="form-check-label small" for="admin-remember">Remember this device</label>
+                  </div>
+                  <div class="d-grid">
+                    <a href="admin-login.html"><button type="submit" class="btn btn-login">Login as Admin</button></a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-subtitle">Join thousands of satisfied travelers</p>
+    </div>
+
+    <!-- Testimonials Slider -->
+    <div class="testimonials-slider">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars mb-3">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"The easiest booking experience I've ever had! Got my tickets instantly via email."</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="customer-img">
+            <div>
+              <h5 class="customer-name">Sarah J.</h5>
+              <p class="customer-location">New York, USA</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-tag">Fast and Easy</div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars mb-3">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"Customer service helped me change my booking within minutes. Amazing!"</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="customer-img">
+            <div>
+              <h5 class="customer-name">Michael T.</h5>
+              <p class="customer-location">London, UK</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-tag">Great Support</div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars mb-3">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"Saved 30% compared to other sites. Will definitely book here again!"</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K." class="customer-img">
+            <div>
+              <h5 class="customer-name">Priya K.</h5>
+              <p class="customer-location">Mumbai, India</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-tag">Best Prices</div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <div class="stars mb-3">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"The mobile app makes last-minute bookings so convenient while traveling."</p>
+          <div class="customer-info">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Carlos M." class="customer-img">
+            <div>
+              <h5 class="customer-name">Carlos M.</h5>
+              <p class="customer-location">Mexico City, Mexico</p>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-tag">Mobile Friendly</div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges text-center mt-5">
+      <p class="mb-3">Rated Excellent on:</p>
+      <div class="d-flex justify-content-center flex-wrap gap-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Trustpilot_logo.png" alt="Trustpilot" style="height: 30px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Reviews" style="height: 30px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Tripadvisor_logo.svg" alt="TripAdvisor" style="height: 30px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter & Footer Section -->
+<footer class="footer-section">
+  <!-- Newsletter Section -->
+  <div class="newsletter-section py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="newsletter-card p-4 p-md-5">
+            <h3 class="mb-3">Stay in the Loop</h3>
+            <p class="mb-4">Get travel tips, deals, and updates straight to your inbox.</p>
+            
+            <form class="newsletter-form row g-2 justify-content-center">
+              <div class="col-md-8">
+                <input type="email" class="form-control" placeholder="Your email address" required>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-subscribe w-100">Subscribe</button>
+              </div>
+            </form>
+            
+            <p class="small text-muted mt-3 mb-0">No spam. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Navigation -->
+  <div class="footer-navigation py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Company Column -->
+        <div class="col-md-6 col-lg-3">
+          <h5 class="footer-heading mb-4">Company</h5>
+          <ul class="footer-links list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Support Column -->
+        <div class="col-md-6 col-lg-3">
+          <h5 class="footer-heading mb-4">Support</h5>
+          <ul class="footer-links list-unstyled">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <!-- Bookings Column -->
+        <div class="col-md-6 col-lg-3">
+          <h5 class="footer-heading mb-4">Bookings</h5>
+          <ul class="footer-links list-unstyled">
+            <li><a href="#">My Trips</a></li>
+            <li><a href="#">Cancel Ticket</a></li>
+            <li><a href="#">Travel Insurance</a></li>
+            <li><a href="#">Manage Booking</a></li>
+          </ul>
+        </div>
+        
+        <!-- Social & App Column -->
+        <div class="col-md-6 col-lg-3">
+          <h5 class="footer-heading mb-4">Connect With Us</h5>
+          <div class="social-icons mb-4">
+            <a href="#" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg></a>
+            <a href="#" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923 1.942.196.509.33 1.09.372 1.942C5.555 15.99 5.827 16 8 16c2.173 0 2.445-.01 3.298-.048.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8c0-2.172-.01-2.444-.048-3.297-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a>
+            <a href="#" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg></a>
+            <a href="#" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a>
+          </div>
+          
+          <div class="app-download">
+            <p class="small mb-2">Download our app</p>
+            <div class="d-flex flex-column gap-2">
+              <a href="#" class="btn btn-app">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2"><path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.43.013c1.935.062 2.434.301 2.693 1.846h.479L12.258 3z"/></svg>
+                iOS
+              </a>
+              <a href="#" class="btn btn-app">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-2"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.3 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.33.215C2.4-.341 1.231.24 1.03 1.27Z"/></svg>
+                Android
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Language/Currency Selector -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <select class="form-select form-select-sm language-select">
+              <option selected>English</option>
+              <option>Español</option>
+              <option>Français</option>
+              <option>Deutsch</option>
+            </select>
+            <select class="form-select form-select-sm currency-select">
+              <option selected>USD ($)</option>
+              <option>EUR (€)</option>
+              <option>GBP (£)</option>
+              <option>INR (₹)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="copyright small text-muted mb-0">© 2023 BookEasy. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | BookEasy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --admin-primary: #0a2647;
+            --admin-secondary: #144272;
+            --admin-accent: #2c74b3;
+            --admin-alert: #d0342c;
+            --admin-light: #f0f4f8;
+        }
+        
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .admin-container {
+            max-width: 1200px;
+            margin: auto;
+            flex: 1;
+        }
+        
+        .security-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 40px;
+        }
+        
+        .security-header h1 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .security-header .shield-icon {
+            font-size: 2.5rem;
+            color: var(--admin-accent);
+            margin-bottom: 15px;
+        }
+        
+        .security-header p {
+            color: #aaa;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .security-banner {
+            background-color: rgba(208, 52, 44, 0.1);
+            border-left: 4px solid var(--admin-alert);
+            padding: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .security-banner i {
+            color: var(--admin-alert);
+            font-size: 1.5rem;
+        }
+        
+        .security-banner p {
+            margin: 0;
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+        
+        .admin-form-container {
+            background: linear-gradient(145deg, #1a1a1a, #222222);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .form-control {
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            background-color: #2d2d2d;
+            border-color: var(--admin-accent);
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(44, 116, 179, 0.25);
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            right: 15px;
+            top: 13px;
+            color: #777;
+        }
+        
+        .btn-admin-login {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            background-color: var(--admin-accent);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn-admin-login:hover {
+            background-color: var(--admin-secondary);
+            transform: translateY(-2px);
+        }
+        
+        .form-footer-links {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .form-footer-links a {
+            color: var(--admin-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .form-footer-links a:hover {
+            color: #4dabf7;
+            text-decoration: underline;
+        }
+        
+        .preview-panel {
+            background: linear-gradient(145deg, #1a1a1a, #222222);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .preview-panel h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .preview-grid {
+            display: grid;
+                grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .preview-item {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preview-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+        }
+        
+        .preview-item i {
+            font-size: 2rem;
+            color: var(--admin-accent);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .preview-item h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .admin-footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: auto;
+        }
+        
+        .admin-footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .admin-footer a:hover {
+            color: var(--admin-accent);
+        }
+        
+        .remember-device {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .remember-device .form-check-input {
+            background-color: #2d2d2d;
+            border-color: #555;
+        }
+        
+        .remember-device .form-check-input:checked {
+            background-color: var(--admin-accent);
+            border-color: var(--admin-accent);
+        }
+        
+        .remember-device .form-check-label {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-form-container {
+                padding: 25px;
+            }
+            
+            /* .preview-grid {
+            } */
+            
+            .security-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .security-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container py-4">
+        <!-- Secure Header -->
+        <div class="security-header">
+            <div class="shield-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>Administrator Login</h1>
+            <p>Authorized personnel only. Access to backend management and reports.</p>
+        </div>
+        
+        <!-- Security Notice Banner -->
+        <div class="container">
+            <div class="security-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>This portal is for staff and authorized personnel only. Unauthorized access is strictly prohibited and monitored.</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Admin Login Form -->
+                    <div class="admin-form-container">
+                        <form id="adminLoginForm">
+                            <div class="input-icon">
+                                <input type="text" class="form-control" id="adminId" placeholder="Admin ID or Email" required>
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="password" class="form-control" id="adminPassword" placeholder="Password" required>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="text" class="form-control" id="admin2FA" placeholder="2FA Code (if enabled)" autocomplete="off">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            
+                            <div class="remember-device">
+                                <input class="form-check-input" type="checkbox" id="rememberDevice">
+                                <label class="form-check-label ms-2" for="rememberDevice">Remember this device</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-admin-login">
+                                <i class="fas fa-sign-in-alt me-2"></i> Login as Admin
+                            </button>
+                            
+                            <div class="form-footer-links">
+                                <p><a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Admin Password?</a></p>
+                                <p class="mt-2"><i class="fas fa-info-circle me-1"></i> All login attempts are logged</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <!-- Admin Portal Preview -->
+                    <div class="preview-panel">
+                        <h3>Admin Portal Features</h3>
+                        <div class="preview-grid">
+                            <div class="preview-item">
+                                <i class="fas fa-ticket-alt"></i>
+                                <h4>Booking Management</h4>
+                            </div>
+                            <div class="preview-item">
+                                <i class="fas fa-users"></i>
+                                <h4>User Administration</h4>
+                            </div>
+                            <div class="preview-item">
+                                <i class="fas fa-route"></i>
+                                <h4>Route Control</h4>
+                            </div>
+                            <div class="preview-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Revenue Analytics</h4>
+                            </div>
+                            <div class="preview-item">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <h4>Payment Reports</h4>
+                            </div>
+                            <div class="preview-item">
+                                <i class="fas fa-cog"></i>
+                                <h4>System Settings</h4>
+                            </div>
+                        </div>
+                        <p class="text-center mt-4 text-muted small">
+                            <i class="fas fa-lock me-1"></i> Need access? Contact your system administrator.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin Footer -->
+    <footer class="admin-footer">
+        <div class="container">
+            <p>
+                <a href="#">Terms of Use</a> | 
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Security Policy</a>
+            </p>
+            <p class="mb-1">Admin Portal v2.5.1 - Last updated May 2025</p>
+            <p class="small">All login attempts are logged. IP address and session activity are monitored.</p>
+        </div>
+    </footer>
+    
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Admin Password Recovery</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>For security reasons, admin password resets require:</p>
+                    <ol>
+                        <li>Verification from another admin</li>
+                        <li>2FA confirmation</li>
+                        <li>Email confirmation to registered admin address</li>
+                    </ol>
+                    <p class="mt-3">Please contact your system administrator or IT support team.</p>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Contact Support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Admin login form handling
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, this would validate and send to server
+            console.log('Admin login attempt:', {
+                id: document.getElementById('adminId').value,
+                password: document.getElementById('adminPassword').value,
+                twoFA: document.getElementById('admin2FA').value,
+                rememberDevice: document.getElementById('rememberDevice').checked
+            });
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Authenticating...';
+            submitBtn.disabled = true;
+            
+            // Simulate authentication delay
+            setTimeout(() => {
+                // This would be replaced with actual authentication logic
+                alert('In a real implementation, this would validate credentials with the server');
+                submitBtn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i> Login as Admin';
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // IP Whitelisting notice (simulated)
+        console.log('Current IP: 192.168.1.100 - ' + 
+                   (Math.random() > 0.5 ? 'Whitelisted' : 'Not in whitelist'));
+        
+        // Login attempt tracking (simulated)
+        let loginAttempts = 0;
+        
+        // This would be handled server-side in production
+        function trackLoginAttempt() {
+            loginAttempts++;
+            console.log(`Login attempt #${loginAttempts} recorded`);
+            
+            if(loginAttempts > 3) {
+                console.warn('Multiple failed attempts - consider lockout');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BookEasy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #063d21;
+            --secondary-color: #0a5c36;
+            --accent-color: #12a15e;
+            --light-color: #f5f9f7;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .login-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .welcome-header h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-header p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .auth-illustration {
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: none;
+        }
+        
+        .auth-tab {
+            padding: 12px 30px;
+            background: white;
+            border: 1px solid #ddd;
+            color: #555;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-tab:first-child {
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+        }
+        
+        .auth-tab:last-child {
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+        }
+        
+        .auth-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .auth-form-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(6, 61, 33, 0.1);
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            right: 15px;
+            top: 13px;
+            color: #777;
+        }
+        
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-login:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-signup {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-signup:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .form-footer-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .form-footer-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .form-footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #777;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .divider::before {
+            margin-right: 15px;
+        }
+        
+        .divider::after {
+            margin-left: 15px;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 1px solid #ddd;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-social:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-google:hover {
+            color: #DB4437;
+            border-color: #DB4437;
+        }
+        
+        .btn-facebook:hover {
+            color: #4267B2;
+            border-color: #4267B2;
+        }
+        
+        .btn-apple:hover {
+            color: #000;
+            border-color: #000;
+        }
+        
+        .benefits-sidebar {
+            background: var(--light-color);
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .benefits-sidebar h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .security-links {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .security-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .security-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-form-container {
+                padding: 25px;
+            }
+            
+            .auth-tabs {
+                margin-bottom: 20px;
+            }
+            
+            .auth-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .welcome-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="login-container">
+            <!-- Welcome Header -->
+            <div class="welcome-header">
+                <h1>Welcome Back, Traveler!</h1>
+                <p>Sign in to manage your bookings, get personalized deals, and explore your next destination.</p>
+                <div class="auth-illustration">
+                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Happy traveler" 
+                         class="img-fluid rounded">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- Toggle Tabs -->
+                    <ul class="nav auth-tabs" id="authTabs">
+                        <li class="auth-tab active" data-tab="login">Login</li>
+                        <li class="auth-tab" data-tab="signup">Sign Up</li>
+                    </ul>
+                    
+                    <!-- Login Form (Visible by default) -->
+                    <div class="auth-form-container" id="loginForm">
+                        <form>
+                            <div class="input-icon">
+                                <input type="email" class="form-control" id="loginEmail" placeholder="Email or Phone" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="text-decoration-none">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-auth btn-login">Login</button>
+                            
+                            <div class="form-footer-links">
+                                <p>Don't have an account? <a href="#" class="switch-tab" data-tab="signup">Sign up</a></p>
+                            </div>
+                        </form>
+                        
+                        <div class="divider">Or continue with</div>
+                        
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="btn-social btn-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="btn-social btn-apple">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Signup Form (Hidden by default) -->
+                    <div class="auth-form-container d-none" id="signupForm">
+                        <form>
+                            <div class="input-icon">
+                                <input type="text" class="form-control" id="signupName" placeholder="Full Name" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="email" class="form-control" id="signupEmail" placeholder="Email" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="tel" class="form-control" id="signupPhone" placeholder="Phone Number" required>
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            
+                            <div class="input-icon">
+                                <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a></label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-auth btn-signup">Create Account</button>
+                            
+                            <div class="form-footer-links">
+                                <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login</a></p>
+                            </div>
+                        </form>
+                        
+                        <div class="divider">Or continue with</div>
+                        
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="btn-social btn-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="btn-social btn-apple">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefits Sidebar -->
+                <div class="col-lg-5 mt-4 mt-lg-0">
+                    <div class="benefits-sidebar">
+                        <h3>Why Join BookEasy?</h3>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h5>Quick Bookings</h5>
+                                <p>Save your preferences for faster checkout on future trips.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <h5>Favorite Routes</h5>
+                                <p>Book your regular journeys with just one click.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div>
+                                <h5>Exclusive Deals</h5>
+                                <p>Get access to members-only discounts and offers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-suitcase"></i>
+                            </div>
+                            <div>
+                                <h5>Manage Bookings</h5>
+                                <p>View, modify, or cancel trips in one place.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Security & Help Links -->
+            <div class="security-links">
+                <p>
+                    <i class="fas fa-lock"></i> We use secure encryption to protect your data • 
+                    <a href="#">Need help logging in?</a><br>
+                    By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const switchLinks = document.querySelectorAll('.switch-tab');
+            
+            // Handle tab clicks
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all forms
+                    document.getElementById('loginForm').classList.add('d-none');
+                    document.getElementById('signupForm').classList.add('d-none');
+                    
+                    // Show the selected form
+                    document.getElementById(`${tab.dataset.tab}Form`).classList.remove('d-none');
+                });
+            });
+            
+            // Handle switch links in form footers
+            switchLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabToSwitch = link.dataset.tab;
+                    
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to target tab
+                    document.querySelector(`.auth-tab[data-tab="${tabToSwitch}"]`).classList.add('active');
+                    
+                    // Hide all forms
+                    document.getElementById('loginForm').classList.add('d-none');
+                    document.getElementById('signupForm').classList.add('d-none');
+                    
+                    // Show the selected form
+                    document.getElementById(`${tabToSwitch}Form`).classList.remove('d-none');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
