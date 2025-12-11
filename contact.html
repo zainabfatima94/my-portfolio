@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zainab Fatima | Senior Web Developer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/contact/hero.css">
+    <link rel="stylesheet" href="styles/contact/form.css">
+    <link rel="stylesheet" href="styles/contact/info.css">
+    <link rel="stylesheet" href="styles/contact/faqs.css">
+    <link rel="stylesheet" href="styles/contact/cta.css">
+</head>
+<body>
+    <!-- Premium Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span>ZF</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        <a class="navbar-brand" href="index.html">
+                            <span>ZainabFatima</span>
+                        </a>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">
+                                <i class="fas fa-user"></i> About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">
+                                <i class="fas fa-briefcase"></i> Work
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">
+                                <i class="fas fa-code"></i> Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </li>
+                        <li class="nav-item d-lg-none mt-3">
+                            <a class="btn nav-cta w-100" href="contact.html">
+                                Hire Me <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-none d-lg-flex ms-lg-3">
+                        <a class="btn nav-cta" href="contact.html">
+                            Hire Me <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero py-6">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Content Column -->
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="contact-hero-content">
+                        <h6 class="text-primary mb-3"><span class="section-badge">Get In Touch</span></h6>
+                        <h1 class="contact-title mb-4">Let's Build <span class="text-gradient">Something Great</span> Together</h1>
+                        <p class="contact-subtitle mb-5">Have a project in mind? Reach out for collaborations, quotes, or just to say hello. I respond within 24 hours.</p>
+                        
+                        <div class="contact-cta d-flex flex-wrap gap-3">
+                            <a href="mailto:hello@yourdomain.com" class="btn btn-primary btn-lg">
+                                <i class="fas fa-envelope me-2"></i> Email Me
+                            </a>
+                            <a href="#contact-form" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i> Send Message
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Column (Using Undraw Illustration) -->
+                <div class="col-lg-6 order-lg-2 order-1 mb-5 mb-lg-0">
+                    <div class="contact-hero-image">
+                        <img 
+                            src="images/illustrations/contact.svg" 
+                            alt="Contact Illustration" 
+                            class="img-fluid"
+                        >
+                        <!-- Fallback local image if Undraw fails -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add to main.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitText = contactForm.querySelector('.submit-text');
+            const spinner = contactForm.querySelector('.spinner-border');
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            
+            // Form Validation
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (contactForm.checkValidity()) {
+                    // Form is valid - submit via AJAX
+                    submitForm();
+                }
+                
+                contactForm.classList.add('was-validated');
+            }, false);
+            
+            // Form Submission Handler
+            function submitForm() {
+                // Show loading state
+                submitText.textContent = 'Sending...';
+                spinner.classList.remove('d-none');
+                submitBtn.disabled = true;
+                
+                // Hide any previous alerts
+                successAlert.classList.add('d-none');
+                errorAlert.classList.add('d-none');
+                
+                // Simulate AJAX submission (replace with actual fetch/XHR)
+                setTimeout(() => {
+                    // For demo, we'll simulate a successful submission
+                    const isSuccess = Math.random() > 0.2; // 80% success rate for demo
+                    
+                    if (isSuccess) {
+                        // Success case
+                        successAlert.classList.remove('d-none');
+                        contactForm.reset();
+                        contactForm.classList.remove('was-validated');
+                    } else {
+                        // Error case
+                        errorAlert.classList.remove('d-none');
+                    }
+                    
+                    // Reset button state
+                    submitText.textContent = 'Send Message';
+                    spinner.classList.add('d-none');
+                    submitBtn.disabled = false;
+                }, 1500);
+            }
+        });
+    </script>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section py-6">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Details Column -->
+                <div class="col-lg-5">
+                    <div class="contact-details-card">
+                        <h3 class="details-title mb-4">Other Ways to Reach Me</h3>
+                        
+                        <!-- Contact Item 1 -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Linkedin</h4>
+                                <a href="https://www.linkedin.com/in/zainabfatimaa/">Zainabfatimaa</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Item 2 -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="#">+92 345 5310038</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Item 3 -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Islamabad, PK</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="social-links mt-5">
+                            <h4 class="mb-3">Follow Me</h4>
+                            <div class="d-flex gap-3">
+                                <a href="https://github.com/zainabfatima94/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/zainabfatimaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://x.com/ZainabFatimaX" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com/zainabfatima.x/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Column -->
+                <div class="col-lg-7">
+                    <div class="map-container">
+                        <!-- Google Map Embed (Replace with your actual embed code) -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425289.9905225284!2d72.75644141401347!3d33.61625093916508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515c3bdb02b6!2sIslamabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1754804310800!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-6 bg-dark-2">
+        <div class="container">
+            <div class="section-header text-center mb-6">
+                <h6 class="text-primary mb-3"><span class="section-badge">Help Center</span></h6>
+                <h2 class="section-title mb-4">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-subtitle mx-auto">Quick answers to common inquiries about my services and process.</p>
+            </div>
+
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What's your typical project timeline?
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Most projects take 4-8 weeks from start to launch, depending on complexity. Here's a breakdown:</p>
+                            <ul>
+                                <li><strong>Discovery Phase:</strong> 1 week</li>
+                                <li><strong>Design:</strong> 2 weeks</li>
+                                <li><strong>Development:</strong> 3-5 weeks</li>
+                                <li><strong>Testing & Launch:</strong> 1 week</li>
+                            </ul>
+                            <p>I'll provide a detailed timeline after our initial consultation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Do you work with clients internationally?
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Yes! I regularly work with clients across North America, Europe, and Asia. My working hours are flexible to accommodate different time zones. All communication is conducted in English, and payments are processed through secure international platforms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            What's included in your maintenance packages?
+                        </button>
+                    </h3>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>My standard maintenance package includes:</p>
+                            <ul>
+                                <li>Weekly backups</li>
+                                <li>Security updates</li>
+                                <li>Performance monitoring</li>
+                                <li>Emergency bug fixes (response within 24 hours)</li>
+                                <li>2 hours of minor updates per month</li>
+                            </ul>
+                            <p>Custom packages are available for larger projects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How do you handle project payments?
+                        </button>
+                    </h3>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>I use a transparent 3-stage payment structure:</p>
+                            <ol>
+                                <li><strong>30% upfront</strong> to secure your project slot</li>
+                                <li><strong>40% at project midpoint</strong> (after design approval)</li>
+                                <li><strong>30% upon completion</strong> before final delivery</li>
+                            </ol>
+                            <p>All invoices can be paid via credit card, bank transfer, or PayPal. A detailed contract outlines all payment terms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Can you help with domain/hosting setup?
+                        </button>
+                    </h3>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <p>Absolutely! I offer complete deployment services including:</p>
+                            <ul>
+                                <li>Domain registration guidance</li>
+                                <li>Hosting recommendations and setup</li>
+                                <li>SSL certificate installation</li>
+                                <li>DNS configuration</li>
+                                <li>Email setup (Google Workspace/Microsoft 365)</li>
+                            </ul>
+                            <p>I can either manage these for you or provide detailed instructions for self-management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="additional-help">Still have questions? <a href="contact.html" class="text-gradient">Contact me directly</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section py-6 bg-gradient">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="cta-title mb-4">Ready to Start Your Project?</h2>
+                    <p class="cta-subtitle mb-5">Let's turn your ideas into reality. I'm available for new projects starting next week.</p>
+                    
+                    <div class="cta-buttons d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contact.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i> Get a Free Quote
+                        </a>
+                        <a href="tel:+923455310038" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-phone-alt me-2"></i> Call Me Now
+                        </a>
+                    </div>
+                    
+                    <div class="cta-meta mt-5">
+                        <div class="d-flex flex-wrap justify-content-center gap-4">
+                            <div class="meta-item">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span>No upfront costs</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span>24-hour response time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-check-circle text-primary"></i>
+                                <span>Money-back guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section bg-dark-4 pt-6 pb-4">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Footer About -->
+                <div class="col-lg-4">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-brand d-inline-block mb-3">
+                            <span class="text-gradient">Zainab</span>Fatima
+                        </a>
+                        <p class="footer-text mb-4">Crafting exceptional digital experiences through innovative web development and thoughtful design.</p>
+                        <div class="footer-social d-flex gap-3">
+                            <a href="https://github.com/zainabfatima94/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/zainabfatimaa/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://x.com/ZainabFatimaX" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/zainabfatima.x/" class="social-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5 class="footer-title mb-4">Explore</h5>
+                        <ul class="footer-menu list-unstyled">
+                            <li class="menu-item mb-2"><a href="index.html" class="menu-link">Home</a></li>
+                            <li class="menu-item mb-2"><a href="about.html" class="menu-link">About</a></li>
+                            <li class="menu-item mb-2"><a href="portfolio.html" class="menu-link">Portfolio</a></li>
+                            <li class="menu-item mb-2"><a href="services.html" class="menu-link">Services</a></li>
+                            <li class="menu-item"><a href="contact.html" class="menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer Services -->
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5 class="footer-title mb-4">Services</h5>
+                        <ul class="footer-menu list-unstyled">
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">Web Development</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">UI/UX Design</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">Mobile Apps</a></li>
+                            <li class="menu-item mb-2"><a href="#" class="menu-link">API Development</a></li>
+                            <li class="menu-item"><a href="#" class="menu-link">Consulting</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer Newsletter -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-newsletter">
+                        <h5 class="footer-title mb-4">Stay Updated</h5>
+                        <p class="footer-text mb-4">Subscribe to my newsletter for the latest updates and insights.</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email" required>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Copyright -->
+            <div class="footer-copyright pt-5 mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright-text mb-3 mb-md-0">© <span id="currentYear"></span> Zainab Fatima. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-legal text-md-end">
+                            <a href="#" class="legal-link me-3">Privacy Policy</a>
+                            <a href="#" class="legal-link">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
