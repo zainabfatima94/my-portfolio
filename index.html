@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero – Full Stack Architecture</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind via CDN (for demo – use build process in production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'space-grotesk': ['"Space Grotesk"', 'sans-serif'],
+            'inter': ['Inter', 'sans-serif'],
+          },
+          colors: {
+            bgDark: '#0B0F19',
+            accent: '#10B981',
+            textMuted: '#94A3B8',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP + SplitText (use official CDN or npm in production) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- SplitText is a club plugin – for free alternative we simulate with word spans -->
+
+  <!-- Font Awesome Icons via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS for enhanced styling -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-bgDark text-white font-inter">
+
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="flex h-16 sm:h-20 items-center justify-between transition-all duration-300">
+
+        <!-- Logo -->
+        <a href="#" class="nav-logo font-space-grotesk text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          ZAINAB<span class="text-accent">.</span>DEV
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-10">
+
+          <ul
+            class="nav-links flex items-center gap-9 text-[#E2E8F0] font-space-grotesk font-medium text-base lg:text-lg">
+            <li><a href="#projects" class="nav-link relative group">Work</a></li>
+            <li><a href="#about" class="nav-link relative group">About</a></li>
+            <li><a href="#mentorship" class="nav-link relative group">Mentorship</a></li>
+            <li><a href="#contact" class="nav-link relative group">Contact</a></li>
+          </ul>
+
+          <a href="mailto:zainab.devgateway@gmail.com"
+            class="px-7 py-3.5 bg-accent/10 border border-accent/40 text-accent font-medium rounded-full hover:bg-accent hover:text-[#0B0F19] transition-all duration-300 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]">
+            Let's Talk →
+          </a>
+
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-toggle" class="md:hidden text-white focus:outline-none p-2 -mr-2"
+          aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+              class="menu-icon-line" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Full-screen Menu -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-[#0B0F19] z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-none md:hidden">
+      <div class="flex flex-col items-center gap-12 text-3xl sm:text-4xl font-space-grotesk font-medium text-white">
+        <a href="#work" class="mobile-link hover:text-accent transition-colors">Work</a>
+        <a href="#about" class="mobile-link hover:text-accent transition-colors">About</a>
+        <a href="#mentorship" class="mobile-link hover:text-accent transition-colors">Mentorship</a>
+        <a href="#contact" class="mobile-link hover:text-accent transition-colors">Contact</a>
+
+        <a href="#contact"
+          class="mt-8 px-10 py-5 bg-accent text-[#0B0F19] font-medium rounded-full text-2xl hover:bg-accent/90 transition-all">
+          Let's Talk →
+        </a>
+      </div>
+    </div>
+
+  </nav>
+
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B0F19]">
+
+    <!-- Pulsing glow background -->
+    <div id="glow"
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-accent rounded-full blur-[120px] opacity-20 pointer-events-none">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10 text-center">
+
+      <h1 id="hero-title"
+        class="hero-title font-space-grotesk text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-500 leading-tight tracking-tight">
+        <span class="word">Zainab</span>
+        <span class="word">|</span>
+        <span class="word">Full</span>
+        <span class="word">Stack</span>
+        <span class="word">Developer</span>
+        <span class="word">&</span>
+        <span class="word">Founder</span>
+      </h1>
+
+      <p class="hero-subtitle font-inter text-lg md:text-xl text-textMuted mt-6 max-w-3xl mx-auto leading-relaxed">
+        Building AI-resilient developers through rigorous mentorship and internships.
+      </p>
+
+      <button class="mt-10">
+        <a href="#projects"
+          class="hero-cta group mt-10 px-10 py-4 bg-accent/10 border border-accent/40 text-accent font-bold rounded-full hover:bg-accent hover:text-bgDark transition-all duration-300 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:scale-[1.03] active:scale-95">
+          View Selected Works →
+        </a>
+      </button>
+
+    </div>
+
+  </section>
+
+  <section id="about" class="py-24 md:py-32 bg-bgDark">
+
+    <div
+      class="container mx-auto px-5 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start md:items-center">
+
+      <!-- Left: Content -->
+      <div
+        class="about-content relative pl-0 md:pl-6 lg:pl-10 border-l-0 md:border-l-4 border-accent order-2 md:order-1">
+
+        <h2
+          class="section-title font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-9 md:mb-10 leading-tight">
+          Building the<br class="hidden sm:inline" /> Future of Digital Products
+        </h2>
+
+        <div
+          class="space-y-7 md:space-y-8 text-lg sm:text-xl lg:text-2xl leading-relaxed text-textMuted about-text-wrapper">
+          <p class="about-text">
+            I am Zainab Fatima, a Full Stack Developer and founder of DevGateway. I specialize in building scalable web
+            applications and designing technical curricula that prepare learners for real-world engineering challenges.
+          </p>
+
+          <p class="about-text">
+            At DevGateway, I lead structured mentorship programs focused on AI-resilient development practices,
+            portfolio-ready projects, and professional readiness. Top performers gain access to internships and industry
+            certifications.
+          </p>
+
+          <p class="about-text font-medium text-white">
+            My mission is to equip emerging developers with the systems thinking and technical depth required to become
+            trusted contributors in the global tech ecosystem. I actively engage with developer communities across
+            LinkedIn, Discord, and Facebook to foster growth and opportunity.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right: Visual / Stat column -->
+      <div
+        class="about-visual relative min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] bg-card rounded-xl border border-borderDark overflow-hidden flex items-center justify-center group order-1 md:order-2 will-change-transform">
+
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-700">
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center px-6 sm:px-8 text-center">
+          <div
+            class="text-7xl sm:text-8xl lg:text-9xl font-space-grotesk font-bold text-accent tracking-tight leading-none">
+            1.4K<span class="text-5xl sm:text-6xl lg:text-7xl align-baseline">+</span>
+          </div>
+          <div class="mt-4 sm:mt-5 text-lg sm:text-xl lg:text-2xl text-textMuted font-medium leading-tight">
+            Production deploys<br class="hidden sm:inline" /> across four continents
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="tech-stack" class="py-24 md:py-32 bg-[#0B0F19] overflow-hidden">
+
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8 text-center mb-16 md:mb-20">
+      <h2 class="font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-5">
+        Tech Stack
+      </h2>
+      <p class="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto">
+        Modern, type-safe, production-grade tools I use to ship fast and scale reliably.
+      </p>
+    </div>
+
+    <!-- Marquee wrapper -->
+    <div class="relative">
+
+      <!-- Gradient masks -->
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#0B0F19] to-transparent z-10">
+      </div>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#0B0F19] to-transparent z-10">
+      </div>
+
+      <!-- Track -->
+      <div id="marquee-track" class="flex will-change-transform">
+
+        <!-- Single group – will be duplicated in JS -->
+        <div class="flex gap-6 md:gap-8 px-6 md:px-8 shrink-0 marquee-group">
+
+          <!-- Frontend -->
+          <div class="group glass-card min-w-[280px] sm:min-w-[320px] md:min-w-[360px]">
+            <h3
+              class="font-space-grotesk text-2xl text-white mb-6 pb-3 border-b border-white/10 flex items-center gap-3">
+              <i class="fa-solid fa-laptop-code text-accent text-3xl"></i>
+              Frontend
+            </h3>
+            <ul class="font-mono text-[#CBD5E1] space-y-4 text-base md:text-lg leading-relaxed">
+              <li><i class="fa-brands fa-react text-[#61DAFB] mr-2.5"></i>Next.js 15 / App Router</li>
+              <li><i class="fa-brands fa-react text-[#61DAFB] mr-2.5"></i>React 19 + Server Components</li>
+              <li><i class="fa-solid fa-code text-[#3178C6] mr-2.5"></i>TypeScript</li>
+              <li><i class="fa-solid fa-wind text-[#38BDF8] mr-2.5"></i>Tailwind CSS</li>
+              <li><i class="fa-solid fa-puzzle-piece text-accent mr-2.5"></i>shadcn/ui + Radix UI</li>
+              <li><i class="fa-solid fa-cubes-stacked text-accent mr-2.5"></i>Zustand / Jotai</li>
+            </ul>
+          </div>
+
+          <!-- Backend -->
+          <div class="group glass-card min-w-[280px] sm:min-w-[320px] md:min-w-[360px]">
+            <h3
+              class="font-space-grotesk text-2xl text-white mb-6 pb-3 border-b border-white/10 flex items-center gap-3">
+              <i class="fa-solid fa-server text-accent text-3xl"></i>
+              Backend
+            </h3>
+            <ul class="font-mono text-[#CBD5E1] space-y-4 text-base md:text-lg leading-relaxed">
+              <li><i class="fa-brands fa-node-js text-[#339933] mr-2.5"></i>Node.js + tRPC</li>
+              <li><i class="fa-brands fa-react text-[#61DAFB] mr-2.5"></i>Next.js API Routes / Server Actions</li>
+              <li><i class="fa-solid fa-database text-accent mr-2.5"></i>Drizzle ORM</li>
+              <li><i class="fa-solid fa-cogs text-accent mr-2.5"></i>Express (when needed)</li>
+              <li><i class="fa-solid fa-rocket text-accent mr-2.5"></i>Fastify (performance critical)</li>
+            </ul>
+          </div>
+
+          <!-- Database -->
+          <div class="group glass-card min-w-[280px] sm:min-w-[320px] md:min-w-[360px]">
+            <h3
+              class="font-space-grotesk text-2xl text-white mb-6 pb-3 border-b border-white/10 flex items-center gap-3">
+              <i class="fa-solid fa-database text-accent text-3xl"></i>
+              Database
+            </h3>
+            <ul class="font-mono text-[#CBD5E1] space-y-4 text-base md:text-lg leading-relaxed">
+              <li><i class="fa-solid fa-feather-pointed text-[#336791] mr-2.5"></i>PostgreSQL</li>
+              <li><i class="fa-solid fa-cloud text-accent mr-2.5"></i>Supabase / Neon</li>
+              <li><i class="fa-solid fa-bolt text-[#DC382C] mr-2.5"></i>Redis (caching + queues)</li>
+              <li><i class="fa-solid fa-key text-accent mr-2.5"></i>Upstash Redis / KV</li>
+            </ul>
+          </div>
+
+          <!-- DevOps -->
+          <div class="group glass-card min-w-[280px] sm:min-w-[320px] md:min-w-[360px]">
+            <h3
+              class="font-space-grotesk text-2xl text-white mb-6 pb-3 border-b border-white/10 flex items-center gap-3">
+              <i class="fa-solid fa-gears text-accent text-3xl"></i>
+              DevOps
+            </h3>
+            <ul class="font-mono text-[#CBD5E1] space-y-4 text-base md:text-lg leading-relaxed">
+              <li><i class="fa-solid fa-cloud-arrow-up text-accent mr-2.5"></i>Vercel</li>
+              <li><i class="fa-brands fa-docker text-[#2496ED] mr-2.5"></i>Docker + Compose</li>
+              <li><i class="fa-brands fa-github text-white mr-2.5"></i>GitHub Actions</li>
+              <li><i class="fa-solid fa-shield-halved text-[#F38020] mr-2.5"></i>Cloudflare (DNS + caching)</li>
+              <li><i class="fa-solid fa-eye text-accent mr-2.5"></i>Observability: Sentry + Logflare</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section id="projects" class="py-24 md:py-32 bg-[#0B0F19]">
+
+    <div class="text-center mb-16 md:mb-20">
+      <h2 class="font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-5">
+        Selected Projects
+      </h2>
+      <p class="text-lg sm:text-xl text-[#94A3B8] max-w-3xl mx-auto">
+        Production-grade applications built with modern stacks, performance budgets, and real user impact.
+      </p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="project-filters">
+        <button data-filter="all"
+          class="filter-btn active flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white font-medium transition-all">
+          <i class="fa-solid fa-th-large text-lg"></i>
+          <span>All Projects</span>
+        </button>
+        <button data-filter="portfolio"
+          class="filter-btn flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white font-medium transition-all">
+          <i class="fa-solid fa-laptop-code text-emerald-400 text-lg"></i>
+          <span>Portfolio</span>
+        </button>
+        <button data-filter="ai-platform"
+          class="filter-btn flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white font-medium transition-all">
+          <i class="fa-solid fa-robot text-sky-400 text-lg"></i>
+          <span>AI Platform</span>
+        </button>
+        <button data-filter="fintech"
+          class="filter-btn flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl text-white font-medium transition-all">
+          <i class="fa-solid fa-chart-line text-violet-400 text-lg"></i>
+          <span>Fintech</span>
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" id="projects-grid">
+
+        <!-- Project 01: Frontend-w Portfolio -->
+        <div
+          class="project-card group cursor-pointer bg-[#151B2B] rounded-3xl overflow-hidden border border-white/5 hover:border-accent/40 transition-all duration-500"
+          data-category="portfolio" data-id="1">
+          <div
+            class="absolute top-6 left-6 z-20 bg-accent text-[#0B0F19] font-space-grotesk text-sm font-bold px-4 py-1.5 rounded-2xl shadow-xl">
+            #01</div>
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="assets/img/project/frontend-w.png" alt="Animated Portfolio Website"
+              class="project-image w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]/70"></div>
+            <div
+              class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-emerald-400 w-10 h-10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-laptop-code text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-space-grotesk text-3xl text-white group-hover:text-accent transition-colors">Frontend-w
+              </h3>
+              <div class="flex gap-4 text-[#94A3B8]">
+                <a href="https://www.frontend-w.com" target="_blank" class="hover:text-accent transition-colors"
+                  aria-label="Live Site">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-2xl"></i>
+                </a>
+              </div>
+            </div>
+            <p class="text-[#CBD5E1] line-clamp-3">Interactive portfolio with GSAP animations, AOS scroll effects, and
+              vanilla JS architecture showcasing advanced frontend skills.</p>
+          </div>
+        </div>
+
+        <!-- Project 02: Chirpley AI -->
+        <div
+          class="project-card group cursor-pointer bg-[#151B2B] rounded-3xl overflow-hidden border border-white/5 hover:border-accent/40 transition-all duration-500"
+          data-category="ai-platform" data-id="2">
+          <div
+            class="absolute top-6 left-6 z-20 bg-accent text-[#0B0F19] font-space-grotesk text-sm font-bold px-4 py-1.5 rounded-2xl shadow-xl">
+            #02</div>
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="assets/img/project/chirpley.png" alt="Chirpley AI Platform"
+              class="project-image w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]/70"></div>
+            <div
+              class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-sky-400 w-10 h-10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-robot text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-space-grotesk text-3xl text-white group-hover:text-accent transition-colors">Chirpley AI
+              </h3>
+              <div class="flex gap-4 text-[#94A3B8]">
+                <a href="https://chirpley-ai.netlify.app" target="_blank" class="hover:text-accent transition-colors"
+                  aria-label="Live Site">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-2xl"></i>
+                </a>
+              </div>
+            </div>
+            <p class="text-[#CBD5E1] line-clamp-3">3D micro-influencer platform with AI integration, Stripe payments,
+              and low-code React/Node.js architecture.</p>
+          </div>
+        </div>
+
+        <!-- Project 03: TCD Horizon Capital -->
+        <div
+          class="project-card group cursor-pointer bg-[#151B2B] rounded-3xl overflow-hidden border border-white/5 hover:border-accent/40 transition-all duration-500"
+          data-category="fintech" data-id="3">
+          <div
+            class="absolute top-6 left-6 z-20 bg-accent text-[#0B0F19] font-space-grotesk text-sm font-bold px-4 py-1.5 rounded-2xl shadow-xl">
+            #03</div>
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="assets/img/project/tcd-capital.png" alt="TCD Horizon Capital"
+              class="project-image w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]/70"></div>
+            <div
+              class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-violet-400 w-10 h-10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-chart-line text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-space-grotesk text-3xl text-white group-hover:text-accent transition-colors">TCD Horizon
+                Capital</h3>
+              <div class="flex gap-4 text-[#94A3B8]">
+                <a href="https://tcd-horizon-capital.netlify.app/" target="_blank"
+                  class="hover:text-accent transition-colors" aria-label="Live Site">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-2xl"></i>
+                </a>
+              </div>
+            </div>
+            <p class="text-[#CBD5E1] line-clamp-3">Financial data visualization with dynamic Chart.js graphs, Swiper
+              carousels, and responsive AOS animations.</p>
+          </div>
+        </div>
+
+        <!-- Project 04: Ticket Booking System -->
+        <div
+          class="project-card group cursor-pointer bg-[#151B2B] rounded-3xl overflow-hidden border border-white/5 hover:border-accent/40 transition-all duration-500"
+          data-category="fintech" data-id="4">
+          <div
+            class="absolute top-6 left-6 z-20 bg-accent text-[#0B0F19] font-space-grotesk text-sm font-bold px-4 py-1.5 rounded-2xl shadow-xl">
+            #04</div>
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="assets/img/project/ticket-system.png" alt="Ticket Booking System"
+              class="project-image w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]/70"></div>
+            <div
+              class="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-emerald-400 w-10 h-10 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-ticket text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-7">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-space-grotesk text-3xl text-white group-hover:text-accent transition-colors">TicketFlow
+              </h3>
+              <div class="flex gap-4 text-[#94A3B8]">
+                <a href="#" target="_blank" class="hover:text-white transition-colors" aria-label="GitHub">
+                  <i class="fa-brands fa-github text-3xl"></i>
+                </a>
+              </div>
+            </div>
+            <p class="text-[#CBD5E1] line-clamp-3">Full-stack booking system with dual auth portals, flight selection
+              flow, and admin dashboard built on Node.js + Bootstrap.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROJECT MODAL (unchanged structure - wire up JS to populate) -->
+    <div id="project-modal" class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/90">
+      <div id="modal-content"
+        class="modal-inner bg-[#151B2B] w-full max-w-4xl mx-4 rounded-3xl overflow-y-auto max-h-[90vh] scale-95 opacity-0 transition-all">
+        <div class="relative">
+          <img id="modal-image" src="" alt="" class="w-full h-80 object-cover">
+          <button id="modal-close"
+            class="absolute top-6 right-6 w-12 h-12 bg-black/70 hover:bg-black text-white rounded-2xl flex items-center justify-center transition-all z-10">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+          </button>
+          <div id="modal-badge"
+            class="absolute top-6 left-6 bg-accent text-[#0B0F19] font-space-grotesk font-bold text-lg px-6 py-2 rounded-3xl">
+          </div>
+        </div>
+        <div class="p-8 md:p-12">
+          <h2 id="modal-title" class="font-space-grotesk text-5xl text-white mb-8"></h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h4 class="flex items-center gap-3 text-emerald-400 font-medium mb-3"><i
+                  class="fa-solid fa-circle-question text-xl"></i> PROBLEM</h4>
+              <p id="modal-problem" class="text-[#CBD5E1]"></p>
+            </div>
+            <div>
+              <h4 class="flex items-center gap-3 text-sky-400 font-medium mb-3"><i
+                  class="fa-solid fa-lightbulb text-xl"></i> SOLUTION</h4>
+              <p id="modal-solution" class="text-[#CBD5E1]"></p>
+            </div>
+            <div>
+              <h4 class="flex items-center gap-3 text-violet-400 font-medium mb-3"><i
+                  class="fa-solid fa-trophy text-xl"></i> OUTCOME</h4>
+              <p id="modal-outcome" class="text-[#CBD5E1]"></p>
+            </div>
+          </div>
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <h4 class="font-medium text-white mb-6 flex items-center gap-3"><i
+                class="fa-solid fa-stack-overflow text-accent"></i> BUILT WITH</h4>
+            <div id="modal-tech" class="flex flex-wrap gap-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="co-curriculum" class="py-24 md:py-32 bg-[#0B0F19]">
+
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 md:mb-20">
+        <h2 class="font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-5">
+          Things I’ve Explored & Enjoyed
+        </h2>
+        <p class="text-lg sm:text-xl text-[#94A3B8] max-w-3xl mx-auto">
+          Bits and pieces outside strict academics — mostly curiosity, teamwork and a bit of chaos
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+
+        <!-- Item 1 -->
+        <article
+          class="activity-card group relative bg-[#151B2B]/60 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] will-change-transform cursor-pointer"
+          tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-7 pb-9 relative">
+            <!-- Icon -->
+            <div
+              class="mb-5 w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center text-[#10B981] group-hover:bg-[#10B981]/20 transition-colors">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 8V4H8" />
+                <rect width="16" height="12" x="4" y="8" rx="2" />
+                <path d="M2 14h2" />
+                <path d="M20 14h2" />
+                <path d="M15 13v2" />
+                <path d="M9 13v2" />
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              Python CLI Chatbot
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base">AI & Robotics Club</p>
+
+            <div
+              class="learnings mt-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+              <p class="text-[#CBD5E1] leading-relaxed">
+                Teamed with peers to build a terminal chatbot. Learned: input handling, logic flow, debugging together.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article
+          class="activity-card group relative bg-[#151B2B]/60 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] will-change-transform cursor-pointer"
+          tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-7 pb-9 relative">
+            <div
+              class="mb-5 w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center text-[#10B981] group-hover:bg-[#10B981]/20 transition-colors">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M2 12h20" />
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              Elevator Pitch Practice
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base">Start Up Society</p>
+
+            <div
+              class="learnings mt-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+              <p class="text-[#CBD5E1] leading-relaxed">
+                Pitched my mentorship idea to practice public speaking. Learned: simplifying complex ideas, handling
+                nerves.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article
+          class="activity-card group relative bg-[#151B2B]/60 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] will-change-transform cursor-pointer"
+          tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-7 pb-9 relative">
+            <div
+              class="mb-5 w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center text-[#10B981] group-hover:bg-[#10B981]/20 transition-colors">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              Portfolio Workshop Organizer
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base">AI & Robotics Club</p>
+
+            <div
+              class="learnings mt-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+              <p class="text-[#CBD5E1] leading-relaxed">
+                Ran a session helping classmates start their first portfolio. Learned: teaching basics, planning
+                activities.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article
+          class="activity-card group relative bg-[#151B2B]/60 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] will-change-transform cursor-pointer md:col-span-2 lg:col-span-1"
+          tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-7 pb-9 relative">
+            <div
+              class="mb-5 w-14 h-14 rounded-xl bg-[#10B981]/10 flex items-center justify-center text-[#10B981] group-hover:bg-[#10B981]/20 transition-colors">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a9 9 0 1 0 0 18 9 9 0 0 0 0-18z" />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <line x1="9" y1="9" x2="9.01" y2="9" />
+                <line x1="15" y1="9" x2="15.01" y2="9" />
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              School Community Events
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base">Bake sales • Fundraisers • Random fun days</p>
+
+            <div
+              class="learnings mt-5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+              <p class="text-[#CBD5E1] leading-relaxed">
+                Joined bake sales, fundraisers, and fun school activities. Learned: teamwork, showing up, balancing
+                priorities.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="certificates-achievements" class="py-24 md:py-32 bg-[#0B0F19]">
+
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14 md:mb-18">
+        <h2 class="font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-5">
+          Certificates & Wins
+        </h2>
+        <p class="text-lg sm:text-xl text-[#94A3B8] max-w-3xl mx-auto">
+          Things I’ve earned, completed or got recognized for — mostly proud of the early hustle
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 cert-tablist" role="tablist">
+        <button data-filter="all"
+          class="cert-tab-btn active px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-medium transition-all duration-300"
+          aria-pressed="true" role="tab">
+          All
+        </button>
+        <button data-filter="tech"
+          class="cert-tab-btn px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-medium transition-all duration-300"
+          aria-pressed="false" role="tab">
+          Tech Certs
+        </button>
+        <button data-filter="academic"
+          class="cert-tab-btn px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-medium transition-all duration-300"
+          aria-pressed="false" role="tab">
+          Academic Contests
+        </button>
+        <button data-filter="recognition"
+          class="cert-tab-btn px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-white font-medium transition-all duration-300"
+          aria-pressed="false" role="tab">
+          Appreciation & Scholarships
+        </button>
+      </div>
+
+      <!-- Grid -->
+      <div id="cert-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+        <!-- HTML/CSS -->
+        <article
+          class="certificate-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_12px_40px_rgba(16,185,129,0.15)] will-change-transform cursor-pointer"
+          data-cert-category="tech" tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-6 md:p-7 relative">
+            <div
+              class="absolute top-4 right-4 w-10 h-10 bg-black/40 backdrop-blur-md rounded-xl flex items-center justify-center text-[#10B981]/80 group-hover:text-[#10B981] transition-colors">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              HTML & CSS
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base mb-4">Codeliber • 2024</p>
+
+            <p class="text-[#CBD5E1] text-sm leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+              Completed full course. Built strong front-end foundation.
+            </p>
+
+            <div class="mt-4 text-xs text-[#10B981]/80 font-medium">Verified Course Completion</div>
+          </div>
+        </article>
+
+        <!-- React Hooks -->
+        <article
+          class="certificate-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#10B981]/40 hover:shadow-[0_12px_40px_rgba(16,185,129,0.15)] will-change-transform cursor-pointer"
+          data-cert-category="tech" tabindex="0" role="button" aria-expanded="false">
+
+          <div class="p-6 md:p-7 relative">
+            <div
+              class="absolute top-4 right-4 w-10 h-10 bg-black/40 backdrop-blur-md rounded-xl flex items-center justify-center text-[#10B981]/80 group-hover:text-[#10B981] transition-colors">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2 group-hover:text-[#10B981] transition-colors">
+              React Hooks + JavaScript
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base mb-4">GreatStack • 2025</p>
+
+            <p class="text-[#CBD5E1] text-sm leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+              Passed quiz assessment. QR-verified credential.
+            </p>
+
+            <div class="mt-4 text-xs text-[#10B981]/80 font-medium">QR Verified</div>
+          </div>
+        </article>
+
+        <!-- Kangaroo Math -->
+        <article
+          class="certificate-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[#CD7F32]/40 hover:shadow-[0_12px_40px_rgba(205,127,50,0.15)] will-change-transform"
+          data-cert-category="academic" tabindex="0" role="button">
+
+          <div class="p-6 md:p-7 relative">
+            <div
+              class="absolute top-5 right-5 w-12 h-12 rounded-full bg-gradient-to-br from-[#CD7F32] to-[#8C5523] flex items-center justify-center text-white font-bold text-lg shadow-lg">
+              Bronze
+            </div>
+
+            <h3 class="font-space-grotesk text-2xl text-white mb-2">
+              International Kangaroo Math Contest
+            </h3>
+            <p class="text-[#94A3B8] text-sm md:text-base mb-4">2025 • Grade 8</p>
+
+            <p class="text-[#CBD5E1] text-sm leading-relaxed">
+              1st in school • Bronze Medal + Rubik’s Cube prize
+            </p>
+          </div>
+        </article>
+
+        <!-- More cards follow the same pattern with data-cert-category -->
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Unique Modal -->
+  <div id="certificate-verification-modal"
+    class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/85 backdrop-blur-sm">
+    <div id="cert-modal-content"
+      class="bg-[#151B2B] w-full max-w-lg mx-5 rounded-3xl overflow-hidden scale-95 opacity-0 shadow-2xl">
+      <div class="relative p-8 md:p-10">
+        <button id="cert-modal-close-btn"
+          class="absolute top-5 right-5 text-[#94A3B8] hover:text-white transition-colors text-2xl">
+          ×
+        </button>
+
+        <h3 id="cert-modal-title" class="font-space-grotesk text-3xl text-white mb-6"></h3>
+
+        <div id="cert-modal-body" class="space-y-6 text-[#CBD5E1]"></div>
+
+        <div class="mt-10 flex justify-end gap-4">
+          <a id="cert-modal-verify-link" href="#" target="_blank"
+            class="px-7 py-3 bg-[#10B981] text-[#0B0F19] font-medium rounded-xl hover:bg-[#0EE07F] transition-colors">
+            View Credential →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="mentorship" class="py-24 md:py-32 bg-[#0B0F19] relative overflow-hidden">
+
+    <!-- Subtle background glow -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#10B981]/10 rounded-full blur-3xl opacity-30">
+      </div>
+    </div>
+
+    <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+
+      <div class="text-center mb-16 md:mb-20">
+        <h2 class="font-space-grotesk text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-5">
+          Exclusive Mentorship Cohort
+        </h2>
+        <p class="text-lg sm:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed">
+          Limited spots • Hands-on guidance • Real client work • Career acceleration for serious developers
+        </p>
+      </div>
+
+      <!-- Main Offer Card -->
+      <div id="offer-card"
+        class="max-w-4xl mx-auto bg-gradient-to-b from-[#151B2B] to-[#0F1622] rounded-3xl p-8 md:p-12 lg:p-16 border border-white/5 relative overflow-hidden">
+
+        <!-- Premium gradient border -->
+        <div
+          class="absolute inset-0 pointer-events-none rounded-3xl p-[1px] bg-gradient-to-r from-transparent via-[#10B981]/30 to-transparent">
+        </div>
+        <div
+          class="absolute inset-0 pointer-events-none rounded-3xl p-[1px] bg-gradient-to-b from-transparent via-[#10B981]/20 to-transparent opacity-60">
+        </div>
+
+        <div class="relative z-10">
+
+          <div class="text-center mb-12">
+            <div class="inline-block px-8 py-4 bg-[#10B981]/10 border border-[#10B981]/30 rounded-2xl mb-6">
+              <span class="font-space-grotesk text-2xl md:text-3xl font-bold text-[#10B981]">Next Cohort • Q2
+                2026</span>
+            </div>
+            <h3 class="font-space-grotesk text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
+              Become AI-Proof<br class="hidden sm:block" /> Full-Stack Architect
+            </h3>
+            <p class="text-xl md:text-2xl text-[#94A3B8] mt-6 max-w-2xl mx-auto">
+              6-month intensive • Real production projects • Direct 1:1 mentorship
+            </p>
+          </div>
+
+          <!-- Benefits List -->
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 mt-1">
+                <svg class="w-8 h-8 text-[#10B981]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-space-grotesk text-2xl text-white mb-3">AI-Proof Architecture Skills</h4>
+                <p class="text-[#CBD5E1] leading-relaxed">Master clean, maintainable systems that LLMs can't replace —
+                  boundaries, observability, security-first design.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 mt-1">
+                <svg class="w-8 h-8 text-[#10B981]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-space-grotesk text-2xl text-white mb-3">Paid Internship Placement</h4>
+                <p class="text-[#CBD5E1] leading-relaxed">Top performers get 3–6 month paid remote internship on real
+                  client projects (USD).</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 mt-1">
+                <svg class="w-8 h-8 text-[#10B981]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-space-grotesk text-2xl text-white mb-3">Production Portfolio</h4>
+                <p class="text-[#CBD5E1] leading-relaxed">Ship 3–5 high-quality, documented projects that stand out in
+                  2026 job markets.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 mt-1">
+                <svg class="w-8 h-8 text-[#10B981]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-space-grotesk text-2xl text-white mb-3">Lifetime Network & Reference</h4>
+                <p class="text-[#CBD5E1] leading-relaxed">Direct introductions, long-term mentorship, strong references
+                  from senior engineers.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Area -->
+          <div class="text-center">
+            <button
+              class="hero-cta px-12 py-6 bg-[#10B981] text-[#0B0F19] font-space-grotesk text-2xl md:text-3xl font-bold rounded-2xl hover:bg-[#0EE07F] transition-all duration-300 shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:shadow-[0_0_60px_rgba(16,185,129,0.6)] transform hover:scale-[1.04] active:scale-95">
+              <a href="https://forms.gle/srvqb1fPGQu8p7ju6" target="_blank">
+                Apply Now – Limited Spots
+              </a>
+            </button>
+
+            <p class="mt-6 text-[#94A3B8] text-sm md:text-base">
+              Parental permission required for applicants under 18
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer id="contact" class="relative py-32 md:py-40 lg:py-48 bg-[#0B0F19] overflow-hidden">
+
+    <!-- Subtle premium background gradients -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-t from-[#10B981]/8 via-transparent to-transparent rounded-full blur-3xl opacity-40">
+      </div>
+      <div
+        class="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#10B981]/5 via-transparent to-transparent blur-3xl opacity-30">
+      </div>
+    </div>
+
+    <div class="container mx-auto px-2 relative z-10">
+
+      <!-- Huge Email CTA -->
+      <div class="text-center mb-24 md:mb-32">
+        <a href="mailto:zainab.devgateway@gmail.com"
+          class="group block font-space-grotesk text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white tracking-tight leading-none hover:text-[#10B981] transition-colors duration-500">
+          <span class="email-split inline-block">zainab</span><span class="email-split inline-block">.</span><span
+            class="email-split inline-block">devgateway</span><span class="email-split inline-block">@</span><span
+            class="email-split inline-block">gmail</span><span class="email-split inline-block">.</span><span
+            class="email-split inline-block">com</span>
+        </a>
+
+        <p class="mt-8 text-lg md:text-xl text-[#94A3B8] font-inter">
+          Ready to build something exceptional?<br class="hidden sm:inline"> Let's talk.
+        </p>
+      </div>
+
+      <!-- Social Icons + Copyright -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-12 md:gap-0 text-[#94A3B8]">
+
+        <!-- Social Links -->
+        <div class="flex gap-10 md:gap-12">
+          <a href="https://www.linkedin.com/in/zainabfatimaa/" target="_blank" rel="noopener noreferrer"
+            class="social-icon group" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in text-3xl md:text-4xl transition-all duration-300"></i>
+          </a>
+          <a href="https://github.com/zainabfatima94" target="_blank" rel="noopener noreferrer"
+            class="social-icon group" aria-label="GitHub">
+            <i class="fa-brands fa-github text-3xl md:text-4xl transition-all duration-300"></i>
+          </a>
+          <a href="https://discord.com/users/1427571263295197298" target="_blank" rel="noopener noreferrer"
+            class="social-icon group" aria-label="Discord">
+            <i class="fa-brands fa-discord text-3xl md:text-4xl transition-all duration-300"></i>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center md:text-right text-sm md:text-base font-inter">
+          <p>© <span id="current-year"></span> Zainab Fatima</p>
+          <p class="mt-1 opacity-70">Built with Vanilla JS • Tailwind • GSAP</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="assets/js/gsap.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/gsap/about.js"></script>
+  <script src="assets/js/gsap/hero.js"></script>
+  <script src="assets/js/gsap/tech-stack.js"></script>
+  <script src="assets/js/gsap/projects.js"></script>
+  <script src="assets/js/gsap/footer.js"></script>
+  <script src="assets/js/gsap/co-curriculum.js"></script>
+  <script src="assets/js/gsap/certs.js"></script>
+</body>
+
+</html>

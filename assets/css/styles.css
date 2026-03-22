@@ -1,0 +1,85 @@
+/* Custom Scrollbar - Universal */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* ======= Navigation Bar ======= */
+/* Scrolled state */
+#navbar.scrolled {
+  background-color: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.4);
+}
+
+#navbar.scrolled .flex {
+  height: 4.5rem;
+  /* 72px – slightly smaller when scrolled */
+}
+
+/* Mobile menu links hover scale */
+.mobile-link:hover {
+  transform: scale(1.08);
+}
+
+/* ======== Tech Stack Cards ========= */
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem 1.75rem;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
+}
+
+/* =========== Projects ========== */
+.filter-btn.active {
+  background-color: #10B981;
+  color: #0B0F19;
+  border-color: #10B981;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.12);
+}
+
+.modal-inner {
+  box-shadow: 0 0 80px rgba(16, 185, 129, 0.25);
+}
+
+/* ========== Footer ========= */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
